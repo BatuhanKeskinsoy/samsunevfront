@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Anasayfa",
+        "url": "/",
+        "isDropdown": false
+    },
+    {
+        "id": 2,
+        "name": "Satılık",
+        "url": "",
+        "isDropdown": true
+    },
+    {
+        "id": 3,
+        "name": "Kiralık",
+        "url": "",
+        "isDropdown": true
+    },
+    {
+        "id": 5,
+        "name": "Emlak Ofisleri",
+        "url": "/emlak-ofisleri",
+        "isDropdown": false
+    },
+    {
+        "id": 6,
+        "name": "Hakkımızda",
+        "url": "/hakkimizda",
+        "isDropdown": false
+    },
+    {
+        "id": 7,
+        "name": "İletişim",
+        "url": "/iletisim",
+        "isDropdown": false
+    }
+]
