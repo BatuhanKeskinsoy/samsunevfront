@@ -6,7 +6,7 @@ export default function Layout({ children }) {
     return (
         <>
             <Header />
-            <main className="min-h-[calc(100vh-156px)]">
+            <main className="min-h-[calc(100vh-164px)]">
                 {children}
             </main>
             <Footer />
