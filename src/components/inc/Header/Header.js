@@ -48,7 +48,7 @@ function Header() {
                                 width={355}
                                 height={66}
                                 priority
-                                className='max-h-8 h-8 w-auto'
+                                className='max-h-10 h-10 w-auto'
                             />
                         </Link>
                         {isMobile && (

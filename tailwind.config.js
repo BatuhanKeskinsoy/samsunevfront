@@ -17,10 +17,10 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       backgroundColor: {
-        site: 'rgb(24 123 255)',
+        site: `${process.env.NEXT_PUBLIC_SITE_COLOR_RGB}`,
       },
       colors: {
-        site: 'rgb(24 123 255)',
+        site: `${process.env.NEXT_PUBLIC_SITE_COLOR_RGB}`,
       },
       animation: {
         scaleMobile: 'scaleMobile 1.2s ease-in-out infinite',
