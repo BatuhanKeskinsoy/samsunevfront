@@ -22,6 +22,31 @@ module.exports = {
       colors: {
         site: 'rgb(24 123 255)',
       },
+      animation: {
+        scaleMobile: 'scaleMobile 1.2s ease-in-out infinite',
+        scaleDesktop: 'scaleDesktop 1.5s ease-in-out infinite',
+        loginComing: 'loginComing .2s ease-in-out alternate',
+        loginComingMobile: 'loginComingMobile .2s ease-in-out alternate',
+      },
+      keyframes: {
+        scaleMobile: {
+          '0%, 100%': { transform: 'scale(1.0)', opacity: '0' },
+          '50%': { transform: 'scale(1.2)', opacity: '1' },
+        },
+        scaleDesktop: {
+          '0%, 100%': { transform: 'scale(1.3)', opacity: '0' },
+          '50%': { transform: 'scale(1.5)', opacity: '1' },
+        },
+        loginComing: {
+          '0%': { transform: 'scale(0.9)', opacity: '0' },
+          '50%': { transform: 'scale(1.1)', opacity: '1' },
+          '100%': { transform: 'scale(1.0)', opacity: '1' },
+        },
+        loginComingMobile: {
+          '0%': { transform: 'scale(0.7)', opacity: '0' },
+          '100%': { transform: 'scale(1.0)', opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],

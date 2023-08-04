@@ -23,7 +23,7 @@ function Loading() {
                             priority
                             alt={process.env.NEXT_PUBLIC_SITE_URL}
                             title={process.env.NEXT_PUBLIC_SITE_URL}
-                            className=''
+                            className='animate-pulse animate-scaleMobile lg:animate-scaleDesktop'
                         />
                     </div>
 

@@ -5,11 +5,14 @@ import Link from 'next/link'
 import NavLinks from '@/components/inc/Header/NavLinks'
 import Loading from '@/components/Loading'
 import Login from '@/components/auth/Login'
+import { Toaster } from 'react-hot-toast';
 
 function Header() {
 
     const [navStatus, setNavStatus] = useState(false)
     const [isMobile, setIsMobile] = useState(false);
+    
+    const [isAuthActive, setIsAuthActive] = useState(false)
 
     const navActive = () => {
         setNavStatus(current => !current)
@@ -32,8 +35,9 @@ function Header() {
     return (
         <>
             <Loading />
-            <Login />
-            <header className="shadow-lg shadow-gray-100 relative z-40">
+            <Toaster position='top-right' />
+            <Login isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
+            <header className="shadow-lg shadow-gray-100 relative z-10">
                 <div className="container mx-auto lg:px-0 px-4 flex items-center justify-between">
                     <div id="logo" className='h-full flex w-full lg:w-fit items-center justify-between'>
                         <Link href={'/'} title={process.env.NEXT_PUBLIC_SITE_NAME} className='block py-5'>
@@ -55,9 +59,11 @@ function Header() {
                     </div>
 
 
-                    {(navStatus || !isMobile) && (
-                        <NavLinks />
-                    )}
+                        {(navStatus || !isMobile) && (
+                            <NavLinks isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
+                        )}
+
+
                 </div>
             </header>
         </>
