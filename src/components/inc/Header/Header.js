@@ -37,7 +37,7 @@ function Header() {
             <Loading />
             <Toaster position='top-right' />
             <Login isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
-            <header className="shadow-lg shadow-gray-100 relative z-10">
+            <header className="shadow-lg relative z-10">
                 <div className="container mx-auto lg:px-0 px-4 flex items-center justify-between">
                     <div id="logo" className='h-full flex w-full lg:w-fit items-center justify-between'>
                         <Link href={'/'} title={process.env.NEXT_PUBLIC_SITE_NAME} className='block py-5'>

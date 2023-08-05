@@ -3,19 +3,35 @@
 @tailwind utilities;
 
 @layer base {
-
-    html{
-        @apply font-poppins
-    }
   
-    @font-face {
-      font-family: 'Poppins';
-      src: url('/fonts/Poppins/Poppins-Bold.ttf');
-      src: url('/fonts/Poppins/Poppins-Regular.ttf');
-      font-display: swap;
-    }
-
+  html{
+    @apply font-poppins
+  }
+  
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Bold.ttf');
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+    font-display: swap;
+  }
+  
+  *::-webkit-scrollbar {
+    @apply w-2 rounded-2xl
+  }
+  
+  *::-webkit-scrollbar-track {
+    @apply bg-gray-200 rounded-full
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    @apply bg-site rounded-full
+  }
+  
+  #bannerNav::-webkit-scrollbar {
+    @apply h-0
+  }
+  
 }
 /* @layer utilities {
-
+  
 } */
