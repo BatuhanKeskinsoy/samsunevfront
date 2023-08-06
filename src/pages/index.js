@@ -3,6 +3,7 @@ import Head from "next/head"
 import Banner from "@/components/Banner/Banner"
 import OneCikanIlanlar from "@/components/OneCikanIlanlar/OneCikanIlanlar"
 import Ilceler from "@/components/Ilceler/Ilceler"
+import Partnership from "@/components/Partnership"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <div className="container mx-auto lg:px-0 px-4 py-8">
         <Ilceler />
         <OneCikanIlanlar />
+        <Partnership />
       </div>
     </>
   )

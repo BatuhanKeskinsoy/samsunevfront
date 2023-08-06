@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from "next/image"
 import { BsSearch } from 'react-icons/bs'
+import { CiShoppingTag, CiTimer, CiShop, CiUser } from 'react-icons/ci'
 
 function Banner() {
     const [activeButton, setActiveButton] = useState('satilik');
@@ -25,30 +26,42 @@ function Banner() {
                     <h1 className='lg:text-5xl text-3xl text-center leading-snug text-white drop-shadow-md'>Samsun <strong className='text-site'>Satılık Daire</strong>, Samsun <strong className='text-site'>Kiralık Daire</strong></h1>
                     <p className='text-center text-white drop-shadow-md text-2xl'>ve daha fazlası...</p>
                 </div>
-                <div id='bannerNav' className="flex w-fit gap-x-2 max-w-full overflow-x-auto rounded-md py-2 text-lg">
+                <div id='bannerNav' className="flex w-fit gap-x-4 max-w-full overflow-x-auto rounded-md py-2 text-xl">
                     <button
-                        className={`py-4 lg:px-12 px-4 ${activeButton === 'satilik' ?
+                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'satilik' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('satilik')}
                     >
+                        <CiShoppingTag size={24} />
                         Satılık
                     </button>
                     <button
-                        className={`py-4 lg:px-12 px-4 ${activeButton === 'kiralik' ?
+                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'kiralik' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('kiralik')}
                     >
+                        <CiTimer size={24} />
                         Kiralık
                     </button>
                     <button
-                        className={`py-4 lg:px-12 px-4 ${activeButton === 'emlakOfisleri' ?
+                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakOfisleri' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('emlakOfisleri')}
                     >
+                        <CiShop size={24} />
                         Emlak Ofisleri
+                    </button>
+                    <button
+                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakDanismanlari' ?
+                            'bg-site text-white' :
+                            'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
+                        onClick={() => handleButtonClick('emlakDanismanlari')}
+                    >
+                        <CiUser size={24} />
+                        Emlak Danışmanları
                     </button>
                 </div>
                 <div className='w-full flex flex-col lg:flex-row rounded-md'>

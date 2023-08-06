@@ -19,20 +19,20 @@
     },
     {
         "id": 5,
+        "name": "Kurumsal Üyelik",
+        "url": "/kurumsal-uyelik",
+        "isDropdown": false
+    },
+    {
+        "id": 6,
         "name": "Emlak Ofisleri",
         "url": "/emlak-ofisleri",
         "isDropdown": false
     },
     {
-        "id": 6,
-        "name": "Hakkımızda",
-        "url": "/hakkimizda",
-        "isDropdown": false
-    },
-    {
         "id": 7,
-        "name": "İletişim",
-        "url": "/iletisim",
+        "name": "Emlak Haberleri",
+        "url": "/emlak-haberleri",
         "isDropdown": false
     }
 ]

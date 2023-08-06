@@ -44,7 +44,7 @@ function NavItem(props) {
                 href={props.url}
                 title={props.name}
                 onClick={props.navActive}
-                className='flex items-center gap-x-2 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-4 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
+                className='flex items-center gap-x-2 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-3 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
             >
                 {props.name}
             </Link>
@@ -59,7 +59,7 @@ function NavItem(props) {
             >
                 <button
                     type='button'
-                    className='flex items-center gap-x-1 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-4 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
+                    className='flex items-center gap-x-1 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-3 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
                 >
                     {props.name}
                     <BsChevronDown size={14} />

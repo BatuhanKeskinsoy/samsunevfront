@@ -22,7 +22,7 @@ function Item() {
             <Link
                 href={'/'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
-                className='flex flex-col bg-white shadow-lg rounded-lg overflow-hidden group'
+                className='flex flex-col bg-white rounded-lg overflow-hidden group'
                 onMouseEnter={handleHover}
                 onMouseLeave={handleUnhover}
             >
@@ -35,7 +35,7 @@ function Item() {
                         alt='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
                         className='object-cover object-center transition-all'
                     />
-                    <div className='absolute bottom-2 left-2 bg-white py-2 px-4 rounded-md group-hover:bg-site group-hover:text-white transition-all'>7.750.000 ₺</div>
+                    <div className='absolute bottom-2 left-2 bg-white py-2 px-4 rounded-md text-base group-hover:bg-site group-hover:text-white tracking-wide transition-all'>7.750.000 ₺</div>
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
@@ -68,7 +68,7 @@ function Item() {
                             <BsCalendarPlus />
                             <span>5 Ağustos 2023</span>
                         </div>
-                        <div className="flex justify-between hover:w-full">
+                        <div className="flex justify-between">
                             <span className='tracking-wide group-hover:hidden w-fit'>Satılık</span>
                             <AiOutlineDoubleRight size={20} className='w-0 group-hover:w-fit opacity-0 invisible group-hover:opacity-100 text-white group-hover:visible transition-all -translate-x-2 group-hover:translate-x-0' />
                         </div>
