@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+
+  *{
+    @apply box-border
+  }
   
   html{
     @apply font-poppins
+  }
+
+  body{
+    @apply bg-gray-100
   }
   
   @font-face {
@@ -20,15 +28,19 @@
   }
   
   *::-webkit-scrollbar-track {
-    @apply bg-gray-200 rounded-full
+    @apply bg-gray-200
   }
   
   *::-webkit-scrollbar-thumb {
-    @apply bg-site rounded-full
+    @apply bg-site
   }
   
   #bannerNav::-webkit-scrollbar {
     @apply h-0
+  }
+  
+  #Ilceler ul::-webkit-scrollbar {
+    @apply h-1.5
   }
   
 }

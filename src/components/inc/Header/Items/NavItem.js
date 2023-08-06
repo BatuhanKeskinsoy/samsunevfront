@@ -65,7 +65,7 @@ function NavItem(props) {
                     <BsChevronDown size={14} />
                 </button>
 
-                <div className={`lg:absolute h-fit lg:gap-y-0 gap-y-8 shadow-lg shadow-gray-200 rounded-b-lg bg-white gap-x-24 ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
+                <div className={`lg:absolute h-fit lg:gap-y-0 gap-y-8 shadow-lg rounded-b-lg bg-white gap-x-24 ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
                     {props.name === 'Satılık' && (
                         <ul className='flex flex-col text-gray-600 min-w-fit lg:w-fit w-full relative'>
                             {/* {servicesData.map((serviceItem, key) => ( */}
@@ -79,7 +79,7 @@ function NavItem(props) {
                                     Satılık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -114,7 +114,7 @@ function NavItem(props) {
                                     Satılık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -149,7 +149,7 @@ function NavItem(props) {
                                     Satılık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -184,7 +184,7 @@ function NavItem(props) {
                                     Satılık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -226,7 +226,7 @@ function NavItem(props) {
                                     Kiralık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -281,7 +281,7 @@ function NavItem(props) {
                                     Kiralık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link
@@ -336,7 +336,7 @@ function NavItem(props) {
                                     Kiralık Daire
                                     <BsChevronRight />
                                 </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg shadow-gray-200">
+                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
                                     <ul>
                                         <li>
                                             <Link

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { TfiClose } from 'react-icons/tfi'
 import { toast } from 'react-hot-toast'
+import { AiOutlineLogin } from 'react-icons/ai'
 
 function Login(props) {
     const [email, setEmail] = useState('')
@@ -48,7 +49,7 @@ function Login(props) {
     if (isAuthActive) {
         return (
             <div className='absolute flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm z-20 px-4'>
-                <div className="AuthContain flex flex-col max-w-lg w-full shadow-xl shadow-gray-200 justify-center items-center rounded-lg bg-white lg:animate-loginComing animate-loginComingMobile">
+                <div className="AuthContain flex flex-col max-w-lg w-full shadow-xl shadow-site/30 justify-center items-center rounded-lg bg-white lg:animate-loginComing animate-loginComingMobile">
                     <div className="flex justify-between w-full items-center px-8 py-4">
                         <span className='font-bold text-lg'>Giriş Yap</span>
                         <button
@@ -101,8 +102,9 @@ function Login(props) {
                                 <button
                                     onClick={handleLogin}
                                     type='submit'
-                                    className='min-w-fit ml-auto lg:w-fit w-full text-center justify-center text-site transition-all lg:rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-sm'
+                                    className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-sm'
                                 >
+                                    <AiOutlineLogin size={20} />
                                     Giriş Yap
                                 </button>
                             </div>
