@@ -9,12 +9,14 @@ function Login(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        /* const user = await login(email, password)
+        /* 
+        const user = await login(email, password)
         if (user) {
             router.push('/panel/anasayfa')
         }
         setEmail('')
-        setPassword('') */
+        setPassword('') 
+        */
     }
 
     const isAuthActive = props.isAuthActive
