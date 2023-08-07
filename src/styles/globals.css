@@ -39,6 +39,10 @@
     @apply h-0
   }
   
+  #footerNav::-webkit-scrollbar {
+    @apply h-0
+  }
+  
   #Ilceler ul::-webkit-scrollbar {
     @apply h-1.5
   }

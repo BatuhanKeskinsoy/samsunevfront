@@ -18,7 +18,7 @@ function Item() {
     const imageSrc = isHovered ? '/ilanlar/ilan2.jpg' : '/ilanlar/ilan1.jpg';
 
     return (
-        <li className='xl:w-1/4 lg:w-1/3 md:w-1/2 w-full lg:px-4 py-4'>
+        <li className='xl:w-1/4 lg:w-1/3 md:w-1/2 w-full md:p-4 p-0 py-4'>
             <Link
                 href={'/'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
@@ -39,7 +39,7 @@ function Item() {
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
-                        <h4 className='line-clamp-1 font-bold tracking-wide text-md group-hover:text-site transition-all'>
+                        <h4 className='line-clamp-1 font-bold tracking-wide text-base group-hover:text-site transition-all'>
                             Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa
                         </h4>
                         <span className='line-clamp-1 text-gray-600 text-sm'>Denizevleri Mahallesi - Atakum / Samsun</span>
