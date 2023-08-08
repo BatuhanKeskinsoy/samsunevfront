@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-
+  
   *{
     @apply box-border
   }
@@ -11,7 +11,7 @@
   html{
     @apply font-poppins
   }
-
+  
   body{
     @apply bg-gray-100
   }
@@ -48,6 +48,23 @@
   }
   
 }
-/* @layer utilities {
-  
-} */
+
+@layer utilities {
+
+  #IlanlarFiltre ul li span {
+    @apply transition-all pb-2 flex items-center gap-x-1 w-full py-1 leading-3;
+  }
+
+  #IlanlarFiltre ul li > ul {
+    @apply mb-2;
+  }
+
+  #IlanlarFiltre ul li > ul li span {
+    @apply pl-4 py-2;
+  }
+
+  #IlanlarFiltre ul li > ul li > ul {
+    @apply pl-4 py-1;
+  }
+
+}

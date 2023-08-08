@@ -51,7 +51,7 @@ function Login(props) {
     if (isAuthActive) {
         return (
             <div className='absolute flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm z-20 px-4'>
-                <div className="AuthContain flex flex-col max-w-lg w-full shadow-xl shadow-site/30 justify-center items-center rounded-lg bg-white lg:animate-loginComing animate-loginComingMobile">
+                <div className="AuthContain flex flex-col max-w-lg w-full shadow-xl shadow-site/10 justify-center items-center rounded-lg bg-white lg:animate-loginComing animate-loginComingMobile">
                     <div className="flex justify-between w-full items-center px-8 py-4">
                         <span className='font-bold text-lg'>Giriş Yap</span>
                         <button
@@ -78,7 +78,7 @@ function Login(props) {
                                         autoComplete="email"
                                         placeholder='E-Mail Adresiniz'
                                         required
-                                        className="block font-gemunu tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
+                                        className="block tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
                                     />
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ function Login(props) {
                                         onChange={e => setPassword(e.target.value)}
                                         placeholder='******'
                                         required
-                                        className="block font-gemunu tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
+                                        className="block tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
                                     />
                                 </div>
                             </div>

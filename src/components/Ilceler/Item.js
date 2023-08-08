@@ -6,7 +6,7 @@ function Item() {
     return (
         <li className='lg:w-60 w-full min-w-[150px]'>
             <Link
-                href={'/'}
+                href={'/ilanlar'}
                 title='Atakum Satılık Daireler'
                 className='flex flex-col bg-white rounded-lg overflow-hidden group hover:scale-105 shadow-xl transition-all'
             >
@@ -35,7 +35,7 @@ function Item2() {
     return (
         <li className='lg:w-60 w-full min-w-[150px]'>
             <Link
-                href={'/'}
+                href={'/ilanlar'}
                 title='Atakum Satılık Daireler'
                 className='flex flex-col bg-white rounded-lg overflow-hidden group hover:scale-105 shadow-xl transition-all'
             >

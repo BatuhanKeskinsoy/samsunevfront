@@ -4,7 +4,9 @@ import React, { useState } from 'react'
 import { BsHouseDoor, BsDoorClosed, BsLayers, BsArrowsMove, BsCalendarPlus } from 'react-icons/bs'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
-function Item() {
+
+
+function Item(props) {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleHover = () => {
@@ -17,10 +19,15 @@ function Item() {
 
     const imageSrc = isHovered ? '/ilanlar/ilan2.jpg' : '/ilanlar/ilan1.jpg';
 
+    const months = [
+        "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+        "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    ];
+
     return (
-        <li className='xl:w-1/4 lg:w-1/3 md:w-1/2 w-full md:p-4 p-0 py-4'>
+        <li className={`${props.itemWidth} md:p-4 p-0 py-4`}>
             <Link
-                href={'/'}
+                href={'/ilanlar'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
                 className='flex flex-col bg-white rounded-lg overflow-hidden group'
                 onMouseEnter={handleHover}
@@ -36,10 +43,21 @@ function Item() {
                         className='object-cover object-center transition-all'
                     />
                     <div className='absolute bottom-2 left-2 bg-white py-2 px-4 rounded-md text-base group-hover:bg-site group-hover:text-white tracking-wide transition-all'>7.750.000 ₺</div>
+                    <div className='absolute top-2 right-2 bg-white text-sm p-2 flex flex-col items-center rounded-md font-bold'>
+                        <span className='text-3xl -my-1'>
+                            {String(new Date().getDate()).padStart(2, '0')}
+                        </span>
+                        <span className='text-xs mt-0.5'>
+                            {months[new Date().getMonth()]}
+                        </span>
+                        <span className='text-sm mt-0.5 -mb-0.5'>
+                            {new Date().getFullYear()}
+                        </span>
+                    </div>
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
-                        <h4 className='line-clamp-1 font-bold tracking-wide text-base group-hover:text-site transition-all'>
+                        <h4 className='font-bold tracking-wide text-base group-hover:text-site transition-all'>
                             Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa
                         </h4>
                         <span className='line-clamp-1 text-gray-600 text-sm'>Denizevleri Mahallesi - Atakum / Samsun</span>
@@ -64,12 +82,8 @@ function Item() {
                     </div>
                     <hr />
                     <div className="bg-white group-hover:bg-site group-hover:text-white  py-3 px-4 text-sm flex justify-between items-center transition-all text-gray-600">
-                        <div className="flex items-center gap-x-2">
-                            <BsCalendarPlus />
-                            <span>5 Ağustos 2023</span>
-                        </div>
+                        <span className='tracking-wide w-fit'>Samsun Satılık Daire</span>
                         <div className="flex justify-between">
-                            <span className='tracking-wide group-hover:hidden w-fit'>Satılık</span>
                             <AiOutlineDoubleRight size={20} className='w-0 group-hover:w-fit opacity-0 invisible group-hover:opacity-100 text-white group-hover:visible transition-all -translate-x-2 group-hover:translate-x-0' />
                         </div>
                     </div>

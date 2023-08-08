@@ -48,7 +48,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -57,7 +57,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -66,7 +66,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -75,7 +75,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -84,7 +84,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -99,7 +99,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -108,7 +108,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -117,7 +117,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -126,7 +126,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -135,7 +135,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -150,7 +150,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -159,7 +159,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -168,7 +168,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -177,7 +177,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -186,7 +186,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -201,7 +201,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -210,7 +210,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -219,7 +219,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -228,7 +228,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -237,7 +237,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -356,7 +356,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -365,7 +365,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/ilanlar'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -382,6 +382,29 @@ function Footer() {
                                     </Link>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="bg-gray-100  text-sm">
+                <div className="container mx-auto py-3 px-4 lg:px-0">
+                    <div className="w-full flex justify-between ttext-md lg:flex-row flex-col text-center font-gemunu tracking-wide">
+                        <div className='md:my-0 my-1'>
+                            Copyright <span className='font-system'>©</span>
+                            <span className='text-site ml-1 transition-all'>
+                                {new Date().getFullYear() === 2023 ? new Date().getFullYear() : '2023 - ' + new Date().getFullYear()}
+                            </span>
+                        </div>
+                        <div className='md:my-0 my-1'>
+                            Kodlama ve Tasarım
+                            <Link
+                                href={'https://www.avaken.com'}
+                                title='Avaken'
+                                className='text-site ml-1 hover:text-site/80 transition-all'
+                                target='_blank'
+                                rel='nofollow'
+                            >Avaken</Link>
+                            &#39;e aittir.
                         </div>
                     </div>
                 </div>

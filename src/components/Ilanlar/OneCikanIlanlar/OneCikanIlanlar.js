@@ -1,21 +1,23 @@
 import React from 'react'
-import Item from '@/components/OneCikanIlanlar/Item'
+import Item from '@/components/Ilanlar/Item/Item'
 import Link from 'next/link'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
 function Onecikanilanlar() {
+    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
         <section id='OneCikanIlanlar' className='lg:my-12 my-6'>
             <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Öne Çıkan <strong className='text-site'>Samsun Satılık Daire</strong> İlanları</h2>
             <ul className="flex flex-wrap">
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+
                 <div className='w-full lg:mt-8'>
                     <Link
                         href={'/ilanlar'}

@@ -72,7 +72,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -107,7 +107,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -119,7 +119,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -129,7 +129,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -142,7 +142,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -154,7 +154,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -164,7 +164,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -177,7 +177,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -189,7 +189,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -199,7 +199,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -219,7 +219,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -231,7 +231,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -241,7 +241,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -251,7 +251,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -261,7 +261,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -274,7 +274,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -286,7 +286,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -296,7 +296,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -306,7 +306,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -316,7 +316,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -329,7 +329,7 @@ function NavItem(props) {
                             <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
-                                    href={`/`}
+                                    href={`/ilanlar`}
                                     title='title'
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                 >
@@ -341,7 +341,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -351,7 +351,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -361,7 +361,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >
@@ -371,7 +371,7 @@ function NavItem(props) {
                                         <li>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
+                                                href={`/ilanlar`}
                                                 title='title'
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all items-center px-4 gap-x-2'
                                             >

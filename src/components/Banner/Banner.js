@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Image from "next/image"
 import { BsSearch } from 'react-icons/bs'
 import { CiShoppingTag, CiTimer, CiShop, CiUser } from 'react-icons/ci'
+import { useRouter } from 'next/router';
 
 function Banner() {
     const [activeButton, setActiveButton] = useState('satilik');
     const handleButtonClick = (buttonType) => {
         setActiveButton(buttonType);
     };
+
+    const router = useRouter()
 
 
     return (
@@ -21,14 +24,14 @@ function Banner() {
                 className="object-cover w-full -z-10"
             />
             <div className='absolute w-full h-full transition-all bg-gradient-to-t from-black/30 -z-10'></div>
-            <div className="container mx-auto flex flex-col gap-y-2 w-full lg:-mt-32">
+            <div className="container mx-auto flex flex-col lg:gap-y-2 gap-y-4 w-full lg:-mt-32">
                 <div className="flex flex-col gap-y-4 pb-10">
                     <h1 className='lg:text-5xl text-3xl text-center leading-snug text-white drop-shadow-md'>Samsun <strong className='text-site'>Satılık Daire</strong>, Samsun <strong className='text-site'>Kiralık Daire</strong></h1>
                     <p className='text-center text-white drop-shadow-md text-2xl'>ve daha fazlası...</p>
                 </div>
-                <div id='bannerNav' className="flex w-fit gap-x-4 max-w-full overflow-x-auto rounded-md py-2 text-xl">
+                <div id='bannerNav' className="flex w-fit lg:gap-x-4 gap-x-2 max-w-full overflow-x-auto rounded-md lg:py-2 lg:text-xl text-base">
                     <button
-                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'satilik' ?
+                        className={`lg:py-4 py-3 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'satilik' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('satilik')}
@@ -37,7 +40,7 @@ function Banner() {
                         Satılık
                     </button>
                     <button
-                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'kiralik' ?
+                        className={`lg:py-4 py-3 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'kiralik' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('kiralik')}
@@ -46,7 +49,7 @@ function Banner() {
                         Kiralık
                     </button>
                     <button
-                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakOfisleri' ?
+                        className={`lg:py-4 py-3 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakOfisleri' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('emlakOfisleri')}
@@ -55,7 +58,7 @@ function Banner() {
                         Emlak Ofisleri
                     </button>
                     <button
-                        className={`py-4 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakDanismanlari' ?
+                        className={`lg:py-4 py-3 lg:px-6 px-4 flex items-center gap-x-2 ${activeButton === 'emlakDanismanlari' ?
                             'bg-site text-white' :
                             'bg-white hover:text-white hover:bg-site/90'} rounded-md transition-all min-w-max shadow-md tracking-wide`}
                         onClick={() => handleButtonClick('emlakDanismanlari')}
@@ -75,9 +78,10 @@ function Banner() {
                         autoComplete="false"
                         placeholder='İlan Ara'
                         required
-                        className="lg:px-8 px-4 py-5 bg-white block font-gemunu tracking-wider lg:shadow-md w-full border-0 text-gray-900 ring-1 ring-transparent focus:ring-site outline-none transition-all text-lg lg:rounded-l-md rounded-md lg:rounded-none"
+                        className="lg:px-8 px-4 lg:py-5 py-4 bg-white block font-gemunu tracking-wider lg:shadow-md w-full border-0 text-gray-900 ring-1 ring-transparent focus:ring-site outline-none transition-all text-lg lg:rounded-l-md rounded-md lg:rounded-none"
                     />
                     <button
+                        onClick={ () => router.push('/ilanlar') }
                         className='min-w-fit ml-auto lg:w-fit w-full text-center justify-center lg:shadow-md transition-all py-3 px-8 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/90 hover:bg-site text-white lg:rounded-r-md rounded-md lg:rounded-none text-xl'
                     >
                         <BsSearch size={22} />
