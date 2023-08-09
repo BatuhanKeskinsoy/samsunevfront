@@ -44,7 +44,7 @@ function NavItem(props) {
                 href={props.url}
                 title={props.name}
                 onClick={props.navActive}
-                className='flex items-center gap-x-2 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-3 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
+                className='flex items-center gap-x-2 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-2 border-b border-gray-100 lg:border-none text-sm min-w-max tracking-wide'
             >
                 {props.name}
             </Link>
@@ -59,13 +59,13 @@ function NavItem(props) {
             >
                 <button
                     type='button'
-                    className='flex items-center gap-x-1 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-3 border-b border-gray-100 lg:border-none text-base min-w-max tracking-wide'
+                    className='flex items-center gap-x-1 hover:text-site transition-all lg:w-fit w-full py-2 lg:py-7 h-fit lg:h-full justify-between px-2 border-b border-gray-100 lg:border-none text-sm min-w-max tracking-wide'
                 >
                     {props.name}
                     <BsChevronDown size={14} />
                 </button>
 
-                <div className={`lg:absolute h-fit lg:gap-y-0 gap-y-8 shadow-lg rounded-b-lg bg-white gap-x-24 ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
+                <div className={`lg:absolute h-fit lg:gap-y-0 gap-y-8 shadow-lg rounded-b-lg bg-white gap-x-24 text-sm ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
                     {props.name === 'Satılık' && (
                         <ul className='flex flex-col text-gray-600 min-w-fit lg:w-fit w-full relative'>
                             {/* {servicesData.map((serviceItem, key) => ( */}

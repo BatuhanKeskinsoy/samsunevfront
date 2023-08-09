@@ -253,6 +253,8 @@ function Footer() {
                             <Link href={'/'} className='mb-4'>
                                 <Image
                                     src={'/logo/logo.svg'}
+                                    alt='logo'
+                                    title='logo'
                                     width={355}
                                     height={66}
                                     className='h-16 w-auto'

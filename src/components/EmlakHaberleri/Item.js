@@ -5,6 +5,12 @@ import { BsCalendarPlus } from 'react-icons/bs'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
 function Item() {
+
+    const months = [
+        "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+        "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    ];
+
     return (
         <li className='xl:w-1/4 lg:w-1/3 md:w-1/2 w-full md:p-4 p-0 py-4'>
             <Link
@@ -21,6 +27,17 @@ function Item() {
                         alt='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
                         className='object-cover object-center transition-all'
                     />
+                    <div className='absolute top-2 right-2 bg-white text-sm p-2 flex flex-col items-center rounded-md font-bold'>
+                        <span className='text-3xl -my-1'>
+                            {String(new Date().getDate()).padStart(2, '0')}
+                        </span>
+                        <span className='text-xs mt-0.5'>
+                            {months[new Date().getMonth()]}
+                        </span>
+                        <span className='text-sm mt-0.5 -mb-0.5'>
+                            {new Date().getFullYear()}
+                        </span>
+                    </div>
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">

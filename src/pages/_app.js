@@ -1,3 +1,5 @@
+import '@/styles/slick.min.css'
+import '@/styles/slick-theme.min.css'
 import '@/styles/globals.css'
 import Layout from '@/components/layout'
 

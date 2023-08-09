@@ -27,7 +27,7 @@ function Item(props) {
     return (
         <li className={`${props.itemWidth} md:p-4 p-0 py-4`}>
             <Link
-                href={'/ilanlar'}
+                href={'/ilan-detay'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
                 className='flex flex-col bg-white rounded-lg overflow-hidden group'
                 onMouseEnter={handleHover}

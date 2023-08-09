@@ -30,7 +30,7 @@ function NavLinks(props) {
             <button
                 onClick={handleLoginClick}
                 title='Giriş Yap'
-                className='min-w-fit lg:w-fit w-full text-site transition-all lg:rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-sm'
+                className='min-w-fit lg:ml-3 lg:w-fit w-full text-site transition-all lg:rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-sm'
             >
                 <AiOutlineLogin size={20} />
                 Giriş  Yap
