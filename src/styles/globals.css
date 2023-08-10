@@ -66,6 +66,14 @@
   #IlanlarFiltre ul li > ul li > ul {
     @apply pl-4 py-1;
   }
+
+  #IlanDetayContent *{
+    @apply text-gray-600
+  }
+
+  #IlanDetayContent p{
+    @apply mb-4 
+  }
   
 }
 

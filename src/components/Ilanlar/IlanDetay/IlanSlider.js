@@ -68,7 +68,7 @@ function IlanSlider() {
   };
 
   return (
-    <section id='IlanDetaySlider' className='bg-white rounded-lg overflow-hidden'>
+    <section id='IlanDetaySlider' className='bg-white rounded-lg overflow-hidden shadow-sm'>
       <Slider asNavFor={nav2} ref={slider => (slider1 = slider)} {...settingsSlider1} className='relative'>
         <div className='bg-gray-200 h-[250px] lg:h-[550px] !flex items-center justify-center text-site text-6xl'>
           1
