@@ -67,7 +67,7 @@ function IlanSlider() {
     arrows: false,
     dots: false,
     infinite: true,
-    slidesToShow: images.length - 2,
+    slidesToShow: images.length < 6 ? images.length : images.length - 2,
     swipeToSlide: true,
     focusOnSelect: true,
     lazyLoad: true,

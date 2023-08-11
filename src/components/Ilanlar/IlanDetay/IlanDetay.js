@@ -28,7 +28,7 @@ function IlanDetay() {
       <div className='grid flex-1 w-full'>
         <div className="max-w-full w-full min-w-full">
           <IlanSlider />
-          <h1 className='text-3xl tracking-wide lg:my-6 mb-6 block'>Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa</h1>
+          <h1 className='lg:text-3xl text-2xl tracking-wide my-6 block'>Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa</h1>
           <div className="bg-white rounded-lg lg:p-8 p-4 my-8 shadow-sm">
             <h2 className='text-2xl mb-4'>İlan Detayları</h2>
             <div className={`flex flex-wrap flex-col sm:flex-row ${dynamicClass}`}>
