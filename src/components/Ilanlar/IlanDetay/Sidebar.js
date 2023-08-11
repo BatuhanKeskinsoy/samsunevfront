@@ -23,7 +23,7 @@ function Sidebar() {
     const wpText = `Merhaba, size bu ilandan ulaşıyorum : ${path}`
 
     return (
-        <aside id='IlanDetaySidebar' className='w-full lg:w-[300px] max-w-full h-full flex flex-col gap-y-4 sticky top-4'>
+        <aside id='IlanDetaySidebar' className='w-full lg:w-[350px] max-w-full h-full flex flex-col gap-y-4 sticky top-4'>
             <div className="bg-site text-white py-3 px-4 lg:text-3xl text-xl rounded-md font-bold tracking-wide text-center shadow-sm">1.530.500 TL</div>
             <div className="bg-white py-2 px-4 rounded-md lg:flex lg:justify-between shadow-sm">
                 <div className='flex justify-between items-center text-xs gap-x-1 text-gray-600 my-2'>

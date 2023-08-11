@@ -26,14 +26,12 @@ function IlanDetay() {
   return (
     <div className="flex lg:flex-row flex-col gap-y-4 gap-x-4 w-full justify-between">
       <div className='grid flex-1 w-full'>
-        <h1 className='text-2xl tracking-wide lg:my-6 mb-6 block'>Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa</h1>
         <div className="max-w-full w-full min-w-full">
           <IlanSlider />
-
+          <h1 className='text-3xl tracking-wide lg:my-6 mb-6 block'>Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa</h1>
           <div className="bg-white rounded-lg lg:p-8 p-4 my-8 shadow-sm">
-            <h1 className='text-2xl mb-4'>İlan Detayları</h1>
+            <h2 className='text-2xl mb-4'>İlan Detayları</h2>
             <div className={`flex flex-wrap flex-col sm:flex-row ${dynamicClass}`}>
-
               <div className='w-full flex justify-between flex-[0_0_50%] py-3 px-4 min-w-max'><span className='text-gray-500'>İlan Numarası</span><span className='tracking-wider'>13716229</span></div>
               <div className='w-full flex justify-between flex-[0_0_50%] py-3 px-4 min-w-max'><span className='text-gray-500'>İlan Numarası</span><span className='tracking-wider'>13716229</span></div>
               <div className='w-full flex justify-between flex-[0_0_50%] py-3 px-4 min-w-max'><span className='text-gray-500'>İlan Numarası</span><span className='tracking-wider'>13716229</span></div>
@@ -57,7 +55,7 @@ function IlanDetay() {
           </div>
 
           <div className="bg-white rounded-lg lg:p-8 p-4 shadow-sm">
-            <h2 className='text-2xl mb-4'>Diğer Özellikler</h2>
+            <h3 className='text-2xl mb-4'>Diğer Özellikler</h3>
             <div className="flex flex-col">
 
               <span className='text-xl mt-4 mb-2'>İç Özellikler</span>
@@ -230,7 +228,7 @@ function IlanDetay() {
                 </div>
 
               </div>
-            
+
             </div>
 
           </div>

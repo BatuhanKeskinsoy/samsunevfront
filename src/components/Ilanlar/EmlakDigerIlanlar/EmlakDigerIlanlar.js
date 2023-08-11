@@ -13,6 +13,10 @@ function EmlakDigerIlanlar() {
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
 
                 <div className='w-full lg:mt-8'>
                     <Link
