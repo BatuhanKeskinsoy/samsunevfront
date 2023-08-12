@@ -145,20 +145,6 @@ function Filtre() {
                                     <BsChevronDown />
                                 </div>
                             </div>
-
-                            <div id='Site' class="relative">
-                                <select
-                                    class="block w-full px-4 py-2 pr-8 leading-tight bg-white border rounded appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
-                                >
-                                    <option selected>Site Seçiniz</option>
-                                    <option value={'ABC Sitesi'}>ABC Sitesi</option>
-                                    <option value={'DEF Sitesi'}>DEF Sitesi</option>
-                                    <option value={'GHI Sitesi'}>GHI Sitesi</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                    <BsChevronDown />
-                                </div>
-                            </div>
                         </>
                     </div>
                 </aside>

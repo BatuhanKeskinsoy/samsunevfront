@@ -115,7 +115,7 @@ function Sidebar() {
                         ) : (
                             <button
                                 onClick={togglePhoneNumber}
-                                className='w-full flex bg-gray-200 py-3 px-4 items-center justify-between rounded-lg hover:bg-gray-300 transition-all'>
+                                className='w-full flex bg-site/10 text-site py-3 px-4 items-center justify-between rounded-lg hover:bg-site/20 transition-all'>
                                 <BsEyeSlash size={24} />
                                 <span>Numarayı Göster</span>
                             </button>

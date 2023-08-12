@@ -6,7 +6,7 @@ import Link from 'next/link'
 function Breadcrumb() {
 
     const router = useRouter()
-    const path = router.pathname
+    const pathSegments = router.pathname.split('/').filter(segment => segment !== '');
 
     return (
         <div className="container mx-auto text-sm text-gray-600 lg:px-0 px-4 my-4">
@@ -16,9 +16,14 @@ function Breadcrumb() {
                         <AiOutlineHome size={22} />
                     </Link>
                 </li>
-                <li>
-                    {path}
-                </li>
+                {pathSegments.map((segment, index) => (
+                    <li key={index} className='flex items-center gap-x-2'>
+                        <span>/</span>
+                        <Link href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
+                            {segment}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     )
