@@ -35,11 +35,11 @@
     @apply bg-site
   }
   
-  #bannerNav::-webkit-scrollbar {
-    @apply h-0
-  }
-  
-  #footerNav::-webkit-scrollbar {
+  #footerNav::-webkit-scrollbar,
+  #emlakDetayTab::-webkit-scrollbar,
+  .danismanlarDiv::-webkit-scrollbar,
+  #footerNav::-webkit-scrollbar,
+  #bannerNav::-webkit-scrollbar{
     @apply h-0
   }
   

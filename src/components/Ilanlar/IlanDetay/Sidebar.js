@@ -23,7 +23,7 @@ function Sidebar() {
     const wpText = `Merhaba, size bu ilandan ulaşıyorum : ${path}`
 
     return (
-        <aside id='IlanDetaySidebar' className='w-full lg:w-[350px] max-w-full h-full flex flex-col gap-y-4 sticky top-4'>
+        <aside id='IlanDetaySidebar' className='w-full lg:w-[350px] lg:min-w-[350px] max-w-full h-full flex flex-col gap-y-4 sticky top-4'>
             <div className="bg-site text-white py-3 px-4 lg:text-3xl text-xl rounded-md font-bold tracking-wide text-center shadow-sm">1.530.500 TL</div>
             <div className="bg-white py-2 px-4 rounded-md lg:flex lg:justify-between shadow-sm">
                 <div className='flex justify-between items-center text-xs gap-x-1 text-gray-600 my-2'>
@@ -41,7 +41,7 @@ function Sidebar() {
 
                 <div className="flex flex-col py-2 gap-x-4 items-center">
                     <div className="flex w-full justify-center gap-x-4">
-                        <div className="relative lg:w-36 lg:h-36 w-56 h-56 shadow-lg rounded-full flex justify-center items-center">
+                        <div className="relative lg:min-w-[12rem] w-48 h-32 max-w-full rounded-xl shadow-lg">
                             <Image
                                 src={'/ilanlar/ilan1.jpg'}
                                 alt='Emlak'
@@ -49,17 +49,17 @@ function Sidebar() {
                                 sizes="(max-width: 768px) 25vw, 25vw"
                                 priority
                                 fill
-                                className='object-cover object-center rounded-full'
+                                className='object-cover object-center rounded-xl'
                             />
-                            <div className="absolute scale-[.40] lg:translate-x-16 lg:-translate-y-12 translate-x-24 -translate-y-16 shadow-lg group transition-all rounded-full hover:translate-x-0 hover:translate-y-0 hover:scale-100">
-                                <div className="relative lg:w-36 lg:h-36 w-56 h-56 rounded-full flex transition-all">
+                            <div className="absolute scale-[.40] lg:translate-x-24 lg:-translate-y-14 lg:right-0 -right-20 hover:-right-0 -translate-y-12 shadow-lg group transition-all rounded-xl hover:translate-x-0 hover:translate-y-0 hover:scale-100">
+                                <div className="relative lg:min-w-[12rem] w-48 h-32 max-w-full rounded-xl flex transition-all">
                                     <Image
                                         src={'/ilanlar/ilan2.jpg'}
                                         alt='Emlak'
                                         title='Emlak'
                                         sizes="(max-width: 768px) 25vw, 25vw"
                                         fill
-                                        className='object-cover object-center rounded-full transition-all'
+                                        className='object-cover object-center rounded-xl transition-all'
                                     />
                                 </div>
                             </div>
