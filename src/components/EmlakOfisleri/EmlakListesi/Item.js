@@ -23,21 +23,20 @@ function Item(props) {
     const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
 
     return (
-        <div className={`p-3 ${props.itemWidth}`}>
+        <div className={`p-3 hover:scale-105 transition-all ${props.itemWidth}`}>
             <div className="bg-white rounded-lg shadow-md p-4">
                 <div className="relative flex items-center justify-center py-2">
                     <Link
                         href={'/emlak-ofisleri/emlak-detay'}
                         title='Keskinsoy Emlak'
+                        className='relative lg:min-w-[15rem] w-60 lg:h-40 h-32 max-w-full rounded-xl shadow-xl'
                     >
                         <Image
                             src={'/ilanlar/ilan1.jpg'}
                             title='Keskinsoy Emlak'
                             alt='Keskinsoy Emlak'
-                            width={180}
-
-                            height={0}
-                            className='h-auto'
+                            fill
+                            className='object-cover object-center rounded-xl'
                         />
                     </Link>
                 </div>
@@ -50,7 +49,7 @@ function Item(props) {
                     >
                         Keskinsoy Emlak
                     </Link>
-                    <small className='text-sm text-center text-gray-500'>Mimar Sinan / Atakum</small>
+                    <small className='text-sm text-center text-gray-500'>Mimar Sinan Mah. / Atakum</small>
                     <span className='text-gray-500 text-center text-sm'>10 Danışman</span>
                     <hr className='my-1' />
                     <div className="flex gap-x-4">

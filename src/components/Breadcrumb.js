@@ -13,13 +13,16 @@ function Breadcrumb() {
             <ul className='flex items-center gap-x-2'>
                 <li>
                     <Link href={'/'} >
-                        <AiOutlineHome size={22} />
+                        <AiOutlineHome size={20} />
                     </Link>
                 </li>
                 {pathSegments.map((segment, index) => (
                     <li key={index} className='flex items-center gap-x-2'>
                         <span>/</span>
-                        <Link href={`/${pathSegments.slice(0, index + 1).join('/')}`}>
+                        <Link
+                            className='capitalize'
+                            href={`/${pathSegments.slice(0, index + 1).join('/')}`}
+                        >
                             {segment}
                         </Link>
                     </li>

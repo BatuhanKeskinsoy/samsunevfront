@@ -25,9 +25,9 @@
     },
     {
         "id": 6,
-        "name": "Emlak Ofisleri",
-        "url": "/emlak-ofisleri",
-        "isDropdown": false
+        "name": "Danışmanlar",
+        "url": "",
+        "isDropdown": true
     },
     {
         "id": 7,
