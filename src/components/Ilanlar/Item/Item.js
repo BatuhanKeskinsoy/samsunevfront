@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { BsHouseDoor, BsDoorClosed, BsLayers, BsArrowsMove, BsCalendarPlus } from 'react-icons/bs'
+import { BsHouseDoor, BsDoorClosed, BsLayers, BsArrowsMove } from 'react-icons/bs'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
 
@@ -57,7 +57,7 @@ function Item(props) {
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
-                        <h4 className='font-bold tracking-wide text-base group-hover:text-site transition-all'>
+                        <h4 className={`${props.titleLineClamp} font-bold tracking-wide text-base group-hover:text-site transition-all`}>
                             Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa
                         </h4>
                         <span className='line-clamp-1 text-gray-600 text-sm'>Denizevleri Mahallesi - Atakum / Samsun</span>

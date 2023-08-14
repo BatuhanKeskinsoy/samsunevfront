@@ -1,16 +1,16 @@
 import React from 'react'
-import Item from '@/components/EmlakOfisleri/EmlakListesi/Item'
+import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item'
 import Link from 'next/link'
 import { BsChevronDown } from 'react-icons/bs'
 
-function Emlaklar() {
+function Danismanlar() {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
         <>
             <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center">
                 <div className="danismanlarDiv flex flex-row shadow-lg rounded-lg overflow-hidden text-center justify-start items-center overflow-x-auto">
-                    <div className='bg-white py-2 px-4 opacity-50 cursor-not-allowed lg:w-fit w-full min-w-max'>Emlak Ofisleri</div>
-                    <Link href={'/emlak-danismanlari'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Danışmanları</Link>
+                    <div className='bg-white py-2 px-4 opacity-50 cursor-not-allowed lg:w-fit w-full min-w-max'>Emlak Danışmanları</div>
+                    <Link href={'/emlak-ofisleri'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Ofisleri</Link>
                 </div>
                 <div className="flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-2">
                     <div id='Ilce' class="relative min-w-max">
@@ -42,7 +42,7 @@ function Emlaklar() {
                     </div>
                     <input
                         type="text"
-                        placeholder='Emlak Ofisi Arayın'
+                        placeholder='Emlak Danışmanı Arayın'
                         className='tracking-wider rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm transition-all px-4 w-[400px] max-w-full'
                     />
                 </div>
@@ -63,4 +63,4 @@ function Emlaklar() {
     )
 }
 
-export default Emlaklar
+export default Danismanlar

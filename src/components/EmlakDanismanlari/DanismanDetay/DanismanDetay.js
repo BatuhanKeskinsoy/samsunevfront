@@ -3,11 +3,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { BsEyeSlash, BsQuestionOctagonFill, BsTelephone, BsWhatsapp } from 'react-icons/bs'
 import Image from 'next/image'
-import EmlakSidebar from '@/components/EmlakOfisleri/EmlakDetay/EmlakSidebar'
 import EmlakIlanlar from '../../Ilanlar/EmlakIlanlar/EmlakIlanlar'
-import EmlakDanismanlariComponent from '@/components/EmlakDanismanlari/DanismanListesi/EmlakDanismanlari'
+import DanismanSidebar from './DanismanSidebar'
 
-function EmlakDetayComponent() {
+function DanismanDetayComponent() {
     const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [showWpNumber, setShowWpNumber] = useState(false);
     const [activeTab, setActiveTab] = useState('ilanlar');
@@ -35,30 +34,36 @@ function EmlakDetayComponent() {
                 <div className="flex flex-col w-full gap-y-4">
                     <div className="bg-white shadow-sm rounded-xl flex xl:flex-row flex-col lg:gap-x-8 gap-y-4 xl:gap-y-0 p-6 justify-between w-full">
                         <div className="flex lg:flex-row flex-col lg:gap-x-6 gap-y-6 lg:gap-y-0">
-                            <div className="relative flex items-center justify-center py-2 lg:min-w-[15rem] lg:w-60 lg:h-40 h-32 max-w-full rounded-xl shadow-xl">
+                            <div className="relative flex items-center justify-center py-2 lg:min-w-[10rem] lg:w-40 lg:h-40 h-32 max-w-full rounded-xl shadow-xl">
                                 <Image
-                                    src={'/emlaklar/yaprak-emlak.png'}
+                                    src={'/danismanlar/mustafa-yildiz.jpg'}
                                     title='Yaprak Emlak'
                                     alt='Yaprak Emlak'
                                     fill
-                                    className='object-cover object-center rounded-xl'
+                                    className='object-cover object-top rounded-xl'
                                 />
                             </div>
                             <div className="flex flex-col justify-between gap-y-4">
                                 <div className="flex flex-col gap-y-4">
                                     <span className='font-bold text-site tracking-wider lg:text-3xl text-2xl -mb-2 text-center lg:text-left'>
-                                        Yaprak Emlak
+                                        Mustafa Yıldız
                                     </span>
+                                    <Link
+                                        href={'/emlak-ofisleri/emlak-detay'}
+                                        className='text-gray-500 hover:text-site transition-all -mt-1 w-fit'
+                                    >
+                                        Yaprak Emlak
+                                    </Link>
                                     <span className='text-sm text-gray-500 text-center lg:text-left'>Mimar Sinan Mah. Atatürk Bulvarı No : 10 Samsun/Atakum</span>
                                 </div>
                                 <div className='relative flex w-full items-center gap-x-2 text-gray-600 text-sm group py-1 lg:justify-start justify-center'>
-                                    <span className='tracking-wide'>TTYB NO : 123456789</span>
+                                    <span className='tracking-wide'>MYB NO : 123456789</span>
                                     <BsQuestionOctagonFill size={16} />
                                     <div
                                         className="absolute p-3 bg-gray-200 rounded-md w-full top-full invisible opacity-0 transition-all group-hover:opacity-100 group-hover:visible text-xs before:content-[''] before:left-1/2 before:-translate-x-1/2 before:rotate-[225deg] before:absolute before:-top-1 before:w-2 before:h-2 before:bg-gray-200 z-10"
                                     >
                                         <span className='leading-5 tracking-wider'>
-                                            <strong>Taşınmaz Ticaret Yetki Belgesi:</strong> 5 Haziran 2018 tarihinde Resmi Gazete’de yayımlanan yürürlüğe göre taşınmazın alım, satım ve kiralama işlemine aracılık eden firmaların Taşınmaz Ticaret Yetki Belgesine sahip olması ve yine aracılık eden kişilerin Mesleki Yeterlilik Belgesi sahibi olması zorunluluğu getirildi.
+                                            <strong>Mesleki Yeterlilik Belgesi:</strong> 5 Haziran 2018 tarihinde Resmi Gazete’de yayımlanan yürürlüğe göre taşınmazın alım, satım ve kiralama işlemine aracılık eden firmaların Taşınmaz Ticaret Yetki Belgesine sahip olması ve yine aracılık eden kişilerin Mesleki Yeterlilik Belgesi sahibi olması zorunluluğu getirildi.
                                         </span>
                                     </div>
                                 </div>
@@ -114,46 +119,35 @@ function EmlakDetayComponent() {
                             Tüm İlanlar
                         </button>
                         <button
-                            onClick={() => handleTabClick('danismanlar')}
-                            className={`py-2 px-6 shadow-sm rounded-lg min-w-max transition-all ${activeTab === 'danismanlar'
+                            onClick={() => handleTabClick('hakkimda')}
+                            className={`py-2 px-6 shadow-sm rounded-lg min-w-max transition-all ${activeTab === 'hakkimda'
                                 ? 'bg-site text-white'
                                 : 'bg-white hover:bg-site hover:text-white'
                                 }`}
                         >
-                            Danışmanlar
-                        </button>
-                        <button
-                            onClick={() => handleTabClick('hakkimizda')}
-                            className={`py-2 px-6 shadow-sm rounded-lg min-w-max transition-all ${activeTab === 'hakkimizda'
-                                ? 'bg-site text-white'
-                                : 'bg-white hover:bg-site hover:text-white'
-                                }`}
-                        >
-                            Hakkımızda
+                            Hakkımda
                         </button>
                     </div>
 
-                    <div id="emlakTabDiv">
+                    <div id="danismanTabDiv">
 
                         {activeTab === 'ilanlar' && (
                             <EmlakIlanlar />
                         )}
-                        {activeTab === 'danismanlar' && (
-                            <EmlakDanismanlariComponent />
-                        )}
-                        {activeTab === 'hakkimizda' && (
+
+                        {activeTab === 'hakkimda' && (
                             <div className='bg-white p-4 rounded-lg shadow-sm'>
-                                Hakkımızda
+                                Hakkımda
                             </div>
                         )}
 
                     </div>
 
                 </div>
-                <EmlakSidebar handleTabClick={handleTabClick} />
+                <DanismanSidebar handleTabClick={handleTabClick} />
             </div>
         </>
     )
 }
 
-export default EmlakDetayComponent
+export default DanismanDetayComponent

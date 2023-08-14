@@ -2,7 +2,7 @@ import Emlaklar from '@/components/EmlakOfisleri/EmlakListesi/Emlaklar'
 import Head from 'next/head'
 import React from 'react'
 
-function EmlakOfisleri() {
+function index() {
     return (
         <>
             <Head>
@@ -21,4 +21,4 @@ function EmlakOfisleri() {
     )
 }
 
-export default EmlakOfisleri
+export default index
