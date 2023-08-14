@@ -50,7 +50,7 @@ function Login(props) {
 
     if (isAuthActive) {
         return (
-            <div className='absolute flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm z-30 px-4'>
+            <div className='fixed flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm bg-site/10 z-30 px-4'>
                 <div className="AuthContain flex flex-col max-w-lg w-full shadow-xl shadow-site/10 justify-center items-center rounded-lg bg-white lg:animate-loginComing animate-loginComingMobile">
                     <div className="flex justify-between w-full items-center px-8 py-4">
                         <span className='font-bold text-lg'>Giriş Yap</span>

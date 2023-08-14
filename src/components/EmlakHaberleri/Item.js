@@ -4,7 +4,7 @@ import React from 'react'
 import { BsCalendarPlus } from 'react-icons/bs'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
-function Item() {
+function Item(props) {
 
     const months = [
         "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
@@ -12,9 +12,9 @@ function Item() {
     ];
 
     return (
-        <li className='xl:w-1/4 lg:w-1/3 md:w-1/2 w-full md:p-4 p-0 py-4'>
+        <li className={`${props.itemWidth} md:p-4 p-0 py-4`}>
             <Link
-                href={'/'}
+                href={'/emlak-haberleri/haber-detay'}
                 title='Emlak Haberi'
                 className='flex flex-col bg-white rounded-lg overflow-hidden group'
             >
@@ -41,8 +41,8 @@ function Item() {
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
-                        <h4 className='line-clamp-1 font-bold tracking-wide text-base group-hover:text-site transition-all'>
-                            Emlak Haberleri için bir adet blog yazısı
+                        <h4 className={`${props.titleLineClamp} font-bold tracking-wide text-base group-hover:text-site transition-all`}>
+                            Emlak Haberleri için bir adet blog yazısı blog yazısı blog yazısı
                         </h4>
                         <span className='line-clamp-3 text-gray-600 text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta quod quas molestias commodi repudiandae a, consequatur enim error repellat ab quidem itaque omnis qui explicabo eligendi. Unde, fugiat? Nesciunt, pariatur!</span>
                     </div>

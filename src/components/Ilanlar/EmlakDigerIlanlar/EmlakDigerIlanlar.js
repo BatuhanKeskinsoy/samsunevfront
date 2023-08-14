@@ -6,8 +6,8 @@ import { AiOutlineDoubleRight } from 'react-icons/ai'
 function EmlakDigerIlanlar() {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
-        <section id='OneCikanIlanlar' className='lg:my-12 my-6'>
-            <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Keskinsoy Emlak <strong className='text-site'>Samsun İlanları</strong></h2>
+        <section className='lg:my-12 my-6'>
+            <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Yaprak Emlak <strong className='text-site'>Samsun İlanları</strong></h2>
             <ul className="flex flex-wrap">
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />

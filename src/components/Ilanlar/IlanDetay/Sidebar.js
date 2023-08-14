@@ -43,18 +43,18 @@ function Sidebar() {
                     <div className="flex w-full justify-center gap-x-4">
                         <div className="relative lg:min-w-[12rem] w-48 h-32 max-w-full rounded-xl shadow-lg">
                             <Image
-                                src={'/ilanlar/ilan1.jpg'}
+                                src={'/danismanlar/mustafa-yildiz.jpg'}
                                 alt='Emlak'
                                 title='Emlak'
                                 sizes="(max-width: 768px) 25vw, 25vw"
                                 priority
                                 fill
-                                className='object-cover object-center rounded-xl'
+                                className='object-cover object-top rounded-xl'
                             />
                             <div className="absolute scale-[.40] lg:translate-x-24 lg:-translate-y-14 lg:right-0 -right-20 hover:-right-0 -translate-y-12 shadow-lg group transition-all rounded-xl hover:translate-x-0 hover:translate-y-0 hover:scale-100">
                                 <div className="relative lg:min-w-[12rem] w-48 h-32 max-w-full rounded-xl flex transition-all">
                                     <Image
-                                        src={'/ilanlar/ilan2.jpg'}
+                                        src={'/emlaklar/yaprak-emlak.png'}
                                         alt='Emlak'
                                         title='Emlak'
                                         sizes="(max-width: 768px) 25vw, 25vw"
@@ -69,11 +69,11 @@ function Sidebar() {
                     </div>
                     <div className="flex flex-col justify-center items-center w-full mt-4">
                         <div className='flex flex-col justify-center items-center mb-3'>
-                            <Link href={'/emlakci-detay'} className='font-bold tracking-wider hover:text-site transition-all'>
-                                <span>Batuhan Keskinsoy</span>
+                            <Link href={'/emlak-danismanlari/danisman-detay'} className='font-bold tracking-wider hover:text-site transition-all'>
+                                <span>Mustafa Yıldız</span>
                             </Link>
-                            <Link href={'/emlak-detay'} className='text-gray-600 text-sm hover:text-site transition-all'>
-                                <span>Keskinsoy Emlak</span>
+                            <Link href={'/emlak-ofisleri/emlak-detay'} className='text-gray-600 text-sm hover:text-site transition-all'>
+                                <span>Yaprak Emlak</span>
                             </Link>
                         </div>
                         <div className='relative flex justify-center w-full items-center gap-x-2 text-gray-600 text-xs group py-1'>
@@ -144,13 +144,13 @@ function Sidebar() {
             </div>
             <div className="flex flex-col gap-y-2 text-sm">
                 <Link
-                    href={'/danisman-detay'}
+                    href={'/emlak-danismanlari/danisman-detay'}
                     className='flex bg-white text-gray-600 py-3 px-4 items-center justify-between rounded-lg hover:bg-site hover:text-white shadow-sm transition-all'>
                     <span>Danışmanın Diğer İlanları</span>
                     <BsChevronRight size={16} />
                 </Link>
                 <Link
-                    href={'/emlak-detay'}
+                    href={'/emlak-ofisleri/emlak-detay'}
                     className='flex bg-white text-gray-600 py-3 px-4 items-center justify-between rounded-lg hover:bg-site hover:text-white shadow-sm transition-all'>
                     <span>Emlak Ofisinin Diğer İlanları</span>
                     <BsChevronRight size={16} />

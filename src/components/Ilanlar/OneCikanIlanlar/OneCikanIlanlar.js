@@ -6,7 +6,7 @@ import { AiOutlineDoubleRight } from 'react-icons/ai'
 function Onecikanilanlar() {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
-        <section id='OneCikanIlanlar' className='lg:my-12 my-6'>
+        <section className='lg:my-12 my-6'>
             <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Öne Çıkan <strong className='text-site'>Samsun Satılık Daire</strong> İlanları</h2>
             <ul className="flex flex-wrap">
                 <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />

@@ -38,8 +38,8 @@ function Header() {
             <Toaster position='top-right' />
             <Login isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
             <header className="shadow-md relative z-20 bg-white">
-                <div className="container mx-auto lg:px-0 px-4 flex items-center justify-between">
-                    <div id="logo" className='h-full flex w-full lg:w-fit items-center justify-between'>
+                <div className="container mx-auto h-20 lg:h-auto lg:px-0 px-4 flex items-center justify-between relative">
+                    <div id="logo" className='h-20 lg:h-auto flex w-full lg:w-fit items-center justify-between lg:relative fixed lg:px-0 px-4 top-0 left-0 bg-white'>
                         <Link href={'/'} title={process.env.NEXT_PUBLIC_SITE_NAME} className='block py-5'>
                             <Image
                                 src={'/logo/logo.svg'}

@@ -27,30 +27,35 @@ function Item(props) {
             <div className="bg-white rounded-lg shadow-md p-4">
                 <div className="relative flex items-center justify-center py-2">
                     <Link
-                        href={'/emlak-ofisleri/emlak-detay'}
-                        title='Yaprak Emlak'
-                        className='relative lg:min-w-[15rem] w-60 lg:h-40 h-32 max-w-full rounded-xl shadow-xl'
+                        href={'/emlak-danismanlari/danisman-detay'}
+                        title='Mustafa Yıldız'
+                        className='relative lg:min-w-[10rem] w-40 lg:h-40 h-32 max-w-full rounded-xl'
                     >
                         <Image
-                            src={'/emlaklar/yaprak-emlak.png'}
-                            title='Yaprak Emlak'
-                            alt='Yaprak Emlak'
+                            src={'/danismanlar/mustafa-yildiz.jpg'}
+                            title='Mustafa Yıldız'
+                            alt='Mustafa Yıldız'
                             fill
-                            className='object-cover object-center rounded-xl'
+                            className='object-cover object-top rounded-xl'
                         />
                     </Link>
                 </div>
                 <hr className='my-3' />
                 <div className="flex flex-col gap-y-2">
                     <Link
-                        href={'/emlak-ofisleri/emlak-detay'}
+                        href={'/emlak-danismanlari/danisman-detay'}
                         className='font-bold text-site/90 hover:text-site transition-all tracking-wider text-center text-xl'
-                        title='Yaprak Emlak'
+                        title='Mustafa Yıldız'
+                    >
+                        Mustafa Yıldız
+                    </Link>
+                    <Link
+                        href={'/emlak-ofisleri/emlak-detay'}
+                        className='flex justify-center w-full text-gray-500 hover:text-site transition-all -mt-2'
                     >
                         Yaprak Emlak
                     </Link>
                     <small className='text-sm text-center text-gray-500'>Mimar Sinan Mah. / Atakum</small>
-                    <span className='text-gray-500 text-center text-sm'>10 Danışman</span>
                     <hr className='my-1' />
                     <div className="flex gap-x-4">
                         <div className="flex-[1_1_50%] flex flex-col items-center gap-y-1">

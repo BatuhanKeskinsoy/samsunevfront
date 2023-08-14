@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
 function EmlakHaberleri() {
+    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
         <section id='OneCikanIlanlar' className='lg:my-12 my-6'>
             <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Emlak Haberleri</h2>
             <ul className="flex flex-wrap">
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
                 <div className='w-full lg:mt-8'>
                     <Link
                         href={'/emlak-haberleri'}
