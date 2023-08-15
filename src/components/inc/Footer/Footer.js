@@ -1,8 +1,9 @@
+import Socials from '@/components/Others/Socials'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { BsChevronRight } from 'react-icons/bs'
-import { CiFacebook, CiInstagram, CiMail, CiPhone, CiTwitter, CiYoutube } from 'react-icons/ci'
+import { CiMail, CiPhone } from 'react-icons/ci'
 
 function Footer() {
     return (
@@ -269,28 +270,7 @@ function Footer() {
                                 0555 555 55 55
                             </Link>
                             <span className='text-2xl tracking-wide my-4'>Bizi Takipte Kalın!</span>
-                            <ul className="flex flex-wrap gap-4">
-                                <li>
-                                    <Link href={'https://www.facebook.com'} target='_blank' className='text-gray-800 hover:text-site transition-all'>
-                                        <CiFacebook size={36} />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'https://www.twitter.com'} target='_blank' className='text-gray-800 hover:text-site transition-all'>
-                                        <CiTwitter size={36} />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'https://www.instagram.com'} target='_blank' className='text-gray-800 hover:text-site transition-all'>
-                                        <CiInstagram size={36} />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'https://www.youtube.com'} target='_blank' className='text-gray-800 hover:text-site transition-all'>
-                                        <CiYoutube size={36} />
-                                    </Link>
-                                </li>
-                            </ul>
+                            <Socials />
                         </div>
                         <div className="w-full flex lg:flex-row flex-col gap-4">
                             <ul className='flex flex-col'>
@@ -308,7 +288,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/emlak-ofisleri'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -317,7 +297,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/emlak-haberleri'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -326,7 +306,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/hakkimizda'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
@@ -335,7 +315,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href={'/'}
+                                        href={'/iletisim'}
                                         className='py-2 px-4 flex gap-x-1 items-center hover:text-site transition-all line-clamp-1'
                                     >
                                         <BsChevronRight />
