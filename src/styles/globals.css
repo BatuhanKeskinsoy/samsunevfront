@@ -66,13 +66,38 @@
   #IlanlarFiltre ul li > ul li > ul {
     @apply pl-4 py-1;
   }
-
+  
   #IlanDetayContent *{
     @apply text-gray-600
   }
-
+  
   #IlanDetayContent p{
     @apply mb-4 
+  }
+  
+  .DetailContent{
+    @apply text-gray-600
+  }
+  
+  .DetailContent p{
+    @apply mb-2 lg:text-lg text-base
+  }
+  
+  .DetailContent ul{
+    @apply list-disc pl-6
+  }
+  
+  .DetailContent ul li{
+    @apply py-1
+  }
+  
+  .DetailContent h1,
+  .DetailContent h2,
+  .DetailContent h3,
+  .DetailContent h4,
+  .DetailContent h5,
+  .DetailContent h6{
+    @apply mt-6 mb-2 font-semibold tracking-wide lg:text-xl text-xl text-black capitalize
   }
   
 }
