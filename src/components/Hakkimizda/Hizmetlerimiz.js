@@ -3,7 +3,7 @@ import { LiaCrosshairsSolid, LiaHomeSolid, LiaLeafSolid } from 'react-icons/lia'
 
 function Hizmetlerimiz() {
     return (
-        <div className="flex lg:flex-row flex-col gap-x-4 lg:gap-y-0 gap-y-8 text-center text-base text-gray-600 leading-loose">
+        <div className="flex lg:flex-row flex-col gap-x-8 lg:gap-y-0 gap-y-8 text-center text-base text-gray-600 leading-loose">
             <div className="relative rounded-lg overflow-hidden shadow-lg bg-white p-6 tracking-wider flex flex-col justify-center items-center gap-y-4 w-full">
                 <LiaLeafSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[250px]' />
                 <span className='text-site text-3xl font-bold'>Sade ve Kolay</span>
