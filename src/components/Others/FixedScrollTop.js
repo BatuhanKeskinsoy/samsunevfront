@@ -43,7 +43,7 @@ const FixedScrollTop = () => {
 
   return (
     <button
-      className={`fixed bottom-6 right-6 p-3 lg:text-3xl text-2xl bg-site text-white rounded-full shadow-md z-30 hover:scale-125 transition-all ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'
+      className={`fixed lg:bottom-6 bottom-20 right-6 p-3 lg:text-3xl text-2xl bg-site text-white rounded-full shadow-md z-30 hover:scale-125 transition-all ${isVisible ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       onClick={scrollToTop}
     >

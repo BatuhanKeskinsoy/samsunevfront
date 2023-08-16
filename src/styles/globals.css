@@ -39,7 +39,8 @@
   #emlakDetayTab::-webkit-scrollbar,
   .danismanlarDiv::-webkit-scrollbar,
   #footerNav::-webkit-scrollbar,
-  #bannerNav::-webkit-scrollbar{
+  #bannerNav::-webkit-scrollbar,
+  #KurumsalHeaderButtons::-webkit-scrollbar{
     @apply h-0
   }
   
