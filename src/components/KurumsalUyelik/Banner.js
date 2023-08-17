@@ -15,7 +15,7 @@ function Banner() {
     });
 
     return (
-        <section id='KurumsalUyelik' className='bg-gradient-to-b from-blue-950 to-site shadow-lg text-white p-6'>
+        <section id='KurumsalUyelik' className='bg-gradient-to-b from-blue-950 to-site/90 shadow-lg text-white lg:p-6 py-6'>
             <div className="container mx-auto lg:px-0 px-4 lg:py-8">
                 <div className="flex lg:flex-row flex-col gap-x-60 w-full">
                     <div className='flex-[1_1_60%] w-full'>

@@ -5,23 +5,23 @@ function Hizmetlerimiz() {
     return (
         <div className="flex lg:flex-row flex-col gap-x-8 lg:gap-y-0 gap-y-8 text-center text-base text-gray-600 leading-loose">
             <div className="relative rounded-lg overflow-hidden shadow-lg bg-white p-6 tracking-wider flex flex-col justify-center items-center gap-y-4 w-full">
-                <LiaLeafSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[250px]' />
+                <LiaLeafSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[300px]' />
                 <span className='text-site text-3xl font-bold'>Sade ve Kolay</span>
-                <p>Aradığınız özelliklere ve bütçeye uygun emlak ilanlarını incelemek, detaylı fotoğraflara ve açıklamalara göz atmak artık çok daha kolay.</p>
+                <p>Sadeliği ve kullanıcı deneyimini göz önünde bulundurarak oluşturduğumuz platformumuz sayesinde hem hayalinizdeki evi kolayca bulabilir, hem de ilanlarınızı rahatça oluşturabilirsiniz.</p>
             </div>
             <div className="relative rounded-lg overflow-hidden shadow-lg bg-white p-6 tracking-wider flex flex-col justify-center items-center gap-y-4 w-full">
                 <div className="flex lg:flex-row flex-col gap-y-6 gap-x-2 items-center">
-                    <LiaCrosshairsSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[250px]' />
+                    <LiaCrosshairsSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[300px]' />
                     <span className='text-site text-3xl font-bold'>Hedef Kitle</span>
                 </div>
-                <p>Profesyonel emlak danışmanlarımızın da desteğiyle, satış veya kiralama işlemlerinizde en iyi sonuçları elde etmeniz için yanınızdayız.</p>
+                <p>Gayrimenkul araştırması yapan müşterilerin, Samsun içerisinde ilan aramak istediklerinde düşük rekabet nedeniyle ilanınızda yer alma şansı yükselecektir.</p>
             </div>
             <div className="relative rounded-lg overflow-hidden shadow-lg bg-white p-6 tracking-wider flex flex-col justify-center items-center gap-y-4 w-full">
                 <div className="flex lg:flex-row flex-col gap-y-6 gap-x-2 items-center">
-                    <LiaHomeSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[250px]' />
+                    <LiaHomeSolid className='text-site absolute -left-20 -top-20 opacity-10 text-[300px]' />
                     <span className='text-site text-3xl font-bold'>Yerel Emlakçılık</span>
                 </div>
-                <p>Biz Samsunev.com ekibi olarak, Samsun'un emlak sektöründe yeni bir dönemi başlatmanın heyecanını taşıyoruz.</p>
+                <p>Özel olarak Samsun için oluşturduğumuz platformumuz sayesinde müşterileriniz, farklı bölgelerdeki ilanlarda gezinmek yerine ilanınıza odaklanabilecekler.</p>
             </div>
         </div>
     )
