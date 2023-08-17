@@ -32,7 +32,7 @@ export default function Layout({ children }) {
             <>
                 <AutoScrollTop />
                 <HeaderKurumsal />
-                <main className="min-h-[calc(100vh-80px)]">
+                <main className="min-h-[calc(100vh-104px)]">
                     {children}
                 </main>
                 <FooterKurumsal />

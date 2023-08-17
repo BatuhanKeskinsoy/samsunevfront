@@ -18,21 +18,21 @@
         "isDropdown": true
     },
     {
-        "id": 5,
-        "name": "Kurumsal Üyelik",
-        "url": "/kurumsal-uyelik",
-        "isDropdown": false
-    },
-    {
-        "id": 6,
+        "id": 4,
         "name": "Danışmanlar",
         "url": "",
         "isDropdown": true
     },
     {
-        "id": 7,
+        "id": 5,
         "name": "Emlak Haberleri",
         "url": "/emlak-haberleri",
+        "isDropdown": false
+    },
+    {
+        "id": 6,
+        "name": "Kurumsal Üyelik",
+        "url": "/kurumsal-uyelik",
         "isDropdown": false
     }
 ]
