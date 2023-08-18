@@ -5,8 +5,8 @@ import { AiOutlineLogin } from 'react-icons/ai'
 
 function Login(props) {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('123456789');
 
     const isAuthActive = props.isAuthActive;
     const setIsAuthActive = props.setIsAuthActive;
@@ -56,15 +56,17 @@ function Login(props) {
             const responseData = await response.json();
 
             if (response.ok) {
-                toast.success('Hoşgeldin');
-
                 const user = responseData.user;
+
+                toast.success(`Hoşgeldin ${user.name}`);
 
                 window.localStorage.setItem('email', user.email);
                 window.localStorage.setItem('fullname', user.name);
                 window.localStorage.setItem('slug', user.slug);
 
                 setIsAuthActive(false);
+
+                console.log(responseData);
 
             } else {
                 // Hata ayıklama için yanıt ayrıntılarını günlüğe kaydedin
