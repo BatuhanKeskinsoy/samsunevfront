@@ -5,7 +5,7 @@ import { AiOutlineLogin } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { CiLogout } from 'react-icons/ci';
+import { CiLogout, CiSettings } from 'react-icons/ci';
 
 function NavLinks(props) {
     const [fullname, setFullname] = useState('');
@@ -104,16 +104,17 @@ function NavLinks(props) {
                                 <Link
                                     onClick={props.navActive}
                                     href={`https://panel.samsunev.com`}
-                                    title='Panele Git'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all text-base lg:text-sm xl:text-base justify-between items-center px-4 gap-x-2 w-full'
+                                    title='Yönetim Paneli'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all text-base lg:text-sm xl:text-base justify-between items-center px-4 gap-x-2 w-full'
                                 >
-                                    Panele Git
+                                    Yönetim Paneli
+                                    <CiSettings size={20} />
                                 </Link>
                             </li>
                             <li className='group relative flex lg:flex-row flex-col'>
                                 <button
                                     onClick={handleLogout}
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all text-base lg:text-sm xl:text-base justify-between items-center px-4 gap-x-2 w-full'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all text-base lg:text-sm xl:text-base justify-between items-center px-4 gap-x-2 w-full'
                                 >
                                     Çıkış Yap
                                     <CiLogout size={20} />
