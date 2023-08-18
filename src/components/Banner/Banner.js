@@ -21,6 +21,7 @@ function Banner() {
                 alt="Samsun"
                 sizes="(max-width: 768px) 100vw, 100vw"
                 fill
+                priority
                 className="object-cover w-full -z-10"
             />
             <div className='absolute w-full h-full transition-all bg-gradient-to-t from-black/30 -z-10'></div>

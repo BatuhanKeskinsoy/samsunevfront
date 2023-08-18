@@ -1,5 +1,5 @@
 import React from 'react'
-import NavLinksData from '@/data/navLinks'
+import NavLinksData from '@/data/Json/navLinks'
 import NavItem from '@/components/inc/Header/Items/NavItem'
 import { AiOutlineLogin } from 'react-icons/ai'
 

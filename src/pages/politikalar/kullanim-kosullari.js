@@ -7,7 +7,6 @@ function kullanimKosullari() {
       <Head>
         <title>{`Kullanım Koşulları | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
       </Head>
-
       <section id='kullanimKosullari'>
         <div className="container mx-auto lg:px-0 px-4 pb-8">
 
