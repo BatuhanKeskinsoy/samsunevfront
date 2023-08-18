@@ -96,7 +96,7 @@ function Header() {
                             Neden Ücretsiz ?
                         </button>
                     </div>
-                    <div className="lg:relative fixed bottom-0 bg-blue-950 lg:w-fit w-full lg:py-0 py-4 flex px-4">
+                    <div className="lg:relative bg-blue-950 lg:flex hidden px-4">
                         <Link href={'/'} className='flex items-center justify-between w-full text-2xl gap-x-2 uppercase tracking-wider lg:hover:scale-110 transition-all'>
                             SİTEYE GİT
                             <BsChevronRight size={32} />
