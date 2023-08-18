@@ -3,17 +3,15 @@ import { TfiClose } from 'react-icons/tfi'
 import { toast } from 'react-hot-toast'
 import { AiOutlineLogin } from 'react-icons/ai'
 import { useRouter } from 'next/router'
-import { LoginResponse } from '@/data/Auth/LoginResponse'
 
 function Login(props) {
-    const router = useRouter()
+    const router = useRouter();
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-
-    const isAuthActive = props.isAuthActive
-    const setIsAuthActive = props.setIsAuthActive
+    const isAuthActive = props.isAuthActive;
+    const setIsAuthActive = props.setIsAuthActive;
 
     const handleCloseAuth = () => {
         setIsAuthActive(false);
@@ -37,7 +35,6 @@ function Login(props) {
         };
     }, [isAuthActive]);
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -50,9 +47,17 @@ function Login(props) {
         };
 
         try {
-            const responseData = await LoginResponse.json();
+            const response = await fetch('https://panel.samsunev.com/api/v1/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Logindata)
+            });
 
-            if (LoginResponse.ok) {
+            const responseData = await response.json();
+
+            if (response.ok) {
                 toast.success('Hoşgeldin');
 
                 const user = responseData.user;
@@ -79,7 +84,6 @@ function Login(props) {
             toast.dismiss(loadingToastId);
         }
     }
-
 
     if (isAuthActive) {
         return (
@@ -148,7 +152,7 @@ function Login(props) {
             </div>
         )
     }
-    return null; // isActive false ise hiçbir şey gösterme
+    return null
 }
 
-export default Login
+export default Login;
