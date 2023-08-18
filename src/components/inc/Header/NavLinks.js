@@ -13,6 +13,33 @@ function NavLinks(props) {
     const [isHover, setIsHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
+    let userImage = ''
+    let userType = ''
+
+    let userTypeText = '';
+
+    if (typeof window !== 'undefined' && window.localStorage) {
+        userImage = '/' + window.localStorage.getItem('image');
+        userType = window.localStorage.getItem('userType');
+
+
+        switch (userType) {
+            case '0':
+                userTypeText = 'Kullanıcı';
+                break;
+            case '1':
+                userTypeText = 'Emlak Danışmanı';
+                break;
+            case '2':
+                userTypeText = 'Emlak Ofisi';
+                break;
+            default:
+                userTypeText = 'Bilinmeyen Kullanıcı Türü';
+                break;
+        }
+    }
+
+
     const setIsAuthActive = props.setIsAuthActive;
     const isAuthActive = props.isAuthActive;
 
@@ -106,17 +133,20 @@ function NavLinks(props) {
                         className='flex items-center gap-x-3 bg-site/10 text-site transition-all lg:w-fit w-full py-2 lg:py-5 h-fit lg:h-full justify-between px-4 border-b border-gray-100 lg:border-none text-base lg:text-sm xl:text-base min-w-max tracking-wide'
                     >
                         <div className="flex gap-x-3">
-                            <Image
-                                src={'/danismanlar/mustafa-yildiz.jpg'}
-                                width={40}
-                                height={40}
-                                className='rounded-full'
-                                alt={fullname}
-                                title={fullname}
-                            />
+                            {userImage && (
+                                <Image
+                                    src={userImage}
+                                    width={40}
+                                    height={40}
+                                    className='rounded-full'
+                                    alt={fullname}
+                                    title={fullname}
+                                />
+                            )}
+
                             <div className="flex flex-col items-start">
                                 <span>{fullname}</span>
-                                <small className='text-gray-500 text-xs'>Emlak Danışmanı</small>
+                                <small className='text-gray-500 text-xs'>{userTypeText}</small>
                             </div>
                         </div>
                         <BsChevronDown size={16} />

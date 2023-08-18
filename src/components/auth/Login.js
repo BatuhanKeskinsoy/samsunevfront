@@ -61,8 +61,10 @@ function Login(props) {
                 toast.success(`Hoşgeldin ${user.name}`);
 
                 window.localStorage.setItem('email', user.email);
+                window.localStorage.setItem('image', user.image);
                 window.localStorage.setItem('fullname', user.name);
                 window.localStorage.setItem('slug', user.slug);
+                window.localStorage.setItem('userType', user.userType);
 
                 setIsAuthActive(false);
 
