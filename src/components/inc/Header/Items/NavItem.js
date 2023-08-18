@@ -74,7 +74,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Satılık Daire
                                     <BsChevronRight />
@@ -86,7 +86,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -96,7 +96,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -109,7 +109,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Satılık Daire
                                     <BsChevronRight />
@@ -121,7 +121,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -131,7 +131,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -144,7 +144,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Satılık Daire
                                     <BsChevronRight />
@@ -156,7 +156,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -166,7 +166,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -179,7 +179,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Satılık Daire
                                     <BsChevronRight />
@@ -191,7 +191,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -201,7 +201,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Satılık Daire
                                             </Link>
@@ -221,7 +221,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Kiralık Daire
                                     <BsChevronRight />
@@ -233,7 +233,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -243,7 +243,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -253,7 +253,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -263,7 +263,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -276,7 +276,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Kiralık Daire
                                     <BsChevronRight />
@@ -288,7 +288,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -298,7 +298,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -308,7 +308,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -318,7 +318,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -331,7 +331,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/ilanlar`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Kiralık Daire
                                     <BsChevronRight />
@@ -343,7 +343,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -353,7 +353,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -363,7 +363,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -373,7 +373,7 @@ function NavItem(props) {
                                                 onClick={props.navActive}
                                                 href={`/ilanlar`}
                                                 title='title'
-                                                className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
                                                 Kiralık Daire
                                             </Link>
@@ -393,7 +393,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/emlak-ofisleri`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Emlak Ofisleri
                                     <BsChevronRight />
@@ -404,7 +404,7 @@ function NavItem(props) {
                                     onClick={props.navActive}
                                     href={`/emlak-danismanlari`}
                                     title='title'
-                                    className='py-3 flex hover:bg-site/10 hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                 >
                                     Emlak Danışmanları
                                     <BsChevronRight />
