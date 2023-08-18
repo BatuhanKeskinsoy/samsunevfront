@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { TfiClose } from 'react-icons/tfi'
 import { toast } from 'react-hot-toast'
 import { AiOutlineLogin } from 'react-icons/ai'
-import { useRouter } from 'next/router'
 
 function Login(props) {
-    const router = useRouter();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -62,11 +60,13 @@ function Login(props) {
 
                 const user = responseData.user;
 
-                localStorage.setItem('Emailiniz : ', user.email);
-                localStorage.setItem('İsminiz : ', user.name);
-                localStorage.setItem('Slug : ', user.slug);
+                localStorage.setItem('email', user.email);
+                localStorage.setItem('fullname', user.name);
+                localStorage.setItem('slug', user.slug);
 
-                /* router.push('https://panel.samsunev.com'); */
+                props.setFullName(user.name);
+
+                handleCloseAuth()
 
             } else {
                 // Hata ayıklama için yanıt ayrıntılarını günlüğe kaydedin
