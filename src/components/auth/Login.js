@@ -60,13 +60,11 @@ function Login(props) {
 
                 const user = responseData.user;
 
-                localStorage.setItem('email', user.email);
-                localStorage.setItem('fullname', user.name);
-                localStorage.setItem('slug', user.slug);
+                window.localStorage.setItem('email', user.email);
+                window.localStorage.setItem('fullname', user.name);
+                window.localStorage.setItem('slug', user.slug);
 
-                props.setFullName(user.name);
-
-                handleCloseAuth()
+                setIsAuthActive(false);
 
             } else {
                 // Hata ayıklama için yanıt ayrıntılarını günlüğe kaydedin
