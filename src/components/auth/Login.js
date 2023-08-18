@@ -2,22 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { TfiClose } from 'react-icons/tfi'
 import { toast } from 'react-hot-toast'
 import { AiOutlineLogin } from 'react-icons/ai'
+import { useRouter } from 'next/router'
+import { LoginResponse } from '@/data/Auth/LoginResponse'
 
 function Login(props) {
+    const router = useRouter()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        /* 
-        const user = await login(email, password)
-        if (user) {
-            router.push('/panel/anasayfa')
-        }
-        setEmail('')
-        setPassword('') 
-        */
-    }
 
     const isAuthActive = props.isAuthActive
     const setIsAuthActive = props.setIsAuthActive
@@ -44,9 +37,49 @@ function Login(props) {
         };
     }, [isAuthActive]);
 
-    const handleLogin = () => {
-        toast.success('Giriş Yapılıyor..')
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Giriş yüklenme durumunu göster
+        const loadingToastId = toast.loading('Giriş Yapılıyor..');
+
+        const Logindata = {
+            email: email,
+            password: password
+        };
+
+        try {
+            const responseData = await LoginResponse.json();
+
+            if (LoginResponse.ok) {
+                toast.success('Hoşgeldin');
+
+                const user = responseData.user;
+
+                localStorage.setItem('Emailiniz : ', user.email);
+                localStorage.setItem('İsminiz : ', user.name);
+                localStorage.setItem('Slug : ', user.slug);
+
+                /* router.push('https://panel.samsunev.com'); */
+
+            } else {
+                // Hata ayıklama için yanıt ayrıntılarını günlüğe kaydedin
+                console.error('Giriş hatası yanıtı:', responseData);
+                toast.error('Giriş başarısız: ' + responseData.message);
+            }
+
+            // Giriş yüklenme durumunu kapat
+            toast.dismiss(loadingToastId);
+        } catch (error) {
+            console.error('Giriş hatası:', error);
+            toast.error('Giriş sırasında bir hata oluştu.');
+
+            // Giriş yüklenme durumunu kapat
+            toast.dismiss(loadingToastId);
+        }
     }
+
 
     if (isAuthActive) {
         return (
@@ -102,7 +135,6 @@ function Login(props) {
                             </div>
                             <div className='flex'>
                                 <button
-                                    onClick={handleLogin}
                                     type='submit'
                                     className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-sm'
                                 >
