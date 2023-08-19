@@ -34,9 +34,9 @@ function Banner() {
                                 <p className='text-gray-500'>Formu doldurun, sizi Samsunev.com’un ayrıcalıkları hakkında bilgilendirelim.</p>
                             </div>
                             <form onSubmit={handleSubmit} className='flex flex-col w-full'>
-                                <div class="flex flex-col w-full py-3 lg:px-3">
-                                    <label for="isim" class="block text-lg font-bold tracking-wider">İsminiz</label>
-                                    <div class="mt-3">
+                                <div className="flex flex-col w-full py-3 lg:px-3">
+                                    <label htmlFor="isim" className="block text-lg font-bold tracking-wider">İsminiz</label>
+                                    <div className="mt-3">
                                         <input
                                             type="text"
                                             id="isim"
@@ -53,9 +53,9 @@ function Banner() {
 
                                     </div>
                                 </div>
-                                <div class="flex flex-col w-full py-3 lg:px-3">
-                                    <label for="email" class="block text-lg font-bold tracking-wider">E-Mail Adresiniz</label>
-                                    <div class="mt-3">
+                                <div className="flex flex-col w-full py-3 lg:px-3">
+                                    <label htmlFor="email" className="block text-lg font-bold tracking-wider">E-Mail Adresiniz</label>
+                                    <div className="mt-3">
                                         <input
                                             type="email"
                                             id="email"
@@ -72,9 +72,9 @@ function Banner() {
 
                                     </div>
                                 </div>
-                                <div class="flex flex-col w-full py-3 lg:px-3">
-                                    <label for="phone" class="block text-lg font-bold tracking-wider">Telefon Numaranız</label>
-                                    <div class="mt-3">
+                                <div className="flex flex-col w-full py-3 lg:px-3">
+                                    <label htmlFor="phone" className="block text-lg font-bold tracking-wider">Telefon Numaranız</label>
+                                    <div className="mt-3">
                                         <input
                                             type="number"
                                             id="phone"

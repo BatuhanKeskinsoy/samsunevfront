@@ -25,7 +25,7 @@ const nextConfig = {
       // Diğer izin verilen kaynakları buraya ekleyebilirsiniz
     ];
   },
-  /* reactStrictMode: true, */
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig

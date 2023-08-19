@@ -82,7 +82,7 @@ function Banner() {
                         className="lg:px-8 px-4 lg:py-5 py-4 bg-white block font-gemunu tracking-wider lg:shadow-md w-full border-0 text-gray-900 ring-1 ring-transparent focus:ring-site outline-none transition-all text-lg lg:rounded-l-md rounded-md lg:rounded-none"
                     />
                     <button
-                        onClick={ () => router.push('/ilanlar') }
+                        onClick={() => router.push('/ilanlar')}
                         className='min-w-fit ml-auto lg:w-fit w-full text-center justify-center lg:shadow-md transition-all py-3 px-8 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/90 hover:bg-site text-white lg:rounded-r-md rounded-md lg:rounded-none text-xl'
                     >
                         <BsSearch size={22} />

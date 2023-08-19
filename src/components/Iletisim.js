@@ -22,9 +22,9 @@ function Iletisim() {
                     <h1 className='lg:text-3xl text-xl font-semibold tracking-widest lg:my-8 mb-4 block text-black'>İletişim</h1>
                     <div className="flex lg:flex-row flex-col gap-x-8">
                         <form onSubmit={handleSubmit} className='flex lg:flex-row flex-col flex-wrap flex-[1_1_75%]'>
-                            <div class="flex flex-col w-full flex-[1_1_33.33%] p-3">
-                                <label for="isim" class="block text-lg">İsminiz</label>
-                                <div class="mt-3">
+                            <div className="flex flex-col w-full flex-[1_1_33.33%] p-3">
+                                <label htmlFor="isim" className="block text-lg">İsminiz</label>
+                                <div className="mt-3">
                                     <input
                                         type="text"
                                         id="isim"
@@ -41,9 +41,9 @@ function Iletisim() {
 
                                 </div>
                             </div>
-                            <div class="flex flex-col w-full flex-[1_1_33.33%] p-3">
-                                <label for="email" class="block text-lg">E-Mail Adresiniz</label>
-                                <div class="mt-3">
+                            <div className="flex flex-col w-full flex-[1_1_33.33%] p-3">
+                                <label htmlFor='email' className="block text-lg">E-Mail Adresiniz</label>
+                                <div className="mt-3">
                                     <input
                                         type="email"
                                         id="email"
@@ -60,9 +60,9 @@ function Iletisim() {
 
                                 </div>
                             </div>
-                            <div class="flex flex-col w-full flex-[1_1_33.33%] p-3">
-                                <label for="phone" class="block text-lg">Telefon Numaranız</label>
-                                <div class="mt-3">
+                            <div className="flex flex-col w-full flex-[1_1_33.33%] p-3">
+                                <label htmlFor="phone" className="block text-lg">Telefon Numaranız</label>
+                                <div className="mt-3">
                                     <input
                                         type="number"
                                         id="phone"
@@ -79,9 +79,9 @@ function Iletisim() {
 
                                 </div>
                             </div>
-                            <div class="flex flex-col w-full flex-[1_1_100%] p-3">
-                                <label for="phone" class="block text-lg">Mesajınız</label>
-                                <div class="mt-3">
+                            <div className="flex flex-col w-full flex-[1_1_100%] p-3">
+                                <label htmlFor="phone" className="block text-lg">Mesajınız</label>
+                                <div className="mt-3">
                                     <textarea
                                         cols="5"
                                         rows="5"
