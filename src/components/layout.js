@@ -17,10 +17,14 @@ export default function Layout({ children }) {
             <>
                 <AutoScrollTop />
                 <Header />
-                <main className="min-h-[calc(100vh-80px)]">
-                    {pathname !== '/' && (
-                        <Breadcrumb />
-                    )}
+                <main className="min-h-screen">
+                    {(
+                        pathname !== '/' &&
+                        pathname !== '/404' &&
+                        pathname !== '/500'
+                    ) && (
+                            <Breadcrumb />
+                        )}
                     {children}
                 </main>
                 <Footer />
@@ -32,7 +36,7 @@ export default function Layout({ children }) {
             <>
                 <AutoScrollTop />
                 <HeaderKurumsal />
-                <main className="min-h-[calc(100vh-104px)]">
+                <main className="min-h-screen">
                     {children}
                 </main>
                 <FooterKurumsal />

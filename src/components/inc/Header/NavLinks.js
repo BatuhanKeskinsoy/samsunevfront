@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import NavLinksData from '@/data/Json/navLinks';
+import NavLinksData from '@/data/Local/navLinks';
 import NavItem from '@/components/inc/Header/Items/NavItem';
 import { AiOutlineLogin } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import Link from 'next/link';
-import { CiLogout, CiSettings } from 'react-icons/ci';
+import { CiLogout, CiSettings, CiUser } from 'react-icons/ci';
 import Image from 'next/image';
 
 function NavLinks(props) {
@@ -14,27 +14,32 @@ function NavLinks(props) {
     const [isMobile, setIsMobile] = useState(false);
 
     let userImage = ''
+    let userSlug = ''
     let userType = ''
-
     let userTypeText = '';
+    let profileUrl = '';
 
     if (typeof window !== 'undefined' && window.localStorage) {
         userImage = '/' + window.localStorage.getItem('image');
         userType = window.localStorage.getItem('userType');
-
+        userSlug = window.localStorage.getItem('slug');
 
         switch (userType) {
             case '0':
                 userTypeText = 'Kullanıcı';
+                profileUrl = `/${userSlug}`;
                 break;
             case '1':
                 userTypeText = 'Emlak Danışmanı';
+                profileUrl = `/emlak-danismanlari/${userSlug}`;
                 break;
             case '2':
                 userTypeText = 'Emlak Ofisi';
+                profileUrl = `/emlak-ofisleri/${userSlug}`;
                 break;
             default:
-                userTypeText = 'Bilinmeyen Kullanıcı Türü';
+                userTypeText = 'Bilinmeyen Kullanıcı';
+                profileUrl = '';
                 break;
         }
     }
@@ -153,7 +158,7 @@ function NavLinks(props) {
                     </button>
                     <div className={`lg:absolute w-full h-fit lg:gap-y-0 gap-y-8 shadow-lg rounded-b-lg overflow-hidden bg-white gap-x-24 ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
                         <ul className='flex flex-col text-gray-600 min-w-fit w-full relative'>
-                            <li className='group relative flex lg:flex-row flex-col'>
+                            <li className='relative flex lg:flex-row flex-col'>
                                 <Link
                                     onClick={props.navActive}
                                     href={`https://panel.samsunev.com`}
@@ -164,7 +169,18 @@ function NavLinks(props) {
                                     <CiSettings size={20} />
                                 </Link>
                             </li>
-                            <li className='group relative flex lg:flex-row flex-col'>
+                            <li className='relative flex lg:flex-row flex-col'>
+                                <Link
+                                    onClick={props.navActive}
+                                    href={profileUrl}
+                                    title='Profili Görüntüle'
+                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all text-sm justify-between items-center px-4 gap-x-2 w-full'
+                                >
+                                    Profili Görüntüle
+                                    <CiUser size={20} />
+                                </Link>
+                            </li>
+                            <li className='relative flex lg:flex-row flex-col'>
                                 <button
                                     onClick={handleLogout}
                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all text-sm justify-between items-center px-4 gap-x-2 w-full'

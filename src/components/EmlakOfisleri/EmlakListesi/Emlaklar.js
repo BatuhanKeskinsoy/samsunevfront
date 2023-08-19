@@ -13,30 +13,30 @@ function Emlaklar() {
                     <Link href={'/emlak-danismanlari'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Danışmanları</Link>
                 </div>
                 <div className="flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-2">
-                    <div id='Ilce' class="relative min-w-max">
+                    <div id='Ilce' className="relative min-w-max">
                         <select
-                            class="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                            className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
                             placeholder='İlçe Seçiniz'
                         >
-                            <option selected>İlçe Seçiniz</option>
+                            <option value="">İlçe Seçiniz</option>
                             <option value={'İlkadım'}>İlkadım</option>
                             <option value={'Atakum'}>Atakum</option>
                         </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                             <BsChevronDown />
                         </div>
                     </div>
 
-                    <div id='Mahalle' class="relative min-w-max">
+                    <div id='Mahalle' className="relative min-w-max">
                         <select
-                            class="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                            className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
                         >
-                            <option selected>Mahalle Seçiniz</option>
+                            <option value="">Mahalle Seçiniz</option>
                             <option value={'Rasathane'}>Rasathane mah.</option>
                             <option value={'Selahiye'}>Selahiye mah.</option>
                             <option value={'Reşadiye'}>Reşadiye mah.</option>
                         </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                             <BsChevronDown />
                         </div>
                     </div>

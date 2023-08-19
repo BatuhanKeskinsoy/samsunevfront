@@ -118,30 +118,30 @@ function Filtre() {
                         <>
                             <span className='flex text-base'>Adres</span>
 
-                            <div id='Ilce' class="relative">
+                            <div id='Ilce' className="relative">
                                 <select
-                                    class="block w-full px-4 py-2 pr-8 leading-tight bg-white border rounded appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                                    className="block w-full px-4 py-2 pr-8 leading-tight bg-white border rounded appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
                                     placeholder='İlçe Seçiniz'
                                 >
-                                    <option selected>İlçe Seçiniz</option>
+                                    <option value="">İlçe Seçiniz</option>
                                     <option value={'İlkadım'}>İlkadım</option>
                                     <option value={'Atakum'}>Atakum</option>
                                 </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                                     <BsChevronDown />
                                 </div>
                             </div>
 
-                            <div id='Mahalle' class="relative">
+                            <div id='Mahalle' className="relative">
                                 <select
-                                    class="block w-full px-4 py-2 pr-8 leading-tight bg-white border rounded appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                                    className="block w-full px-4 py-2 pr-8 leading-tight bg-white border rounded appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
                                 >
-                                    <option selected>Mahalle Seçiniz</option>
+                                    <option value="">Mahalle Seçiniz</option>
                                     <option value={'Rasathane'}>Rasathane mah.</option>
                                     <option value={'Selahiye'}>Selahiye mah.</option>
                                     <option value={'Reşadiye'}>Reşadiye mah.</option>
                                 </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                                     <BsChevronDown />
                                 </div>
                             </div>
