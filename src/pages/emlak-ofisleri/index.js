@@ -1,8 +1,9 @@
 import Emlaklar from '@/components/EmlakOfisleri/EmlakListesi/Emlaklar'
 import Head from 'next/head'
 import React from 'react'
+import { fetchCompanyData } from '@/data/Api/Companies/Companies'
 
-function index() {
+function index({ companiesData }) {
     return (
         <>
             <Head>
@@ -12,13 +13,27 @@ function index() {
                 <div className="container mx-auto lg:px-0 px-4 pb-8">
                     <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center mb-2">
                         <h1 className='lg:text-3xl text-2xl tracking-wide'>Emlak Ofisleri</h1>
-                        <span className='text-gray-500'>100 Emlak Ofisi Bulundu</span>
+                        <span className='text-gray-500'>{`${companiesData.length} Emlak Ofisi Bulundu`}</span>
                     </div>
-                    <Emlaklar />
+                    <Emlaklar companiesData={companiesData} />
                 </div>
             </section>
         </>
     )
+}
+
+export async function getServerSideProps() {
+    let companiesData = [];
+
+    try {
+        companiesData = await fetchCompanyData();
+    } catch (error) {
+        console.error('Veri Çekme Hatası:', error);
+    }
+
+    return {
+        props: { companiesData },
+    };
 }
 
 export default index
