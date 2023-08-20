@@ -1,24 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item'
 import Link from 'next/link'
 import { BsChevronDown } from 'react-icons/bs'
-
-import { fetchConsultantData } from '@/data/Api/Consultants' // veya dosyanın yoluna göre düzenleyin
 import NoContentFound from '@/components/Others/NoContentFound'
 
-function Danismanlar() {
+function Danismanlar(props) {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
 
-    const [consultantData, setConsultantData] = useState([]);
-    useEffect(() => {
-        fetchConsultantData()
-            .then(data => {
-                setConsultantData(data);
-            })
-            .catch(error => {
-                console.error('Veri Çekme Hatası:', error);
-            });
-    }, []);
+    const consultantData = props.consultantData
 
     return (
         <>

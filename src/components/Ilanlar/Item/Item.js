@@ -40,6 +40,7 @@ function Item(props) {
                         sizes="(max-width: 768px) 100vw, 25vw"
                         title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
                         alt='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
+                        priority
                         className='object-cover object-center transition-all'
                     />
                     <div className='absolute bottom-2 left-2 bg-white py-2 px-4 rounded-md text-base group-hover:bg-site group-hover:text-white tracking-wide transition-all'>7.750.000 ₺</div>

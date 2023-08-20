@@ -48,7 +48,8 @@ function Login(props) {
             const response = await fetch('https://panel.samsunev.com/api/v1/auth/login', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
                 },
                 body: JSON.stringify(Logindata)
             });
@@ -67,8 +68,6 @@ function Login(props) {
                 window.localStorage.setItem('userType', user.userType);
 
                 setIsAuthActive(false);
-
-                console.log(responseData);
 
             } else {
                 // Hata ayıklama için yanıt ayrıntılarını günlüğe kaydedin

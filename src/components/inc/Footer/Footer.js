@@ -258,6 +258,7 @@ function Footer() {
                                     title='logo'
                                     width={355}
                                     height={66}
+                                    priority
                                     className='h-16 w-auto'
                                 />
                             </Link>

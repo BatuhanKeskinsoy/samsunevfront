@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { BsEyeSlash, BsTelephone, BsWhatsapp } from 'react-icons/bs';
 
-
 function Item(props) {
-    const consultant = props.consultant
+
+    const consultant = props.companyProfileData
+    const consultantUser = props.companyConsultant
 
     const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [showWpNumber, setShowWpNumber] = useState(false);
@@ -21,8 +22,8 @@ function Item(props) {
     const router = useRouter();
     const path = `${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`;
 
-    const phoneSlug = consultant.phone ? consultant.phone.replace(/\s/g, '') : '';
-    const wpNumberSlug = consultant.wp_number ? consultant.wp_number.replace(/\s/g, '') : '';
+    const phoneSlug = consultantUser.phone ? consultantUser.phone.replace(/\s/g, '') : '';
+    const wpNumberSlug = consultantUser.wp_number ? consultantUser.wp_number.replace(/\s/g, '') : '';
     const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
 
     return (
@@ -30,14 +31,14 @@ function Item(props) {
             <div className="bg-white rounded-lg shadow-md p-4">
                 <div className="relative flex items-center justify-center py-2">
                     <Link
-                        href={`/emlak-danismanlari/${consultant.slug}`}
-                        title={consultant.name}
+                        href={`/emlak-danismanlari/${consultantUser.slug}`}
+                        title={consultantUser.name}
                         className='relative lg:min-w-[10rem] w-40 lg:h-40 h-32 max-w-full rounded-xl'
                     >
                         <Image
-                            src={`/${consultant.image}`}
-                            title={consultant.name}
-                            alt={consultant.name}
+                            src={`/${consultantUser.image}`}
+                            title={consultantUser.name}
+                            alt={consultantUser.name}
                             fill
                             sizes="(max-width: 768px) 100vw, 10vw"
                             priority
@@ -48,20 +49,20 @@ function Item(props) {
                 <hr className='my-3' />
                 <div className="flex flex-col gap-y-2">
                     <Link
-                        href={`/emlak-danismanlari/${consultant.slug}`}
+                        href={`/emlak-danismanlari/${consultantUser.slug}`}
                         className='font-bold text-site/90 hover:text-site transition-all tracking-wider text-center text-xl'
+                        title={consultantUser.name}
+                    >
+                        {consultantUser.name}
+                    </Link>
+                    <Link
+                        href={`/emlak-ofisleri/${consultant.slug}`}
+                        className='flex justify-center w-full text-gray-500 hover:text-site transition-all -mt-2'
                         title={consultant.name}
                     >
                         {consultant.name}
                     </Link>
-                    <Link
-                        href={`/emlak-ofisleri/${consultant.company.slug}`}
-                        className='flex justify-center w-full text-gray-500 hover:text-site transition-all -mt-2'
-                        title={consultant.company.name}
-                    >
-                        {consultant.company.name}
-                    </Link>
-                    <small className='text-sm text-center text-gray-500'>{consultant.company.neighborhood} / {consultant.company.district}</small>
+                    <small className='text-sm text-center text-gray-500'>{consultant.neighborhood} / {consultant.district}</small>
                     <hr className='my-1' />
                     <div className="flex gap-x-4">
                         <div className="flex-[1_1_50%] flex flex-col items-center gap-y-1">
@@ -74,18 +75,18 @@ function Item(props) {
                         </div>
                     </div>
 
-                    {(consultant.phone || consultant.wp_number) && (
+                    {(consultantUser.phone || consultantUser.wp_number) && (
                         <>
                             <hr className='my-1' />
                             <div className="flex gap-x-2">
-                                {consultant.phone && (
+                                {consultantUser.phone && (
                                     <div className='relative w-full'>
                                         {showPhoneNumber ? (
                                             <Link
                                                 href={`tel:${phoneSlug}`}
                                                 className='flex bg-site/10 text-site py-3 px-4 items-center justify-between rounded-lg hover:bg-site hover:text-white transition-all'>
                                                 <BsTelephone size={16} />
-                                                <span className='lg:text-sm text-xs'>{consultant.phone}</span>
+                                                <span className='lg:text-sm text-xs'>{consultantUser.phone}</span>
                                             </Link>
                                         ) : (
                                             <button
@@ -98,7 +99,7 @@ function Item(props) {
                                     </div>
                                 )}
 
-                                {consultant.wp_number && (
+                                {consultantUser.wp_number && (
                                     <div className='relative w-full'>
                                         {showWpNumber ? (
                                             <Link

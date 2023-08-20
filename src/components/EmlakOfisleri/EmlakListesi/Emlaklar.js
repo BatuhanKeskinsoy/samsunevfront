@@ -2,9 +2,11 @@ import React from 'react'
 import Item from '@/components/EmlakOfisleri/EmlakListesi/Item'
 import Link from 'next/link'
 import { BsChevronDown } from 'react-icons/bs'
+import NoContentFound from '@/components/Others/NoContentFound'
 
-function Emlaklar() {
+function Emlaklar(props) {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
+    const companiesData = props.companiesData
     return (
         <>
             <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center">
@@ -48,17 +50,19 @@ function Emlaklar() {
                 </div>
             </div>
             <hr className='my-3' />
-            <div className="flex flex-wrap">
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-                <Item itemWidth={itemWidth} />
-            </div>
+            {companiesData.length > 0 ? (
+                <div className="flex flex-wrap">
+                    {
+                        companiesData.map((company, index) => (
+                            <Item itemWidth={itemWidth} key={index} company={company} />
+                        ))
+                    }
+                </div>
+            ) : (
+                <div className="lg:text-4xl text-2xl lg:h-96 h-20">
+                    <NoContentFound />
+                </div>
+            )}
         </>
     )
 }
