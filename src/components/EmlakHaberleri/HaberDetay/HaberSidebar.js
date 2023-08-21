@@ -3,7 +3,7 @@ import Tags from '@/components/Others/Tags'
 import React from 'react'
 import { BsShare, BsTags } from 'react-icons/bs'
 
-function HaberSidebar() {
+function HaberSidebar({blogDetail}) {
     return (
         <aside id='HaberSidebar' className='flex-[1_1_25%] lg:mt-0 mt-6 max-w-full gap-y-4 h-full flex flex-col sticky top-4'>
 
@@ -13,7 +13,7 @@ function HaberSidebar() {
                     <BsShare size={20} />
                 </span>
                 <hr />
-                <Shares />
+                <Shares blogDetail={blogDetail} />
             </div>
 
             <div className="flex flex-col gap-y-4 bg-white p-4 rounded-lg shadow-sm">
@@ -22,7 +22,7 @@ function HaberSidebar() {
                     <BsTags size={20} />
                 </span>
                 <hr />
-                <Tags />
+                <Tags blogDetail={blogDetail} />
             </div>
         </aside>
     )
