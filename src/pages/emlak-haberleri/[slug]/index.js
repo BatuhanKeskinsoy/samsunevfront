@@ -1,38 +1,49 @@
-import HaberDetay from '@/components/EmlakHaberleri/HaberDetay/HaberDetay'
-import Head from 'next/head'
-import React from 'react'
+import HaberDetay from '@/components/EmlakHaberleri/HaberDetay/HaberDetay';
+import Head from 'next/head';
+import React from 'react';
 import { fetchBlogDetailData } from '@/data/Api/Blogs/BlogDetail';
+import { useRouter } from 'next/router';
 
-function index({ blogDetailData }) {
+function Index({ blogDetailData }) {
+
+  const router = useRouter();
+  if (!blogDetailData.name)  {
+    if (typeof window !== 'undefined') {
+      router.push('/404');
+    }
+    return null;
+  }
+
   const title = blogDetailData.title || '';
+
   return (
     <>
-        <Head>
-            <title>{`${title} | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
-        </Head>
-        <section>
-            <div className="container mx-auto lg:px-0 px-4">
-                <HaberDetay blogDetailData={blogDetailData} />
-            </div>
-        </section>
-
+      <Head>
+        <title>{`${title} | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
+      </Head>
+      <section>
+        <div className="container mx-auto lg:px-0 px-4">
+          <HaberDetay blogDetailData={blogDetailData} />
+        </div>
+      </section>
     </>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {
-    const { slug } = context.query;
-    let blogDetailData = {};
+  const { slug } = context.query;
+  let blogDetailData = {};
 
-    try {
-      blogDetailData = await fetchBlogDetailData(slug);
-    } catch (error) {
-        console.error('Veri Çekme Hatası:', error);
-    }
+  try {
+    blogDetailData = await fetchBlogDetailData(slug);
+    
+  } catch (error) {
+    console.error('Veri Çekme Hatası:', error);
+  }
 
-    return {
-        props: { blogDetailData },
-    };
+  return {
+    props: { blogDetailData },
+  };
 }
 
-export default index
+export default Index;

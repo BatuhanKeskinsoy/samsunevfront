@@ -2,9 +2,18 @@ import DanismanDetayComponent from '@/components/EmlakDanismanlari/DanismanDetay
 import Head from 'next/head'
 import React from 'react'
 import { fetchConsultantProfileData } from '@/data/Api/Consultants/ConsultantProfile'
+import { useRouter } from 'next/router';
 
 function Index({ consultantProfileData }) {
     const title = consultantProfileData.name || '';
+
+    const router = useRouter();
+    if (!consultantProfileData.name) {
+        if (typeof window !== 'undefined') {
+            router.push('/404');
+        }
+        return null;
+    }
 
     return (
         <>

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Partnership() {
   return (
@@ -29,11 +30,12 @@ function Partnership() {
               height={66}
               className="h-auto w-[600px]"
             />
-            <button 
+            <Link
+              href={'/kurumsal-uyelik'}
               className="w-full ml-auto transition-all justify-center rounded-md py-4 px-8 flex items-center gap-x-2 tracking-wider bg-white hover:bg-site hover:text-white hover:shadow-lg hover:shadow-site/30 text-xl lg:text-2xl"
             >
               Detaylı Bilgi Al
-            </button>
+            </Link>
           </div>
         </div>
       </div>
