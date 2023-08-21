@@ -2,9 +2,18 @@ import EmlakDetayComponent from '@/components/EmlakOfisleri/EmlakDetay/EmlakDeta
 import Head from 'next/head'
 import React from 'react'
 import { fetchCompanyProfileData } from '@/data/Api/Companies/CompanyProfile'
+import { useRouter } from 'next/router';
 
 function Index({ companyProfileData }) {
     const title = companyProfileData.name || '';
+
+    const router = useRouter();
+    if (!companyProfileData.name) {
+        if (typeof window !== 'undefined') {
+            router.push('/404');
+        }
+        return null;
+    }
 
     return (
         <>
