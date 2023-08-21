@@ -4,7 +4,6 @@ function Banner() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
     }
 
     const [formData, setFormData] = useState({

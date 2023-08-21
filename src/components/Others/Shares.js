@@ -10,6 +10,8 @@ import { useRouter } from 'next/router'
 
 function Shares(props) {
 
+    const blogDetail= props.blogDetail
+
     const router = useRouter()
     const pathname = router.pathname
     const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${pathname}`
@@ -18,8 +20,8 @@ function Shares(props) {
         <div className='flex gap-3 flex-wrap'>
             <FacebookShareButton
                 url={fullUrl}
-                quote={props.title}
-                hashtag={props.tags}
+                quote={blogDetail.name}
+                hashtag={blogDetail.tags}
                 windowWidth={800}
                 windowHeight={800}
             >
@@ -28,7 +30,7 @@ function Shares(props) {
 
             <TwitterShareButton
                 url={fullUrl}
-                title={props.title}
+                title={blogDetail.name}
                 windowWidth={800}
                 windowHeight={800}
             >
@@ -37,7 +39,7 @@ function Shares(props) {
 
             <WhatsappShareButton
                 url={fullUrl}
-                title={props.title}
+                title={blogDetail.name}
                 windowWidth={800}
                 windowHeight={800}
             >
@@ -54,7 +56,7 @@ function Shares(props) {
 
             <TelegramShareButton
                 url={fullUrl}
-                title={props.title}
+                title={blogDetail.name}
                 windowWidth={800}
                 windowHeight={800}
             >
@@ -63,7 +65,7 @@ function Shares(props) {
 
             <RedditShareButton
                 url={fullUrl}
-                title={props.title}
+                title={blogDetail.name}
                 windowWidth={800}
                 windowHeight={800}
             >
@@ -72,8 +74,8 @@ function Shares(props) {
 
             <EmailShareButton
                 url={fullUrl}
-                subject={props.title}
-                body={props.description}
+                subject={blogDetail.name}
+                body={blogDetail.short_content}
             >
                 <EmailIcon size={38} round className='hover:scale-125 transition-all' />
             </EmailShareButton>

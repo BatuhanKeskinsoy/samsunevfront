@@ -4,7 +4,15 @@ import React from 'react'
 import { BsCalendarPlus } from 'react-icons/bs'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString('tr-TR', options);
+    return formattedDate;
+}
+
 function Item(props) {
+
+    const blog = props.blog
 
     const months = [
         "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
@@ -14,43 +22,45 @@ function Item(props) {
     return (
         <li className={`${props.itemWidth} md:p-4 p-0 py-4`}>
             <Link
-                href={'/emlak-haberleri/haber-detay'}
-                title='Emlak Haberi'
+                href={`/emlak-haberleri/${blog.slug}`}
+                title={blog.name}
                 className='flex flex-col bg-white rounded-lg overflow-hidden group'
             >
                 <div className="relative h-[200px] w-full overflow-hidden">
                     <Image
-                        src={'/haberler/haber1.png'}
+                        src={`/${blog.image}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 25vw"
-                        title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
-                        alt='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
+                        title={blog.name}
+                        alt={blog.name}
                         className='object-cover object-center transition-all'
                     />
                     <div className='absolute top-2 right-2 bg-white text-sm p-2 flex flex-col items-center rounded-md font-bold'>
                         <span className='text-3xl -my-1'>
-                            {String(new Date().getDate()).padStart(2, '0')}
+                            {String(new Date(blog.created_at).getDate()).padStart(2, '0')}
                         </span>
                         <span className='text-xs mt-0.5'>
-                            {months[new Date().getMonth()]}
+                            {months[new Date(blog.created_at).getMonth()]}
                         </span>
                         <span className='text-sm mt-0.5 -mb-0.5'>
-                            {new Date().getFullYear()}
+                            {new Date(blog.created_at).getFullYear()}
                         </span>
                     </div>
                 </div>
                 <div className="flex flex-col">
                     <div className="p-4 flex flex-col gap-y-2">
                         <h4 className={`${props.titleLineClamp} font-bold tracking-wide text-base group-hover:text-site transition-all`}>
-                            Emlak Haberleri için bir adet blog yazısı blog yazısı blog yazısı
+                            {blog.name}
                         </h4>
-                        <span className='line-clamp-3 text-gray-600 text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta quod quas molestias commodi repudiandae a, consequatur enim error repellat ab quidem itaque omnis qui explicabo eligendi. Unde, fugiat? Nesciunt, pariatur!</span>
+                        <span className='line-clamp-3 text-gray-600 text-sm'>
+                            {blog.short_content}
+                        </span>
                     </div>
                     <hr />
                     <div className="bg-white group-hover:bg-site group-hover:text-white  py-3 px-4 text-sm flex justify-between items-center transition-all text-gray-600">
                         <div className="flex items-center gap-x-2">
                             <BsCalendarPlus />
-                            <span>5 Ağustos 2023</span>
+                            <span>{formatDate(blog.created_at)}</span>
                         </div>
                         <div className="flex justify-between">
                             <span className='tracking-wide group-hover:hidden w-fit'>Haberi Oku</span>
