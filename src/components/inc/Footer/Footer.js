@@ -3,9 +3,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { BsChevronRight } from 'react-icons/bs'
-import { CiMail, CiPhone } from 'react-icons/ci'
-
+import { CiMail } from 'react-icons/ci'
+import { useRouter } from 'next/router'
+import { PiWhatsappLogoLight } from 'react-icons/pi'
 function Footer() {
+
+    const router = useRouter();
+    const path = `${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`;
+
+    const wpNumberSlug = '0546 483 04 29'.replace(/\s/g, '');
+    const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
+
     return (
         <footer className="bg-gray-200 z-10">
             <div className="container mx-auto lg:px-0 px-4 py-6">
@@ -266,10 +274,15 @@ function Footer() {
                                 <CiMail size={26} />
                                 info@samsunev.com
                             </Link>
-                            <Link href='tel:05555555555' className='py-2 flex gap-x-2 items-center hover:text-site transition-all text-lg'>
-                                <CiPhone size={26} />
-                                0555 555 55 55
+
+                            <Link
+                                href={`https://api.whatsapp.com/send?phone=+9${wpNumberSlug}&text=${wpText}`}
+                                target='_blank'
+                                className='py-2 flex gap-x-2 items-center hover:text-site transition-all text-lg'>
+                                <PiWhatsappLogoLight size={26} />
+                                WhatsApp'tan Ulaş
                             </Link>
+
                             <span className='text-2xl tracking-wide my-4'>Bizi Takipte Kalın!</span>
                             <Socials />
                         </div>
