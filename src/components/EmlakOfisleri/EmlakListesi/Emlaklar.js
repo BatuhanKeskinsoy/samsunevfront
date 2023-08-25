@@ -14,6 +14,9 @@ function Emlaklar(props) {
     const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
     const [selectedCountyText, setSelectedCountyText] = useState('');
 
+    const [selectedNeighbourhood, setSelectedNeighbourhood] = useState('');
+    const [selectedNeighbourhoodText, setSelectedNeighbourhoodText] = useState('');
+
     const handleCountyChange = async (e) => {
         const selectedCountyId = e.target.value;
         const selectedCountyName = e.target.options[e.target.selectedIndex].text; // Seçili ilçe adını alma
@@ -33,11 +36,29 @@ function Emlaklar(props) {
             } catch (error) {
                 console.error('Veri Çekme Hatası:', error);
             }
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
         } else {
             setNeighbourhoodData([]); // İlçe seçili değilse, mahalle verilerini temizle
             setSelectedCountyText(''); // İlçe seçimini temizle
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
         }
     };
+
+    const handleNeighbourhoodChange = async (e) => {
+        const selectedNeighbourhoodId = e.target.value;
+        const selectedNeighbourhoodName = e.target.options[e.target.selectedIndex].text; // Seçili mahalle adını alma
+        setSelectedNeighbourhood(selectedNeighbourhoodId);
+        setSelectedNeighbourhoodText(selectedNeighbourhoodName);
+
+        if (!selectedNeighbourhoodId) {
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+        }
+    };
+
+    const filteredCompanies = companiesData.filter(company =>
+        (!selectedCountyText || company.district === selectedCountyText) &&
+        (!selectedNeighbourhoodText || company.neighbourhood === selectedNeighbourhoodText)
+    );
 
     return (
         <>
@@ -52,7 +73,7 @@ function Emlaklar(props) {
                         <div id='Ilce' className="relative min-w-max">
                             <select
                                 className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
-                                placeholder='İlçe Seçiniz'
+                                placeholder='Tüm İlçeler'
                                 onChange={handleCountyChange}
                             >
                                 <option value="">Tüm İlçeler</option>
@@ -70,6 +91,8 @@ function Emlaklar(props) {
                         <div id='Mahalle' className="relative min-w-max">
                             <select
                                 className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                                placeholder='Tüm Mahalleler'
+                                onChange={handleNeighbourhoodChange}
                             >
                                 <option value="">Tüm Mahalleler</option>
                                 {neighbourhoodsData
@@ -92,14 +115,11 @@ function Emlaklar(props) {
                 </div>
             </div>
             <hr className='my-3' />
-            {companiesData.length > 0 ? (
+            {filteredCompanies.length > 0 ? (
                 <div className="flex flex-wrap">
-                    {companiesData
-                        .filter(company => !selectedCountyText || company.district === selectedCountyText)
-                        .map((company, index) => (
-                            <Item itemWidth={itemWidth} key={index} company={company} />
-                        ))
-                    }
+                    {filteredCompanies.map((company, index) => (
+                        <Item itemWidth={itemWidth} key={index} company={company} isPriority={index < 4} />
+                    ))}
                 </div>
             ) : (
                 <div className="lg:text-4xl text-2xl lg:h-96 h-20">

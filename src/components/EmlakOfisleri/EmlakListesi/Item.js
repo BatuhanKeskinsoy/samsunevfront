@@ -7,6 +7,7 @@ import { BsEyeSlash, BsTelephone, BsWhatsapp } from 'react-icons/bs';
 
 function Item(props) {
     const company = props.company
+    const isPriority = props.isPriority
 
     const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [showWpNumber, setShowWpNumber] = useState(false);
@@ -38,7 +39,9 @@ function Item(props) {
                             src={`/${company.image}`}
                             title={company.name}
                             alt={company.name}
+                            sizes="(max-width: 768px) 100vw, 25vw"
                             fill
+                            priority={isPriority}
                             className='object-cover object-center rounded-xl'
                         />
                     </Link>
@@ -52,7 +55,7 @@ function Item(props) {
                     >
                         {company.name}
                     </Link>
-                    <small className='text-sm text-center text-gray-500'>{company.neighborhood} / {company.district}</small>
+                    <small className='text-sm text-center text-gray-500'>{company.neighbourhood} / {company.district}</small>
                     <span className='text-gray-500 text-center text-sm'>{company.users.length} Danışman</span>
                     <hr className='my-1' />
                     <div className="flex gap-x-4">
