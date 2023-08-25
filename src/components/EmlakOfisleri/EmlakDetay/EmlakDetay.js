@@ -29,6 +29,8 @@ function EmlakDetayComponent(props) {
 
     const companyProfileData = props.companyProfileData
 
+    console.log(companyProfileData);
+
     const phoneSlug = companyProfileData.phone ? companyProfileData.phone.replace(/\s/g, '') : '';
     const wpNumberSlug = companyProfileData.wp_number ? companyProfileData.wp_number.replace(/\s/g, '') : '';
     const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
@@ -152,7 +154,17 @@ function EmlakDetayComponent(props) {
                             <EmlakIlanlar />
                         )}
                         {activeTab === 'danismanlar' && (
-                            <EmlakDanismanlariComponent companyProfileData={companyProfileData} />
+                            <>
+                                {
+                                    companyProfileData.users.length > 0 ? (
+                                        <EmlakDanismanlariComponent companyProfileData={companyProfileData} />
+                                    ) : (
+                                        <div className="lg:text-4xl text-2xl lg:h-96 h-20">
+                                            <NoContentFound />
+                                        </div>
+                                    )
+                                }
+                            </>
                         )}
                         {activeTab === 'hakkimizda' && (
                             <>
