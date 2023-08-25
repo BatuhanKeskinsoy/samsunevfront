@@ -62,7 +62,7 @@ function Item(props) {
                     >
                         {consultant.name}
                     </Link>
-                    <small className='text-sm text-center text-gray-500'>{consultant.neighborhood} / {consultant.district}</small>
+                    <small className='text-sm text-center text-gray-500'>{consultant.neighbourhood} / {consultant.district}</small>
                     <hr className='my-1' />
                     <div className="flex gap-x-4">
                         <div className="flex-[1_1_50%] flex flex-col items-center gap-y-1">
