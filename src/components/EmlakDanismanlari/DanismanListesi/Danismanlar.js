@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item';
 import Link from 'next/link';
 import { BsChevronDown } from 'react-icons/bs';
+import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item';
 import NoContentFound from '@/components/Others/NoContentFound';
 
 function Danismanlar(props) {
@@ -12,14 +12,13 @@ function Danismanlar(props) {
     const countiesData = props.countiesData;
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [filteredCompanies, setFilteredCompanies] = useState([]);
+    const [filteredConsultants, setFilteredConsultants] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
 
     const [selectedCounty, setSelectedCounty] = useState('');
     const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
     const [selectedCountyText, setSelectedCountyText] = useState('');
 
-    const [selectedNeighbourhood, setSelectedNeighbourhood] = useState('');
     const [selectedNeighbourhoodText, setSelectedNeighbourhoodText] = useState('');
 
     const [searchText, setSearchText] = useState('');
@@ -40,10 +39,10 @@ function Danismanlar(props) {
                 });
                 const data = await response.json();
                 setNeighbourhoodData(data);
-                setSelectedNeighbourhoodText('');
             } catch (error) {
                 console.error('Veri Çekme Hatası:', error);
             }
+            setSelectedNeighbourhoodText('');
         } else {
             setNeighbourhoodData([]);
             setSelectedCountyText('');
@@ -54,8 +53,11 @@ function Danismanlar(props) {
     const handleNeighbourhoodChange = (e) => {
         const selectedNeighbourhoodId = e.target.value;
         const selectedNeighbourhoodName = e.target.options[e.target.selectedIndex].text;
-        setSelectedNeighbourhood(selectedNeighbourhoodId);
         setSelectedNeighbourhoodText(selectedNeighbourhoodName);
+
+        if (!selectedNeighbourhoodId) {
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+        }
     };
 
     const handleSearchChange = (e) => {
@@ -77,14 +79,14 @@ function Danismanlar(props) {
             (!selectedNeighbourhoodText || consultant.company.neighbourhood === selectedNeighbourhoodText) &&
             (!searchText || consultant.name.toLowerCase().includes(searchText.toLowerCase()))
         );
-        setFilteredCompanies(filtered);
+        setFilteredConsultants(filtered);
         setTotalPages(Math.ceil(filtered.length / itemsPerPage));
         setCurrentPage(1); // Sayfa değiştiğinde ilk sayfaya dön
     }, [selectedCountyText, selectedNeighbourhoodText, searchText, consultantData]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = filteredCompanies.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = filteredConsultants.slice(indexOfFirstItem, indexOfLastItem);
 
     return (
         <>
@@ -143,7 +145,7 @@ function Danismanlar(props) {
                 </div>
             </div>
             <hr className='my-3' />
-            {filteredCompanies.length > 0 ? (
+            {filteredConsultants.length > 0 ? (
                 <div className="flex flex-wrap">
                     {currentItems.map((consultant, index) => (
                         <Item itemWidth={itemWidth} key={index} consultant={consultant} isPriority={index < 4} />

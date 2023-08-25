@@ -30,18 +30,21 @@ export async function getServerSideProps() {
   let countiesData = [];
 
   try {
-    blogsData = await fetchBlogData();
+    blogsData = await fetchBlogData({ limit: 4 });
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }
 
   try {
-    countiesData = await fetchCountyData();
+    countiesData = await fetchCountyData({ limit: 6 });
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }
 
   return {
-    props: { blogsData, countiesData },
+    props: {
+      blogsData: blogsData.slice(0, 4),
+      countiesData: countiesData.slice(0, 6)
+    },
   };
 }
