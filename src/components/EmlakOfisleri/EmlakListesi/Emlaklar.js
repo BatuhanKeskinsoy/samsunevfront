@@ -12,10 +12,13 @@ function Emlaklar(props) {
 
     const [selectedCounty, setSelectedCounty] = useState('');
     const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
+    const [selectedCountyText, setSelectedCountyText] = useState('');
 
     const handleCountyChange = async (e) => {
         const selectedCountyId = e.target.value;
+        const selectedCountyName = e.target.options[e.target.selectedIndex].text; // Seçili ilçe adını alma
         setSelectedCounty(selectedCountyId);
+        setSelectedCountyText(selectedCountyName);
 
         if (selectedCountyId) {
             try {

@@ -29,8 +29,6 @@ function EmlakDetayComponent(props) {
 
     const companyProfileData = props.companyProfileData
 
-    console.log(companyProfileData);
-
     const phoneSlug = companyProfileData.phone ? companyProfileData.phone.replace(/\s/g, '') : '';
     const wpNumberSlug = companyProfileData.wp_number ? companyProfileData.wp_number.replace(/\s/g, '') : '';
     const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
