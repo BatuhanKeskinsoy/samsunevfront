@@ -35,6 +35,7 @@ function Emlaklar(props) {
             }
         } else {
             setNeighbourhoodData([]); // İlçe seçili değilse, mahalle verilerini temizle
+            setSelectedCountyText(''); // İlçe seçimini temizle
         }
     };
 
@@ -54,7 +55,7 @@ function Emlaklar(props) {
                                 placeholder='İlçe Seçiniz'
                                 onChange={handleCountyChange}
                             >
-                                <option value="">İlçe Seçiniz</option>
+                                <option value="">Tüm İlçeler</option>
                                 {countiesData.map((county, index) => (
                                     <option value={county.county_id} key={index}>{county.county}</option>
                                 ))}
@@ -70,7 +71,7 @@ function Emlaklar(props) {
                             <select
                                 className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
                             >
-                                <option value="">Mahalle Seçiniz</option>
+                                <option value="">Tüm Mahalleler</option>
                                 {neighbourhoodsData
                                     .filter(neighbourhood => neighbourhood.county_id === parseInt(selectedCounty))
                                     .map((neighbourhood, index) => (
@@ -93,9 +94,12 @@ function Emlaklar(props) {
             <hr className='my-3' />
             {companiesData.length > 0 ? (
                 <div className="flex flex-wrap">
-                    {companiesData.map((company, index) => (
-                        <Item itemWidth={itemWidth} key={index} company={company} />
-                    ))}
+                    {companiesData
+                        .filter(company => !selectedCountyText || company.district === selectedCountyText)
+                        .map((company, index) => (
+                            <Item itemWidth={itemWidth} key={index} company={company} />
+                        ))
+                    }
                 </div>
             ) : (
                 <div className="lg:text-4xl text-2xl lg:h-96 h-20">
