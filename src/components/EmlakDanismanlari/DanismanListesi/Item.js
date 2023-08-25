@@ -7,6 +7,7 @@ import { BsEyeSlash, BsTelephone, BsWhatsapp } from 'react-icons/bs';
 
 function Item(props) {
     const consultant = props.consultant
+    const isPriority = props.isPriority
 
     const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [showWpNumber, setShowWpNumber] = useState(false);
@@ -39,8 +40,8 @@ function Item(props) {
                             title={consultant.name}
                             alt={consultant.name}
                             fill
-                            sizes="(max-width: 768px) 100vw, 10vw"
-                            priority
+                            sizes="(max-width: 768px) 100vw, 25vw"
+                            priority={isPriority}
                             className='object-cover object-top rounded-xl'
                         />
                     </Link>

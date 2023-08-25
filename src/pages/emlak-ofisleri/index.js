@@ -3,9 +3,8 @@ import Head from 'next/head'
 import React from 'react'
 import { fetchCompanyData } from '@/data/Api/Companies/Companies'
 import { fetchCountyData } from '@/data/Api/Counties/Counties'
-import { fetchNeighboorhoodData } from '@/data/Api/Neighbourhoods/Neighbourhoods'
 
-function index({ companiesData, countiesData, neighbourhoodsData }) {
+function index({ companiesData, countiesData }) {
     return (
         <>
             <Head>

@@ -2,8 +2,9 @@ import Danismanlar from '@/components/EmlakDanismanlari/DanismanListesi/Danisman
 import Head from 'next/head'
 import React from 'react'
 import { fetchConsultantData } from '@/data/Api/Consultants/Consultants'
+import { fetchCountyData } from '@/data/Api/Counties/Counties'
 
-function Index({ consultantData }) {
+function Index({ consultantData, countiesData }) {
     return (
         <>
             <Head>
@@ -15,7 +16,7 @@ function Index({ consultantData }) {
                         <h1 className='lg:text-3xl text-2xl tracking-wide'>Emlak Danışmanları</h1>
                         <span className='text-gray-500'>{`${consultantData.length} Emlak Danışmanı Bulundu`}</span>
                     </div>
-                    <Danismanlar consultantData={consultantData} />
+                    <Danismanlar consultantData={consultantData} countiesData={countiesData} />
                 </div>
             </section>
         </>
@@ -24,6 +25,7 @@ function Index({ consultantData }) {
 
 export async function getServerSideProps() {
     let consultantData = [];
+    let countiesData = [];
 
     try {
         consultantData = await fetchConsultantData();
@@ -31,8 +33,14 @@ export async function getServerSideProps() {
         console.error('Veri Çekme Hatası:', error);
     }
 
+    try {
+        countiesData = await fetchCountyData();
+    } catch (error) {
+        console.error('Veri Çekme Hatası:', error);
+    }
+
     return {
-        props: { consultantData },
+        props: { consultantData, countiesData },
     };
 }
 

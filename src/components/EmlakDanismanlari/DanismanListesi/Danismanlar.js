@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item'
 import Link from 'next/link'
 import { BsChevronDown } from 'react-icons/bs'
@@ -8,6 +8,57 @@ function Danismanlar(props) {
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
 
     const consultantData = props.consultantData
+    const countiesData = props.countiesData;
+
+    const [selectedCounty, setSelectedCounty] = useState('');
+    const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
+    const [selectedCountyText, setSelectedCountyText] = useState('');
+
+    const [selectedNeighbourhood, setSelectedNeighbourhood] = useState('');
+    const [selectedNeighbourhoodText, setSelectedNeighbourhoodText] = useState('');
+
+    const handleCountyChange = async (e) => {
+        const selectedCountyId = e.target.value;
+        const selectedCountyName = e.target.options[e.target.selectedIndex].text; // Seçili ilçe adını alma
+        setSelectedCounty(selectedCountyId);
+        setSelectedCountyText(selectedCountyName);
+
+        if (selectedCountyId) {
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/lists?county_id=${selectedCountyId}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
+                    }
+                });
+                const data = await response.json();
+                setNeighbourhoodData(data);
+            } catch (error) {
+                console.error('Veri Çekme Hatası:', error);
+            }
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+        } else {
+            setNeighbourhoodData([]); // İlçe seçili değilse, mahalle verilerini temizle
+            setSelectedCountyText(''); // İlçe seçimini temizle
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+        }
+    };
+
+    const handleNeighbourhoodChange = async (e) => {
+        const selectedNeighbourhoodId = e.target.value;
+        const selectedNeighbourhoodName = e.target.options[e.target.selectedIndex].text; // Seçili mahalle adını alma
+        setSelectedNeighbourhood(selectedNeighbourhoodId);
+        setSelectedNeighbourhoodText(selectedNeighbourhoodName);
+
+        if (!selectedNeighbourhoodId) {
+            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+        }
+    };
+
+    const filteredCompanies = consultantData.filter(consultant =>
+        (!selectedCountyText || consultant.company.district === selectedCountyText) &&
+        (!selectedNeighbourhoodText || consultant.company.neighbourhood === selectedNeighbourhoodText)
+    );
 
     return (
         <>
@@ -17,33 +68,45 @@ function Danismanlar(props) {
                     <Link href={'/emlak-ofisleri'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Ofisleri</Link>
                 </div>
                 <div className="flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-2">
-                    <div id='Ilce' className="relative min-w-max">
-                        <select
-                            className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
-                            placeholder='İlçe Seçiniz'
-                        >
-                            <option value="">İlçe Seçiniz</option>
-                            <option value={'İlkadım'}>İlkadım</option>
-                            <option value={'Atakum'}>Atakum</option>
-                        </select>
-                        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                            <BsChevronDown />
-                        </div>
-                    </div>
 
-                    <div id='Mahalle' className="relative min-w-max">
-                        <select
-                            className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
-                        >
-                            <option value="">Mahalle Seçiniz</option>
-                            <option value={'Rasathane'}>Rasathane mah.</option>
-                            <option value={'Selahiye'}>Selahiye mah.</option>
-                            <option value={'Reşadiye'}>Reşadiye mah.</option>
-                        </select>
-                        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                            <BsChevronDown />
+                    {countiesData.length > 0 && (
+                        <div id='Ilce' className="relative min-w-max">
+                            <select
+                                className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                                placeholder='Tüm İlçeler'
+                                onChange={handleCountyChange}
+                            >
+                                <option value="">Tüm İlçeler</option>
+                                {countiesData.map((county, index) => (
+                                    <option value={county.county_id} key={index}>{county.county}</option>
+                                ))}
+                            </select>
+                            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <BsChevronDown />
+                            </div>
                         </div>
-                    </div>
+                    )}
+
+                    {neighbourhoodsData && selectedCounty && (
+                        <div id='Mahalle' className="relative min-w-max">
+                            <select
+                                className="block w-full px-4 py-2 pr-8 leading-normal text-sm bg-white border h-10 rounded-lg appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-site/30"
+                                placeholder='Tüm Mahalleler'
+                                onChange={handleNeighbourhoodChange}
+                            >
+                                <option value="">Tüm Mahalleler</option>
+                                {neighbourhoodsData
+                                    .filter(neighbourhood => neighbourhood.county_id === parseInt(selectedCounty))
+                                    .map((neighbourhood, index) => (
+                                        <option value={neighbourhood.neighbourhood_id} key={index}>{neighbourhood.neighbourhood}</option>
+                                    ))}
+                            </select>
+                            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                <BsChevronDown />
+                            </div>
+                        </div>
+                    )}
+
                     <input
                         type="text"
                         placeholder='Emlak Danışmanı Arayın'
@@ -52,18 +115,16 @@ function Danismanlar(props) {
                 </div>
             </div>
             <hr className='my-3' />
-            {consultantData.length > 0 ? (
+            {filteredCompanies.length > 0 ? (
                 <div className="flex flex-wrap">
-                    {
-                        consultantData.map((consultant, index) => (
-                            <Item itemWidth={itemWidth} key={index} consultant={consultant} />
-                        ))
-                    }
+                    {filteredCompanies.map((consultant, index) => (
+                        <Item itemWidth={itemWidth} key={index} consultant={consultant} isPriority={index < 4} />
+                    ))}
                 </div>
             ) : (
-            <div className="lg:text-4xl text-2xl lg:h-96 h-20">
-                <NoContentFound />
-            </div>
+                <div className="lg:text-4xl text-2xl lg:h-96 h-20">
+                    <NoContentFound />
+                </div>
             )}
         </>
     )
