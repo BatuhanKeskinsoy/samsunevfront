@@ -15,13 +15,13 @@ function index({ blogsData }) {
                 <div className="container mx-auto lg:px-0 px-4">
                     <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center mb-2">
                         <h1 className='lg:text-3xl text-2xl tracking-wide'>Emlak Haberleri</h1>
-                        <span className='text-gray-500'>{blogsData.data.length} Emlak Haberi Bulundu</span>
+                        <span className='text-gray-500'>{blogsData.length} Emlak Haberi Bulundu</span>
                     </div>
 
-                    {blogsData.data.length > 0 ? (
+                    {blogsData.length > 0 ? (
                         <ul className="flex flex-wrap">
                             {
-                                blogsData.data.map((blog, index) => (
+                                blogsData.map((blog, index) => (
                                     <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-3'} blog={blog} key={index} />
                                 ))
                             }

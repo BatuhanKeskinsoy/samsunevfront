@@ -1,18 +1,20 @@
-import React from 'react'
-import Item from '@/components/EmlakHaberleri/Item'
-import Link from 'next/link'
-import { AiOutlineDoubleRight } from 'react-icons/ai'
+import React from 'react';
+import Item from '@/components/EmlakHaberleri/Item';
+import Link from 'next/link';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 function EmlakHaberleri({ blogsData }) {
+    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full';
 
-    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
+    const firstFourBlogs = blogsData.slice(0, 4); // İlk 4 blogu seç
+
     return (
         <>
-            {blogsData.data.length > 0 && (
+            {firstFourBlogs.length > 0 && (
                 <section id='OneCikanIlanlar' className='lg:my-12 my-6'>
                     <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Emlak Haberleri</h2>
                     <ul className="flex flex-wrap">
-                        {blogsData.data.slice(0, 4).map((blog, index) => (
+                        {firstFourBlogs.map((blog, index) => (
                             <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} blog={blog} key={index} />
                         ))}
                         <div className='w-full lg:mt-8'>
@@ -24,12 +26,11 @@ function EmlakHaberleri({ blogsData }) {
                                 <AiOutlineDoubleRight size={24} />
                             </Link>
                         </div>
-
                     </ul>
                 </section>
             )}
         </>
-    )
+    );
 }
 
-export default EmlakHaberleri
+export default EmlakHaberleri;
