@@ -1,6 +1,6 @@
 export async function fetchCompanyData() {
     try {
-        const response = await fetch('http://panel.samsunev.com/api/v1/companies/users', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/companies/users`, {
             headers: {
                 'Content-Type': 'application/json',
                 'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY

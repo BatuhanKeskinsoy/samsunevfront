@@ -1,6 +1,6 @@
 export async function fetchConsultantData() {
     try {
-        const response = await fetch('http://panel.samsunev.com/api/v1/consultant/users', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/consultant/users`, {
             headers: {
                 'Content-Type': 'application/json',
                 'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY

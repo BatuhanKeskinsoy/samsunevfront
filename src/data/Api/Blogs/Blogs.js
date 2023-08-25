@@ -1,6 +1,6 @@
 export async function fetchBlogData() {
     try {
-        const response = await fetch('http://panel.samsunev.com/api/v1/blog/lists', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/blog/lists`, {
             headers: {
                 'Content-Type': 'application/json',
                 'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
