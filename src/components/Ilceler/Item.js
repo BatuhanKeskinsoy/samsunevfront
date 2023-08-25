@@ -12,7 +12,7 @@ function Item({ county }) {
             >
                 <div className="relative h-[250px] w-full overflow-hidden">
                     <Image
-                        src={`/${county.image}`}
+                        src={`/ilceler/${county.image}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 15vw"
                         title={`Samsun ${county.county} Satılık Daireler`}

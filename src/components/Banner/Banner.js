@@ -16,19 +16,19 @@ function Banner() {
     return (
         <section id="banner" className="relative lg:h-[670px] lg:py-16 py-8 flex items-center justify-center lg:px-0 px-4">
             <Image
-                src={'/banner/samsunBanner.png'}
+                src={'/banner/bannerSVG.svg'}
                 title="Samsun"
                 alt="Samsun"
                 sizes="(max-width: 768px) 100vw, 100vw"
                 fill
                 priority
-                className="object-cover w-full -z-10"
+                className="object-cover object-left lg:object-center w-full -z-10"
             />
-            <div className='absolute w-full h-full transition-all bg-gradient-to-t from-black/30 -z-10'></div>
+            <div className='absolute w-full h-full transition-all bg-gradient-to-b from-black/70 to-black/10 -z-10'></div>
             <div className="container mx-auto flex flex-col lg:gap-y-2 gap-y-4 w-full lg:-mt-32">
                 <div className="flex flex-col gap-y-4 pb-10">
-                    <h1 className='lg:text-5xl text-3xl text-center leading-snug text-white drop-shadow-md'>Samsun <strong className='text-site'>Satılık Daire</strong>, Samsun <strong className='text-site'>Kiralık Daire</strong></h1>
-                    <p className='text-center text-white drop-shadow-md text-2xl'>ve daha fazlası...</p>
+                    <h1 className='lg:text-5xl text-3xl text-center text-white leading-relaxed'>Samsun <strong className='bg-site text-white px-4 rounded-2xl'>Satılık Daire</strong> Samsun <strong className='bg-site text-white px-4 rounded-2xl'>Kiralık Daire</strong></h1>
+                    <p className='text-center text-white drop-shadow-md text-2xl mt-2'>ve daha fazlası...</p>
                 </div>
                 <div id='bannerNav' className="flex w-fit lg:gap-x-4 gap-x-2 max-w-full overflow-x-auto rounded-md lg:py-2 lg:text-xl text-base">
                     <button
