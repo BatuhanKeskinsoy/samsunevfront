@@ -40,7 +40,8 @@
   .danismanlarDiv::-webkit-scrollbar,
   #footerNav::-webkit-scrollbar,
   #bannerNav::-webkit-scrollbar,
-  #KurumsalHeaderButtons::-webkit-scrollbar{
+  #KurumsalHeaderButtons::-webkit-scrollbar,
+  .pagination::-webkit-scrollbar{
     @apply h-0
   }
   

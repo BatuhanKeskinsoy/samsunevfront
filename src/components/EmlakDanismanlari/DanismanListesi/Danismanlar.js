@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
-import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item'
-import Link from 'next/link'
-import { BsChevronDown } from 'react-icons/bs'
-import NoContentFound from '@/components/Others/NoContentFound'
+import React, { useState, useEffect, useRef } from 'react';
+import Item from '@/components/EmlakDanismanlari/DanismanListesi/Item';
+import Link from 'next/link';
+import { BsChevronDown } from 'react-icons/bs';
+import NoContentFound from '@/components/Others/NoContentFound';
 
 function Danismanlar(props) {
-    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
+    const itemsPerPage = 12;
+    const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full';
 
-    const consultantData = props.consultantData
+    const consultantData = props.consultantData;
     const countiesData = props.countiesData;
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [filteredCompanies, setFilteredCompanies] = useState([]);
+    const [totalPages, setTotalPages] = useState(0);
 
     const [selectedCounty, setSelectedCounty] = useState('');
     const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
@@ -17,9 +22,11 @@ function Danismanlar(props) {
     const [selectedNeighbourhood, setSelectedNeighbourhood] = useState('');
     const [selectedNeighbourhoodText, setSelectedNeighbourhoodText] = useState('');
 
+    const [searchText, setSearchText] = useState('');
+
     const handleCountyChange = async (e) => {
         const selectedCountyId = e.target.value;
-        const selectedCountyName = e.target.options[e.target.selectedIndex].text; // Seçili ilçe adını alma
+        const selectedCountyName = e.target.options[e.target.selectedIndex].text;
         setSelectedCounty(selectedCountyId);
         setSelectedCountyText(selectedCountyName);
 
@@ -33,36 +40,55 @@ function Danismanlar(props) {
                 });
                 const data = await response.json();
                 setNeighbourhoodData(data);
+                setSelectedNeighbourhoodText('');
             } catch (error) {
                 console.error('Veri Çekme Hatası:', error);
             }
-            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
         } else {
-            setNeighbourhoodData([]); // İlçe seçili değilse, mahalle verilerini temizle
-            setSelectedCountyText(''); // İlçe seçimini temizle
-            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+            setNeighbourhoodData([]);
+            setSelectedCountyText('');
+            setSelectedNeighbourhoodText('');
         }
     };
 
-    const handleNeighbourhoodChange = async (e) => {
+    const handleNeighbourhoodChange = (e) => {
         const selectedNeighbourhoodId = e.target.value;
-        const selectedNeighbourhoodName = e.target.options[e.target.selectedIndex].text; // Seçili mahalle adını alma
+        const selectedNeighbourhoodName = e.target.options[e.target.selectedIndex].text;
         setSelectedNeighbourhood(selectedNeighbourhoodId);
         setSelectedNeighbourhoodText(selectedNeighbourhoodName);
+    };
 
-        if (!selectedNeighbourhoodId) {
-            setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const itemsRef = useRef(null);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        if (itemsRef.current) {
+            itemsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
-    const filteredCompanies = consultantData.filter(consultant =>
-        (!selectedCountyText || consultant.company.district === selectedCountyText) &&
-        (!selectedNeighbourhoodText || consultant.company.neighbourhood === selectedNeighbourhoodText)
-    );
+    useEffect(() => {
+        const filtered = consultantData.filter(consultant =>
+            (!selectedCountyText || consultant.company.district === selectedCountyText) &&
+            (!selectedNeighbourhoodText || consultant.company.neighbourhood === selectedNeighbourhoodText) &&
+            (!searchText || consultant.name.toLowerCase().includes(searchText.toLowerCase()))
+        );
+        setFilteredCompanies(filtered);
+        setTotalPages(Math.ceil(filtered.length / itemsPerPage));
+        setCurrentPage(1); // Sayfa değiştiğinde ilk sayfaya dön
+    }, [selectedCountyText, selectedNeighbourhoodText, searchText, consultantData]);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredCompanies.slice(indexOfFirstItem, indexOfLastItem);
 
     return (
         <>
-            <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center">
+            <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center" ref={itemsRef}>
                 <div className="danismanlarDiv flex flex-row shadow-lg rounded-lg overflow-hidden text-center justify-start items-center overflow-x-auto">
                     <div className='bg-white py-2 px-4 opacity-50 cursor-not-allowed lg:w-fit w-full min-w-max'>Emlak Danışmanları</div>
                     <Link href={'/emlak-ofisleri'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Ofisleri</Link>
@@ -111,13 +137,15 @@ function Danismanlar(props) {
                         type="text"
                         placeholder='Emlak Danışmanı Arayın'
                         className='tracking-wider rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm transition-all px-4 w-[400px] max-w-full'
+                        value={searchText}
+                        onChange={handleSearchChange}
                     />
                 </div>
             </div>
             <hr className='my-3' />
             {filteredCompanies.length > 0 ? (
                 <div className="flex flex-wrap">
-                    {filteredCompanies.map((consultant, index) => (
+                    {currentItems.map((consultant, index) => (
                         <Item itemWidth={itemWidth} key={index} consultant={consultant} isPriority={index < 4} />
                     ))}
                 </div>
@@ -126,6 +154,20 @@ function Danismanlar(props) {
                     <NoContentFound />
                 </div>
             )}
+            <div className="pagination flex items-center gap-x-2 mt-8 w-full lg:justify-center justify-start overflow-x-auto">
+                {Array.from({ length: totalPages }, (_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handlePageChange(index + 1)}
+                        className={`min-w-[2.5rem] w-10 h-10 hover:bg-site hover:text-white text-xl rounded-full transition-all ${currentPage === index + 1 ?
+                            'bg-site text-white' :
+                            'bg-white text-site'}`
+                        }
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+            </div>
         </>
     )
 }

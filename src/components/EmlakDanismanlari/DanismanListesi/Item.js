@@ -50,7 +50,7 @@ function Item(props) {
                 <div className="flex flex-col gap-y-2">
                     <Link
                         href={`/emlak-danismanlari/${consultant.slug}`}
-                        className='font-bold text-site/90 hover:text-site transition-all tracking-wider text-center text-xl'
+                        className='font-bold text-site/90 hover:text-site transition-all tracking-wider text-center text-lg line-clamp-1'
                         title={consultant.name}
                     >
                         {consultant.name}
@@ -85,15 +85,15 @@ function Item(props) {
                                             <Link
                                                 href={`tel:${phoneSlug}`}
                                                 className='flex bg-site/10 text-site py-3 px-4 items-center justify-between rounded-lg hover:bg-site hover:text-white transition-all'>
-                                                <BsTelephone size={16} />
-                                                <span className='lg:text-sm text-xs'>{consultant.phone}</span>
+                                                <BsTelephone size={13} />
+                                                <span className='text-xs'>{consultant.phone}</span>
                                             </Link>
                                         ) : (
                                             <button
                                                 onClick={togglePhoneNumber}
                                                 className='w-full flex bg-site/10 text-site py-3 px-4 items-center justify-between rounded-lg hover:bg-site/20 transition-all'>
-                                                <BsEyeSlash size={16} />
-                                                <span className='lg:text-sm text-xs'>Numara</span>
+                                                <BsEyeSlash size={13} />
+                                                <span className='text-xs'>Numara</span>
                                             </button>
                                         )}
                                     </div>
@@ -106,15 +106,15 @@ function Item(props) {
                                                 href={`https://api.whatsapp.com/send?phone=+9${wpNumberSlug}&text=${wpText}`}
                                                 target='_blank'
                                                 className='flex bg-green-400/20 text-green-600 py-3 px-4 items-center justify-between rounded-lg hover:bg-green-400 hover:text-white transition-all'>
-                                                <BsWhatsapp size={16} />
-                                                <span className='lg:text-sm text-xs'>Mesaj Gönder</span>
+                                                <BsWhatsapp size={13} />
+                                                <span className='text-xs'>Mesaj Gönder</span>
                                             </Link>
                                         ) : (
                                             <button
                                                 onClick={toggleWpNumber}
                                                 className='w-full flex bg-green-400/20 text-green-600 py-3 px-4 items-center justify-between rounded-lg hover:bg-green-400/30 transition-all'>
-                                                <BsEyeSlash size={16} />
-                                                <span className='lg:text-sm text-xs'>WhatsApp</span>
+                                                <BsEyeSlash size={13} />
+                                                <span className='text-xs'>WhatsApp</span>
                                             </button>
                                         )}
                                     </div>
