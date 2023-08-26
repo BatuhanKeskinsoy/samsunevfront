@@ -17,6 +17,8 @@ function Footer() {
                             src={'/logo/logo-white.svg'}
                             width={355}
                             height={66}
+                            alt='Kurumsal Üyelik Logo'
+                            title='Kurumsal Üyelik Logo'
                             className='h-12 w-auto'
                         />
                     </Link>

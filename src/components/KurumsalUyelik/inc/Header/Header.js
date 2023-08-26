@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { BsChevronRight } from 'react-icons/bs';
+import Loading from '@/components/Loading'
 
 function Header() {
     const [activeButton, setActiveButton] = useState('button-banner'); // Set initial state here
@@ -58,53 +59,58 @@ function Header() {
     }, [activeButton]);
 
     return (
-        <header className='bg-blue-950 text-white'>
-            <div className="lg:h-[104px] h-[144px] flex justify-start">
-                <div className="flex lg:flex-row flex-col items-center justify-between bg-blue-950 fixed top-0 w-full z-10">
-                    <Link href={''} className='block lg:p-6 p-4'>
-                        <Image
-                            src={'/logo/logo-white.svg'}
-                            width={355}
-                            height={66}
-                            className='h-14 w-auto'
-                        />
-                    </Link>
-                    <div
-                        ref={buttonContainerRef}
-                        id='KurumsalHeaderButtons'
-                        className="flex justify-start items-center w-full lg:w-fit overflow-x-auto scroll-smooth"
-                    >
-                        <button
-                            id="button-banner"
-                            className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-banner' ? 'bg-site' : ''}`}
-                            onClick={() => handleButtonClick('KurumsalUyelik')}
-                        >
-                            Kurumsal Üyelik
-                        </button>
-                        <button
-                            id="button-hizmetler"
-                            className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-hizmetler' ? 'bg-site' : ''}`}
-                            onClick={() => handleButtonClick('KurumsalHizmetler')}
-                        >
-                            Hizmetler
-                        </button>
-                        <button
-                            id="button-nedenUcretsiz"
-                            className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-nedenUcretsiz' ? 'bg-site' : ''}`}
-                            onClick={() => handleButtonClick('NedenUcretsiz')}
-                        >
-                            Neden Ücretsiz ?
-                        </button>
-                    </div>
-                    <div className="lg:relative bg-blue-950 lg:flex hidden px-4">
-                        <Link href={'/'} className='flex items-center justify-between w-full text-2xl gap-x-2 uppercase tracking-wider lg:hover:scale-110 transition-all'>
-                            SİTEYE GİT
-                            <BsChevronRight size={32} />
+        <>
+            <Loading />
+            <header className='bg-blue-950 text-white'>
+                <div className="lg:h-[104px] h-[144px] flex justify-start">
+                    <div className="flex lg:flex-row flex-col items-center justify-between bg-blue-950 fixed top-0 w-full z-10">
+                        <Link href={''} className='block lg:p-6 p-4' title='Kurumsal Üyelik Anasayfa'>
+                            <Image
+                                src={'/logo/logo-white.svg'}
+                                width={355}
+                                height={66}
+                                alt='Kurumsal Üyelik Logo'
+                                title='Kurumsal Üyelik Logo'
+                                className='h-14 w-auto'
+                            />
                         </Link>
+                        <div
+                            ref={buttonContainerRef}
+                            id='KurumsalHeaderButtons'
+                            className="flex justify-start items-center w-full lg:w-fit overflow-x-auto scroll-smooth"
+                        >
+                            <button
+                                id="button-banner"
+                                className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-banner' ? 'bg-site' : ''}`}
+                                onClick={() => handleButtonClick('KurumsalUyelik')}
+                            >
+                                Kurumsal Üyelik
+                            </button>
+                            <button
+                                id="button-hizmetler"
+                                className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-hizmetler' ? 'bg-site' : ''}`}
+                                onClick={() => handleButtonClick('KurumsalHizmetler')}
+                            >
+                                Hizmetler
+                            </button>
+                            <button
+                                id="button-nedenUcretsiz"
+                                className={`px-6 py-4 h-full lg:rounded-md min-w-max ${activeButton === 'button-nedenUcretsiz' ? 'bg-site' : ''}`}
+                                onClick={() => handleButtonClick('NedenUcretsiz')}
+                            >
+                                Neden Ücretsiz ?
+                            </button>
+                        </div>
+                        <div className="lg:relative bg-blue-950 lg:flex hidden px-4">
+                            <Link href={'/'} className='flex items-center justify-between w-full text-2xl gap-x-2 uppercase tracking-wider lg:hover:scale-110 transition-all'>
+                                SİTEYE GİT
+                                <BsChevronRight size={32} />
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </>
     )
 }
 

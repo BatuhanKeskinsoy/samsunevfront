@@ -3,22 +3,27 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Local test URL (örneğin, /api/*)
-        source: "/api/v1/auth/login", // Örnek bir yol (path) belirtildi, siz gerçek yolu belirtmelisiniz
+        source: "/api/v1/(.*)", // Tüm /api/v1/* yollarını kapsayacak şekilde ayarlandı
         headers: [
           {
             key: "Access-Control-Allow-Origin",
             value: "http://localhost:3000",
           },
-        ],
-      },
-      {
-        // Canlı sunucunuzun URL'i (örneğin, /api/*)
-        source: "/api/v1/auth/login", // Örnek bir yol (path) belirtildi, siz gerçek yolu belirtmelisiniz
-        headers: [
           {
             key: "Access-Control-Allow-Origin",
             value: "https://panel.samsunev.com",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "http://panel.samsunev.com",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, PUT, DELETE, OPTIONS", // İzin verilen HTTP metodları
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value: "X-Requested-With, Content-Type, Accept, HTTP_VERIFY", // İzin verilen başlıklar
           },
         ],
       },

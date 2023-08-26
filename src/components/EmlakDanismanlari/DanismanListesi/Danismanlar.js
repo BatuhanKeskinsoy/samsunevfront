@@ -156,19 +156,21 @@ function Danismanlar(props) {
                     <NoContentFound />
                 </div>
             )}
-            <div className="pagination flex items-center gap-x-2 mt-8 w-full lg:justify-center justify-start overflow-x-auto">
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handlePageChange(index + 1)}
-                        className={`min-w-[2.5rem] w-10 h-10 hover:bg-site hover:text-white text-xl rounded-full transition-all ${currentPage === index + 1 ?
-                            'bg-site text-white' :
-                            'bg-white text-site'}`
-                        }
-                    >
-                        {index + 1}
-                    </button>
-                ))}
+            <div className="flex w-full justify-center my-8">
+                <div className="pagination flex items-center gap-x-2 justify-start overflow-x-auto pb-3">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handlePageChange(index + 1)}
+                            className={`min-w-[2.5rem] w-10 h-10 hover:bg-site hover:text-white text-xl rounded-full transition-all ${currentPage === index + 1 ?
+                                'bg-site text-white' :
+                                'bg-white text-site'}`
+                            }
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
             </div>
         </>
     )
