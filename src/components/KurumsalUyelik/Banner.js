@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import SweetAlert2 from 'react-sweetalert2'
+import SweetAlert2 from 'react-sweetalert2';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 function Banner() {
     async function handleSubmit(event) {
@@ -14,7 +15,35 @@ function Banner() {
                 body: JSON.stringify(formData)
             });
             const data = await response.json();
-            console.error('Durum :', data);
+
+            if (data.error == false) {
+                Swal.fire({
+                    title: 'Tebrikler',
+                    text: data.message,
+                    icon: 'success',
+                    confirmButtonText: 'Tamam',
+                    customClass: {
+                        confirmButton: 'sweetButtonColor'
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    title: 'Hata',
+                    text: data.message,
+                    icon: 'error',
+                    confirmButtonText: 'Tamam',
+                    customClass: {
+                        confirmButton: 'sweetButtonColor'
+                    }
+                });
+            }
+
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+            })
 
         } catch (error) {
             console.error('Form Kaydedilemedi:', error);

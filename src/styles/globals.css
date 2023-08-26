@@ -102,4 +102,8 @@
     @apply mt-6 mb-2 font-semibold tracking-wide lg:text-xl text-xl text-black capitalize
   }
   
+  .sweetButtonColor{
+    @apply !bg-site !outline-none !ring-0
+  }
+  
 }
