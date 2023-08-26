@@ -42,7 +42,7 @@
   #bannerNav::-webkit-scrollbar,
   #KurumsalHeaderButtons::-webkit-scrollbar,
   .pagination::-webkit-scrollbar{
-    @apply h-0
+    @apply md:h-2 h-0
   }
   
   #Ilceler ul::-webkit-scrollbar {

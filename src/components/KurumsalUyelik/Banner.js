@@ -1,16 +1,30 @@
 import React, { useState } from 'react'
+import SweetAlert2 from 'react-sweetalert2'
 
 function Banner() {
-
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/compare-register-contact/send`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await response.json();
+            console.error('Durum :', data);
+
+        } catch (error) {
+            console.error('Form Kaydedilemedi:', error);
+        }
     }
 
     const [formData, setFormData] = useState({
-        isim: '',
+        name: '',
         email: '',
         phone: '',
-        message: ''
     });
 
     return (
@@ -34,16 +48,16 @@ function Banner() {
                             </div>
                             <form onSubmit={handleSubmit} className='flex flex-col w-full'>
                                 <div className="flex flex-col w-full py-3 lg:px-3">
-                                    <label htmlFor="isim" className="block text-lg font-bold tracking-wider">İsminiz</label>
+                                    <label htmlFor="name" className="block text-lg font-bold tracking-wider">İsminiz</label>
                                     <div className="mt-3">
                                         <input
                                             type="text"
-                                            id="isim"
-                                            name="isim"
-                                            value={formData.isim}
-                                            onChange={e => setFormData({ ...formData, isim: e.target.value })}
-                                            tabindex={1}
-                                            autocomplete="name"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={e => setFormData({ ...formData, name: e.target.value })}
+                                            tabIndex={1}
+                                            autoComplete="name"
                                             placeholder="Adınız ve Soyadınız"
                                             required
                                             className="block tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
@@ -61,8 +75,8 @@ function Banner() {
                                             name="email"
                                             value={formData.email}
                                             onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                            tabindex={2}
-                                            autocomplete="email"
+                                            tabIndex={2}
+                                            autoComplete="email"
                                             placeholder="E-Mail Adresiniz"
                                             required
                                             className="block tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
@@ -80,8 +94,8 @@ function Banner() {
                                             name="phone"
                                             value={formData.phone}
                                             onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                                            tabindex={3}
-                                            autocomplete="phone"
+                                            tabIndex={3}
+                                            autoComplete="phone"
                                             placeholder="Telefon Numaranız"
                                             required
                                             className="block tracking-wider w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-site/30 focus:ring-site outline-none text-sm lg:text-lg sm:leading-6 transition-all px-4"
@@ -93,7 +107,7 @@ function Banner() {
                                 <div className="mt-4 w-full">
                                     <button
                                         type="submit"
-                                        tabindex={5}
+                                        tabIndex={5}
                                         className='ml-auto justify-center min-w-fit lg:w-fit w-full text-site transition-all rounded-md py-3 px-6 flex items-center gap-x-2 tracking-wider lg:my-0 bg-site/90 hover:bg-site text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-lg'
                                     >
                                         Gönder
