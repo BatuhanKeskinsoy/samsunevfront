@@ -59,7 +59,7 @@ function Login(props) {
             if (response.ok) {
                 const user = responseData.user;
 
-                toast.success(`Hoşgeldin ${user.name}`);
+                /* toast.success(`Hoşgeldin ${user.name}`); */
 
                 window.localStorage.setItem('email', user.email);
                 window.localStorage.setItem('image', user.image);
