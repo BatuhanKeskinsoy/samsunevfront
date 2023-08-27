@@ -6,12 +6,27 @@ import { BsChevronDown } from 'react-icons/bs';
 import Link from 'next/link';
 import { CiLogout, CiSettings, CiUser } from 'react-icons/ci';
 import Image from 'next/image';
+import { fetchCategoryData } from "@/data/Api/Categories/Categories";
 
 function NavLinks(props) {
     const [fullname, setFullname] = useState('');
     const [isActive, setIsActive] = useState(false);
     const [isHover, setIsHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [categoriesData, setCategoriesData] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const data = await fetchCategoryData();
+                setCategoriesData(data.data);
+            } catch (error) {
+                console.error('Veri Çekme Hatası:', error);
+            }
+        }
+    
+        fetchData();
+    }, []);
 
     let userImage = ''
     let userSlug = ''
@@ -121,11 +136,11 @@ function NavLinks(props) {
                             id={links.id}
                             isDropdown={links.isDropdown}
                             navActive={props.navActive}
+                            categoriesData={categoriesData}
                         />
                     )
                 ))}
             </div>
-
             {fullname ? (
                 <div
                     className='relative w-full h-fit lg:h-full lg:mt-0 mt-6'

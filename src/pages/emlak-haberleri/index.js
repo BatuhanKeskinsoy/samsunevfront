@@ -23,7 +23,6 @@ function index({ blogsData }) {
         }
     };
 
-
     return (
         <>
             <Head>

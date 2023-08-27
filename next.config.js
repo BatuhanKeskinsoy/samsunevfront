@@ -30,7 +30,7 @@ const nextConfig = {
       // Diğer izin verilen kaynakları buraya ekleyebilirsiniz
     ];
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
 }
 
 module.exports = nextConfig

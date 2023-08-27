@@ -20,7 +20,7 @@ function EmlakDigerIlanlar() {
 
                 <div className='w-full lg:mt-8'>
                     <Link
-                        href={'/ilanlar'}
+                        href={'/samsun'}
                         className='mx-auto justify-center min-w-fit lg:w-fit w-full text-site transition-all rounded-md py-3 px-6 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/90 hover:bg-site text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-xl'
                     >
                         Tüm İlanlar

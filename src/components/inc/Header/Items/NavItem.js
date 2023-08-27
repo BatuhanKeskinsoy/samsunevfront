@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { BsChevronDown, BsChevronRight } from 'react-icons/bs';
 
 function NavItem(props) {
+    const categoriesData = props.categoriesData
     const [isActive, setIsActive] = useState(false);
     const [isHover, setIsHover] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -68,320 +69,81 @@ function NavItem(props) {
                 <div className={`lg:absolute h-fit lg:gap-y-0 gap-y-8 shadow-lg rounded-b-lg bg-white gap-x-24 text-base lg:text-sm xl:text-base ${(isHover && !isMobile) || (isActive && isMobile) ? 'flex lg:flex-row flex-col' : 'hidden'}`}>
                     {props.name === 'Satılık' && (
                         <ul className='flex flex-col text-gray-600 min-w-fit w-full relative'>
-                            {/* {servicesData.map((serviceItem, key) => ( */}
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Satılık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
+                            {
+                                categoriesData
+                                    .filter(category => category.category_type === 'Satılık')
+                                    .map((category, key) => (
+                                        <li key={key} className='group relative flex lg:flex-row flex-col'>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/`}
-                                                title='title'
+                                                href={`/samsun/${category.slug}`}
+                                                title={category.title}
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
-                                                Satılık Daire
+                                                {category.name}
+                                                <BsChevronRight />
                                             </Link>
+                                            {category.children && category.children.length > 0 && (
+                                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
+                                                    <ul className='flex flex-col min-w-fit w-full relative'>
+                                                        {category.children.map((childCategory, childKey) => (
+                                                            <li key={childKey}>
+                                                                <Link
+                                                                    onClick={props.navActive}
+                                                                    href={`/samsun/${childCategory.slug}`} // Bu kısmı uygun şekilde düzenlemelisiniz
+                                                                    title={childCategory.title}
+                                                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                                >
+                                                                    {childCategory.name}
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
                                         </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Satılık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Satılık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Satılık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Satılık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            {/* ))} */}
+                                    ))
+                            }
                         </ul>
                     )}
 
                     {props.name === 'Kiralık' && (
                         <ul className='flex flex-col text-gray-600 min-w-fit w-full relative'>
-                            {/* {servicesData.map((serviceItem, key) => ( */}
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Kiralık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
+                            {
+                                categoriesData
+                                    .filter(category => category.category_type === 'Kiralık')
+                                    .map((category, key) => (
+                                        <li key={key} className='group relative flex lg:flex-row flex-col'>
                                             <Link
                                                 onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
+                                                href={`/samsun/${category.slug}`}
+                                                title={category.title}
                                                 className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                             >
-                                                Kiralık Daire
+                                                {category.name}
+                                                <BsChevronRight />
                                             </Link>
+                                            {category.children && category.children.length > 0 && (
+                                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
+                                                    <ul className='flex flex-col min-w-fit w-full relative'>
+                                                        {category.children.map((childCategory, childKey) => (
+                                                            <li key={childKey}>
+                                                                <Link
+                                                                    onClick={props.navActive}
+                                                                    href={`/samsun/${childCategory.slug}`} // Bu kısmı uygun şekilde düzenlemelisiniz
+                                                                    title={childCategory.title}
+                                                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
+                                                                >
+                                                                    {childCategory.name}
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            )}
                                         </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Kiralık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li /* key={key} */ className='group relative flex lg:flex-row flex-col'>
-                                <Link
-                                    onClick={props.navActive}
-                                    href={`/ilanlar`}
-                                    title='title'
-                                    className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                >
-                                    Kiralık Daire
-                                    <BsChevronRight />
-                                </Link>
-                                <div className="hidden lg:group-hover:flex lg:absolute left-full top-0 bg-white min-w-max w-full shadow-lg rounded-br-lg">
-                                    <ul className='flex flex-col min-w-fit w-full relative'>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                onClick={props.navActive}
-                                                href={`/ilanlar`}
-                                                title='title'
-                                                className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
-                                            >
-                                                Kiralık Daire
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            {/* ))} */}
+                                    ))
+                            }
                         </ul>
                     )}
 
@@ -415,7 +177,7 @@ function NavItem(props) {
                     )}
                 </div>
 
-            </div>
+            </div >
         );
     }
 }

@@ -11,7 +11,7 @@ function Header() {
 
     const [navStatus, setNavStatus] = useState(false)
     const [isMobile, setIsMobile] = useState(false);
-    
+
     const [isAuthActive, setIsAuthActive] = useState(false)
 
     const navActive = () => {
@@ -59,9 +59,9 @@ function Header() {
                     </div>
 
 
-                        {(navStatus || !isMobile) && (
-                            <NavLinks isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
-                        )}
+                    {(navStatus || !isMobile) && (
+                        <NavLinks isAuthActive={isAuthActive} setIsAuthActive={setIsAuthActive} />
+                    )}
 
 
                 </div>

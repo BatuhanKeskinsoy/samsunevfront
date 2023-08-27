@@ -6,7 +6,7 @@ function Item({ county }) {
     return (
         <li className='lg:w-60 w-full min-w-[150px]'>
             <Link
-                href={`ilanlar/samsun/${county.county_slug}/satilik-daireler`}
+                href={`/samsun/${county.county_slug}/satilik-daireler`}
                 title={`Samsun ${county.county} Satılık Daireler`}
                 className='flex flex-col bg-white rounded-lg overflow-hidden group hover:scale-105 shadow-xl transition-all'
             >
