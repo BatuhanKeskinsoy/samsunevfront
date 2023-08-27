@@ -90,7 +90,7 @@ function NavItem(props) {
                                                             <li key={childKey}>
                                                                 <Link
                                                                     onClick={props.navActive}
-                                                                    href={`/samsun/${childCategory.slug}`} // Bu kısmı uygun şekilde düzenlemelisiniz
+                                                                    href={`/samsun/${childCategory.slug}`}
                                                                     title={childCategory.title}
                                                                     className='py-3 flex hover:text-site border-l-2 border-transparent hover:border-site transition-all justify-between items-center px-4 gap-x-2 lg:w-full w-fit'
                                                                 >
