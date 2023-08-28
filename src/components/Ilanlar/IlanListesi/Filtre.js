@@ -105,22 +105,28 @@ function Filtre(props) {
                                 </div>
                             </div>
                             <ul className='flex flex-wrap items-center justify-start gap-1 max-w-full lg:max-w-[300px]'>
-                                {categoryType && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        {categoryType}
-                                    </li>
-                                )}
-                                {categoryPrimary && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        <BsChevronRight size={13} />
-                                        {categoryPrimary}
-                                    </li>
-                                )}
-                                {categorySecondary && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        <BsChevronRight size={13} />
-                                        {categorySecondary}
-                                    </li>
+                                {categoryType || categoryPrimary || categorySecondary ? (
+                                    <>
+                                        {categoryType && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                {categoryType}
+                                            </li>
+                                        )}
+                                        {categoryPrimary && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                <BsChevronRight size={13} />
+                                                {categoryPrimary}
+                                            </li>
+                                        )}
+                                        {categorySecondary && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                <BsChevronRight size={13} />
+                                                {categorySecondary}
+                                            </li>
+                                        )}
+                                    </>
+                                ) : (
+                                    <li className='text-gray-500 opacity-50'>Kategori Seçiniz</li>
                                 )}
                             </ul>
                         </button>

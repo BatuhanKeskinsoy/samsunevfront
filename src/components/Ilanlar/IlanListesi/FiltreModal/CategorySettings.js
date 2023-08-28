@@ -76,56 +76,76 @@ function CategorySettings(props) {
                             </li>
                         </ul>
                         <ul className='flex flex-col ring-1 ring-gray-200 rounded-md w-fit min-w-[200px] overflow-hidden lg:max-h-[500px] max-h-[calc(100vh-300px)] overflow-y-auto'>
-                            {filteredCategories.map((category, key) => (
-                                <li
-                                    key={key}
-                                    className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
-                                                ${categoryPrimary === category.name ? 'bg-site/10 text-site pl-5' : ''}`}
-                                    onClick={() => handleCategoryPrimary(category.name)}
-                                >
-                                    {category.name}
-                                </li>
-                            ))}
-                        </ul>
-                        <ul className='flex flex-col ring-1 ring-gray-200 rounded-md w-fit min-w-[200px] overflow-hidden lg:max-h-[500px] max-h-[calc(100vh-300px)] overflow-y-auto'>
-                            {filteredCategories.map((category) => (
-                                category.name === categoryPrimary && category.children && category.children.length > 0 && (
-                                    category.children.map((childCategory, childKey) => (
+
+                            {categoryType ? (
+                                <>
+                                    {filteredCategories.map((category, key) => (
                                         <li
-                                            key={childKey}
+                                            key={key}
                                             className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
-                                                        ${categorySecondary === childCategory.name ? 'bg-site/10 text-site pl-5' : ''}`}
-                                            onClick={() => handleCategorySecondary(childCategory.name)}
+                                                ${categoryPrimary === category.name ? 'bg-site/10 text-site pl-5' : ''}`}
+                                            onClick={() => handleCategoryPrimary(category.name)}
                                         >
-                                            {childCategory.name}
+                                            {category.name}
                                         </li>
-                                    ))
-                                )
-                            ))}
+                                    ))}
+                                </>
+                            ) : (
+                                <div className='w-full h-full flex flex-col gap-y-2 justify-center items-center text-gray-500 text-xl'>
+                                    <span>Satılık mı?</span>
+                                    <span>Kiralık mı?</span>
+                                </div>
+                            )}
                         </ul>
 
+                        {categoryPrimary && (
+                            <ul className='flex flex-col ring-1 ring-gray-200 rounded-md w-fit min-w-[200px] overflow-hidden lg:max-h-[500px] max-h-[calc(100vh-300px)] overflow-y-auto'>
+
+                                {filteredCategories.map((category) => (
+                                    category.name === categoryPrimary && category.children && category.children.length > 0 && (
+                                        category.children.map((childCategory, childKey) => (
+                                            <li
+                                                key={childKey}
+                                                className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
+                                                        ${categorySecondary === childCategory.name ? 'bg-site/10 text-site pl-5' : ''}`}
+                                                onClick={() => handleCategorySecondary(childCategory.name)}
+                                            >
+                                                {childCategory.name}
+                                            </li>
+                                        ))
+                                    )
+                                ))}
+                            </ul>
+
+                        )}
 
                     </div>
                     <div className='flex justify-between items-center'>
                         <div className='flex flex-col gap-y-1'>
                             <span className='text-gray-500 text-sm'>Geçerli Kategori</span>
                             <ul className='flex flex-wrap items-center justify-start gap-1 max-w-full lg:max-w-[300px]'>
-                                {categoryType && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        {categoryType}
-                                    </li>
-                                )}
-                                {categoryPrimary && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        <BsChevronRight size={13} />
-                                        {categoryPrimary}
-                                    </li>
-                                )}
-                                {categorySecondary && (
-                                    <li className='text-site flex items-center gap-x-1'>
-                                        <BsChevronRight size={13} />
-                                        {categorySecondary}
-                                    </li>
+                                {categoryType || categoryPrimary || categorySecondary ? (
+                                    <>
+                                        {categoryType && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                {categoryType}
+                                            </li>
+                                        )}
+                                        {categoryPrimary && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                <BsChevronRight size={13} />
+                                                {categoryPrimary}
+                                            </li>
+                                        )}
+                                        {categorySecondary && (
+                                            <li className='text-site flex items-center gap-x-1'>
+                                                <BsChevronRight size={13} />
+                                                {categorySecondary}
+                                            </li>
+                                        )}
+                                    </>
+                                ) : (
+                                    <li className='text-gray-500 opacity-50'>Kategori Seçiniz</li>
                                 )}
                             </ul>
                         </div>
