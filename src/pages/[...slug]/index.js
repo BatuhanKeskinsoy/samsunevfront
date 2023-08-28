@@ -12,8 +12,6 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
   const [categoryPrimary, setCategoryPrimary] = useState('')
   const [categorySecondary, setCategorySecondary] = useState('')
 
-  console.log(categoriesData);
-
   useEffect(() => {
     const queryCategory = category;
     if (queryCategory && categoriesData) {
@@ -57,15 +55,7 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
       setCategoryPrimary('');
       setCategorySecondary('');
     }
-  }, [category, categoriesData]);
-
-
-
-
-  console.log('categoryType : ', categoryType);
-  console.log('categoryPrimary : ', categoryPrimary);
-  console.log('categorySecondary : ', categorySecondary);
-
+  }, [category]);
 
   /* console.log(realestatesData); */
   return (
