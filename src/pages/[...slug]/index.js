@@ -5,15 +5,34 @@ import Topdiv from '@/components/Ilanlar/IlanListesi/Topdiv';
 import Head from 'next/head';
 import { fetchRealEstateData } from '@/data/Api/RealEstates/RealEstates';
 import { fetchCategoryData } from '@/data/Api/Categories/Categories';
+import { fetchCountyData } from '@/data/Api/Counties/Counties';
+import { fetchNeighbourhoodData } from '@/data/Api/Neighbourhoods/Neighbourhoods';
 
-function IlanlarPage({ city, county, category, categoriesData, realestatesData }) {
+function IlanlarPage(props) {
+  const {
+    city,
+    county,
+    neighbourhood,
+    category,
+    categoriesData,
+    countiesData,
+    neighbourhoodsData,
+    realestatesData,
+  } = props
 
   const [categoryType, setCategoryType] = useState('')
   const [categoryPrimary, setCategoryPrimary] = useState('')
   const [categorySecondary, setCategorySecondary] = useState('')
 
+  const [locationPrimary, setLocationPrimary] = useState('')
+  const [locationSecondary, setLocationSecondary] = useState('')
+
+  const queryCategory = category;
+  const queryCounty = county;
+  const queryNeighbourhood = neighbourhood;
+
   useEffect(() => {
-    const queryCategory = category;
+
     if (queryCategory && categoriesData) {
       const queryCategoryData = categoriesData.find(categoryData => categoryData.slug === queryCategory);
 
@@ -22,7 +41,7 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
           const childCategory = queryCategoryData.children.find(child => child.slug === queryCategory);
           if (childCategory) {
             setCategoryType(childCategory.category_type);
-            setCategoryPrimary(queryCategoryData.name); // Ana kategorinin adını al
+            setCategoryPrimary(queryCategoryData.name);
             setCategorySecondary(childCategory.name);
           } else {
             setCategoryType(queryCategoryData.category_type);
@@ -42,7 +61,7 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
 
         if (queryChildCategory) {
           setCategoryType(queryChildCategory.category_type);
-          setCategoryPrimary(queryChildCategory.category.name); // Çocuk kategorinin parent_name'ini al
+          setCategoryPrimary(queryChildCategory.category.name);
           setCategorySecondary(queryChildCategory.name);
         } else {
           setCategoryType('');
@@ -55,9 +74,41 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
       setCategoryPrimary('');
       setCategorySecondary('');
     }
-  }, [category]);
+  }, [queryCategory]);
 
-  /* console.log(realestatesData); */
+
+  useEffect(() => {
+
+    if (queryCounty && countiesData) {
+      const queryCountyData = countiesData.find(countyData => countyData.county_slug === queryCounty);
+      if (queryCountyData) {
+        setLocationPrimary({
+          name: queryCountyData.county,
+          id: queryCountyData.county_id,
+        });
+        setLocationSecondary('');
+      } else {
+        setLocationPrimary('');
+        setLocationSecondary('');
+      }
+    } else {
+      setLocationPrimary('');
+      setLocationSecondary('');
+    }
+
+    if (queryNeighbourhood && neighbourhoodsData) {
+      const queryNeighbourhoodData = neighbourhoodsData.find(neighbourhoodData => neighbourhoodData.neighbourhood_slug === queryNeighbourhood);
+      if (queryNeighbourhoodData) {
+        setLocationSecondary(queryNeighbourhoodData.neighbourhood);
+      } else {
+        setLocationSecondary('');
+      }
+    } else {
+      setLocationSecondary('');
+    }
+
+  }, [queryCounty, queryNeighbourhood])
+
   return (
     <>
       <Head>
@@ -66,12 +117,20 @@ function IlanlarPage({ city, county, category, categoriesData, realestatesData }
       <div className='flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-4 container mx-auto lg:px-0 px-4 w-full'>
         <Filtre
           categoriesData={categoriesData}
-          categorySecondary={categorySecondary}
-          setCategorySecondary={setCategorySecondary}
-          categoryPrimary={categoryPrimary}
-          setCategoryPrimary={setCategoryPrimary}
+          countiesData={countiesData}
+          neighbourhoodsData={neighbourhoodsData}
+
           categoryType={categoryType}
           setCategoryType={setCategoryType}
+          categoryPrimary={categoryPrimary}
+          setCategoryPrimary={setCategoryPrimary}
+          categorySecondary={categorySecondary}
+          setCategorySecondary={setCategorySecondary}
+
+          locationPrimary={locationPrimary}
+          setLocationPrimary={setLocationPrimary}
+          locationSecondary={locationSecondary}
+          setLocationSecondary={setLocationSecondary}
         />
         <div className="flex flex-col gap-y-4 w-full">
           <Topdiv categoryPrimary={categoryPrimary} categorySecondary={categorySecondary} categoryType={categoryType} />
@@ -87,22 +146,32 @@ export async function getServerSideProps(context) {
 
   let realestatesData = [];
   let categoriesData = [];
+  let countiesData = [];
+  let neighbourhoodsData = [];
 
-  let city, county, category;
+  let city, county, neighbourhood, category;
   if (slug.length === 2) {
     [city, category] = slug;
   } else if (slug.length === 3) {
     [city, county, category] = slug;
+  } else if (slug.length === 4) {
+    [city, county, neighbourhood, category] = slug;
   }
-
-  /* console.log('City:', city);
-  console.log('County:', county);
-  console.log('Category:', category);
-  console.log('Array slug:', slug); */
-
 
   try {
     categoriesData = await fetchCategoryData();
+  } catch (error) {
+    console.error('Veri Çekme Hatası:', error);
+  }
+
+  try {
+    countiesData = await fetchCountyData();
+  } catch (error) {
+    console.error('Veri Çekme Hatası:', error);
+  }
+
+  try {
+    neighbourhoodsData = await fetchNeighbourhoodData();
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }
@@ -114,14 +183,21 @@ export async function getServerSideProps(context) {
   }
 
 
+  // Metadata için
+  /* const queryCategoryData = categoriesData.data.find(categoryData => categoryData.slug === category);
+  const categoryTitle = queryCategoryData ? queryCategoryData.name : ''; */
 
   return {
     props: {
       city: city || null,
-      county: county || null, // If county is undefined, set it to null
+      county: county || null,
       category: category || null,
+      neighbourhood: neighbourhood || null,
+
       realestatesData,
       categoriesData: categoriesData.data,
+      countiesData,
+      neighbourhoodsData,
     },
   };
 }

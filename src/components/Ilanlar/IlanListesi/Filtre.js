@@ -9,12 +9,20 @@ function Filtre(props) {
 
     const {
         categoriesData,
+        countiesData,
+        neighbourhoodsData,
+
         categoryType,
         setCategoryType,
         categoryPrimary,
         setCategoryPrimary,
         categorySecondary,
         setCategorySecondary,
+
+        locationPrimary,
+        setLocationPrimary,
+        locationSecondary,
+        setLocationSecondary,
     } = props
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -141,13 +149,23 @@ function Filtre(props) {
                                 </div>
                             </div>
                             <ul className='flex flex-wrap items-center justify-start gap-1 max-w-full lg:max-w-[300px]'>
-                                <li className='text-site flex items-center gap-x-1'>
-                                    Atakum
-                                </li>
-                                <li className='text-site flex items-center gap-x-1'>
-                                    <BsChevronRight size={13} />
-                                    Denizevleri Mah
-                                </li>
+                                {locationPrimary || locationSecondary ? (
+                                    <>
+                                        {locationPrimary && (
+                                            <li className="text-site flex items-center gap-x-1">
+                                                {locationPrimary.name}
+                                            </li>
+                                        )}
+                                        {locationSecondary && (
+                                            <li className="text-site flex items-center gap-x-1">
+                                                <BsChevronRight size={13} />
+                                                {locationSecondary}
+                                            </li>
+                                        )}
+                                    </>
+                                ) : (
+                                    <li className='text-gray-500 opacity-50'>İlçe Seçiniz</li>
+                                )}
                             </ul>
                         </button>
                         <hr />
@@ -207,13 +225,15 @@ function Filtre(props) {
 
             {isCategorySettingsActive && (
                 <CategorySettings
-                    categorySecondary={categorySecondary}
-                    setCategorySecondary={setCategorySecondary}
-                    categoryPrimary={categoryPrimary}
-                    setCategoryPrimary={setCategoryPrimary}
+                    categoriesData={categoriesData}
+
                     categoryType={categoryType}
                     setCategoryType={setCategoryType}
-                    categoriesData={categoriesData}
+                    categoryPrimary={categoryPrimary}
+                    setCategoryPrimary={setCategoryPrimary}
+                    categorySecondary={categorySecondary}
+                    setCategorySecondary={setCategorySecondary}
+
                     selectedCategory={selectedCategory}
                     handleCategorySettingsClose={handleCategorySettingsClose}
                 />
@@ -221,6 +241,14 @@ function Filtre(props) {
 
             {isLocationSettingsActive && (
                 <LocationSettings
+                    countiesData={countiesData}
+                    neighbourhoodsData={neighbourhoodsData}
+
+                    locationPrimary={locationPrimary}
+                    setLocationPrimary={setLocationPrimary}
+                    locationSecondary={locationSecondary}
+                    setLocationSecondary={setLocationSecondary}
+
                     selectedLocation={selectedLocation}
                     handleLocationSettingsClose={handleLocationSettingsClose}
                 />

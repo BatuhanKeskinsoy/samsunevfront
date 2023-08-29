@@ -1,4 +1,4 @@
-export async function fetchNeighboorhoodData() {
+export async function fetchNeighbourhoodData() {
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/lists`, {
             headers: {

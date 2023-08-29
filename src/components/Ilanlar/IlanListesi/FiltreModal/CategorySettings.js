@@ -4,15 +4,17 @@ import { TfiClose } from 'react-icons/tfi'
 
 function CategorySettings(props) {
     const {
-        handleCategorySettingsClose,
-        selectedCategory,
         categoriesData,
+
         categoryType,
         setCategoryType,
         categoryPrimary,
         setCategoryPrimary,
         categorySecondary,
-        setCategorySecondary
+        setCategorySecondary,
+        
+        handleCategorySettingsClose,
+        selectedCategory,
     } = props;
 
     const filteredCategories = categoriesData.filter(
@@ -32,10 +34,6 @@ function CategorySettings(props) {
 
     const handleCategorySecondary = (name) => {
         setCategorySecondary(name);
-    };
-
-    const handleCategoryClick = () => {
-        handleCategorySettingsClose();
     };
     return (
         <div className='fixed flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm bg-site/10 z-30 px-4'>
@@ -150,7 +148,7 @@ function CategorySettings(props) {
                             </ul>
                         </div>
                         <button
-                            onClick={handleCategoryClick}
+                            onClick={handleCategorySettingsClose}
                             className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-base'
                         >
                             Kategoriyi Seç
