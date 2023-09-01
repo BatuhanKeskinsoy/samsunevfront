@@ -18,6 +18,11 @@ function IlanlarPage(props) {
     countiesData,
     neighbourhoodsData,
     realestatesData,
+    
+    metaCategory,
+    metaCounty,
+    metaNeighbourhood,
+    metaCategoryType
   } = props
 
   const [categoryType, setCategoryType] = useState('')
@@ -109,10 +114,13 @@ function IlanlarPage(props) {
 
   }, [queryCounty, queryNeighbourhood])
 
+  
+  console.log(realestatesData);
+  
   return (
     <>
       <Head>
-        <title>{`İlanlar | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
+        <title>{`${metaCategoryType} ${metaCategory} - Samsun ${metaCounty} ${metaNeighbourhood} | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
       </Head>
       <div className='flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-4 container mx-auto lg:px-0 px-4 w-full'>
         <Filtre
@@ -134,7 +142,7 @@ function IlanlarPage(props) {
         />
         <div className="flex flex-col gap-y-4 w-full">
           <Topdiv categoryPrimary={categoryPrimary} categorySecondary={categorySecondary} categoryType={categoryType} />
-          <Ilanlar />
+          <Ilanlar realestatesData={realestatesData} />
         </div>
       </div>
     </>
@@ -184,8 +192,68 @@ export async function getServerSideProps(context) {
 
 
   // Metadata için
-  /* const queryCategoryData = categoriesData.data.find(categoryData => categoryData.slug === category);
-  const categoryTitle = queryCategoryData ? queryCategoryData.name : ''; */
+  let metaCategoryType = '';
+  let metaCategory = '';
+  let metaCounty = '';
+  let metaNeighbourhood = '';
+
+  if (category && categoriesData) {
+    const queryCategoryData = categoriesData.data.find(categoryData => categoryData.slug === category);
+
+    if (queryCategoryData) {
+      if (queryCategoryData.children && queryCategoryData.children.length > 0) {
+        const childCategory = queryCategoryData.children.find(child => child.slug === category);
+        if (childCategory) {
+          metaCategory = childCategory.name;
+          metaCategoryType = childCategory.category_type
+        } else {
+          metaCategory = queryCategoryData.name;
+          metaCategoryType = queryCategoryData.category_type
+        }
+      } else {
+        metaCategory = queryCategoryData.name;
+        metaCategoryType = queryCategoryData.category_type
+      }
+    } else {
+      const queryChildCategory = categoriesData.data
+        .filter(categoryData => categoryData.children && categoryData.children.length > 0)
+        .flatMap(categoryData => categoryData.children)
+        .find(childCategory => childCategory.slug === category);
+
+      if (queryChildCategory) {
+        metaCategory = queryChildCategory.name;
+        metaCategoryType = queryChildCategory.category_type
+      } else {
+        metaCategory = '';
+        metaCategoryType = ''
+      }
+    }
+  } else {
+    metaCategory = '';
+    metaCategoryType = ''
+  }
+
+  if (county && countiesData) {
+    const queryCountyData = countiesData.find(countyData => countyData.county_slug === county);
+    if (queryCountyData) {
+      metaCounty = queryCountyData.county
+    } else {
+      metaCounty = ''
+    }
+  } else {
+    metaCounty = ''
+  }
+
+  if (neighbourhood && neighbourhoodsData) {
+    const queryNeighbourhoodData = neighbourhoodsData.find(neighbourhoodData => neighbourhoodData.neighbourhood_slug === neighbourhood);
+    if (queryNeighbourhoodData) {
+      metaNeighbourhood = queryNeighbourhoodData.neighbourhood
+    } else {
+      metaNeighbourhood = ''
+    }
+  } else {
+    metaNeighbourhood = ''
+  }
 
   return {
     props: {
@@ -198,6 +266,11 @@ export async function getServerSideProps(context) {
       categoriesData: categoriesData.data,
       countiesData,
       neighbourhoodsData,
+
+      metaCategory,
+      metaCounty,
+      metaNeighbourhood,
+      metaCategoryType,
     },
   };
 }

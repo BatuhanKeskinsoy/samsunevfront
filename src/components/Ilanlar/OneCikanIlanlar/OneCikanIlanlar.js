@@ -1,22 +1,24 @@
 import React from 'react'
-import Item from '@/components/Ilanlar/Item/Item'
+import { ItemGrid } from '@/components/Ilanlar/Item/Item'
 import Link from 'next/link'
 import { AiOutlineDoubleRight } from 'react-icons/ai'
 
-function Onecikanilanlar() {
+function Onecikanilanlar(props) {
+    const {
+        realestatesData
+    } = props
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full'
     return (
         <section className='lg:my-12 my-6'>
             <h2 className='lg:text-3xl text-2xl lg:mb-8 mb-6 tracking-wide'>Öne Çıkan <strong className='text-site'>Samsun Satılık Daire</strong> İlanları</h2>
             <ul className="flex flex-wrap">
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
-                <Item itemWidth={itemWidth} titleLineClamp={'line-clamp-1'} />
+                {realestatesData.map((realestate, key) => (
+                    <ItemGrid
+                        realestate={realestate}
+                        itemWidth={itemWidth}
+                        titleLineClamp={'line-clamp-1'}
+                        key={key} />
+                ))}
 
                 <div className='w-full lg:mt-8'>
                     <Link

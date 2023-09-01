@@ -156,8 +156,8 @@ function Danismanlar(props) {
                     <NoContentFound />
                 </div>
             )}
-            <div className="flex w-full justify-center my-8">
-                <div className="pagination flex items-center gap-x-2 justify-start overflow-x-auto pb-3">
+            <div className="flex justify-center mt-8 max-w-full">
+                <div className="pagination flex lg:flex-wrap flex-nowrap items-center gap-3 justify-start overflow-x-auto lg:overflow-x-hidden pb-3">
                     {Array.from({ length: totalPages }, (_, index) => (
                         <button
                             key={index}

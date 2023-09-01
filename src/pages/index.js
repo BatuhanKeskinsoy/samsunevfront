@@ -7,8 +7,14 @@ import Partnership from "@/components/Partnership"
 import EmlakHaberleri from "@/components/EmlakHaberleri/EmlakHaberleri"
 import { fetchBlogData } from "@/data/Api/Blogs/Blogs"
 import { fetchCountyData } from '@/data/Api/Counties/Counties';
+import { fetchRealEstateData } from "@/data/Api/RealEstates/RealEstates"
 
-export default function Home({ blogsData, countiesData }) {
+export default function Home(props) {
+  const {
+    blogsData,
+    countiesData,
+    realestatesData
+  } = props
   return (
     <>
       <Head>
@@ -17,7 +23,7 @@ export default function Home({ blogsData, countiesData }) {
       <Banner />
       <div className="container mx-auto lg:px-0 px-4 py-8">
         <Ilceler countiesData={countiesData} />
-        <OneCikanIlanlar />
+        <OneCikanIlanlar realestatesData={realestatesData} />
         <Partnership />
         <EmlakHaberleri blogsData={blogsData} />
       </div>
@@ -28,6 +34,7 @@ export default function Home({ blogsData, countiesData }) {
 export async function getServerSideProps() {
   let blogsData = [];
   let countiesData = [];
+  let realestatesData = [];
 
   try {
     blogsData = await fetchBlogData({ limit: 4 });
@@ -41,10 +48,17 @@ export async function getServerSideProps() {
     console.error('Veri Çekme Hatası:', error);
   }
 
+  try {
+    realestatesData = await fetchRealEstateData({ limit: 8 });
+  } catch (error) {
+    console.error('Veri Çekme Hatası:', error);
+  }
+
   return {
     props: {
       blogsData: blogsData.slice(0, 4),
-      countiesData: countiesData.slice(0, 6)
+      countiesData: countiesData.slice(0, 6),
+      realestatesData: realestatesData.slice(0, 8)
     },
   };
 }
