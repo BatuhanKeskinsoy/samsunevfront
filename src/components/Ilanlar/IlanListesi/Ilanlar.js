@@ -2,26 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { ItemGrid, ItemList } from '@/components/Ilanlar/Item/Item';
 
 function Ilanlar(props) {
-    const { realestatesData } = props;
-    const itemsPerPage = 30; // Number of items to display per page
+    const { realestatesData, layoutType } = props;
+    const [isMobile, setIsMobile] = useState(false);
 
-    // State to keep track of the current page
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 1024);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize, { passive: true });
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const itemsPerPage = 30; // Number of items to display per page
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Calculate the total number of pages based on the data length and items per page
+    // Define a function to get items for the current page
+    const getItemsForPage = () => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return realestatesData.slice(startIndex, endIndex);
+    };
+
+    // Calculate the total number of pages based on the number of items
     const totalPages = Math.ceil(realestatesData.length / itemsPerPage);
-
-    // Calculate the index range of items to display on the current page
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    // Filter the realestatesData to get the items for the current page
-    const itemsToShow = realestatesData.slice(startIndex, endIndex);
 
     // Function to handle page change
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
-    };
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     useEffect(() => {
         // When realestatesData changes, reset the current page to 1
@@ -30,17 +44,44 @@ function Ilanlar(props) {
 
     const itemWidth = 'xl:w-1/3 lg:w-1/2 md:w-1/2 w-full';
 
+    // Get the items to display for the current page
+    const itemsToShow = getItemsForPage();
+    
     return (
         <section id='Ilanlar' className='mb-8'>
-            <ul className="flex flex-wrap -m-3">
-                {itemsToShow.map((realestate, key) => (
-                    <ItemList
-                        realestate={realestate}
-                        itemWidth={itemWidth}
-                        titleLineClamp={'line-clamp-2'}
-                        key={key}
-                    />
-                ))}
+            <ul className="flex flex-wrap lg:-m-3">
+                {isMobile ? (
+                    itemsToShow.map((realestate, key) => (
+                        <ItemGrid
+                            realestate={realestate}
+                            itemWidth={itemWidth}
+                            titleLineClamp={'line-clamp-2'}
+                            key={key}
+                        />
+                    ))
+                ) : (
+                    layoutType === "grid" ? (
+                        itemsToShow.map((realestate, key) => (
+                            <ItemGrid
+                                realestate={realestate}
+                                itemWidth={itemWidth}
+                                titleLineClamp={'line-clamp-2'}
+                                key={key}
+                            />
+                        ))
+                    ) : (
+                        layoutType === "list" && (
+                            itemsToShow.map((realestate, key) => (
+                                <ItemList
+                                    realestate={realestate}
+                                    itemWidth={itemWidth}
+                                    titleLineClamp={'line-clamp-2'}
+                                    key={key}
+                                />
+                            ))
+                        )
+                    )
+                )}
             </ul>
 
             <div className="flex justify-center mt-8 max-w-full">
@@ -59,8 +100,6 @@ function Ilanlar(props) {
                     ))}
                 </div>
             </div>
-
-
         </section>
     );
 }

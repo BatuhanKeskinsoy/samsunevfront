@@ -40,7 +40,7 @@ function ItemGrid(props) {
             <Link
                 href={'/ilan-detay'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
-                className='flex flex-col bg-white rounded-lg overflow-hidden group'
+                className='flex flex-col bg-white hover:bg-site/10 hover:shadow-lg hover:shadow-black/10 rounded-lg overflow-hidden group'
                 onMouseEnter={handleHover}
                 onMouseLeave={handleUnhover}
             >
@@ -111,7 +111,6 @@ function ItemList(props) {
 
     const {
         realestate,
-        itemWidth,
         titleLineClamp,
     } = props
 
@@ -143,7 +142,7 @@ function ItemList(props) {
             <Link
                 href={'/ilan-detay'}
                 title='Havuzlu, Garajlı Akıllı Sistem Tam Müstakil Villa'
-                className='flex bg-white hover:bg-site/10 rounded-lg overflow-hidden group w-full h-full transition-all'
+                className='flex bg-white hover:bg-site/10 hover:shadow-lg hover:shadow-black/10 rounded-lg overflow-hidden group w-full h-full transition-all'
                 onMouseEnter={handleHover}
                 onMouseLeave={handleUnhover}
             >

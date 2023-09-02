@@ -1,6 +1,6 @@
 import Item from '@/components/EmlakHaberleri/Item'
 import Head from 'next/head'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { fetchBlogData } from '@/data/Api/Blogs/Blogs'
 import NoContentFound from '@/components/Others/NoContentFound'
 
@@ -15,12 +15,9 @@ function index({ blogsData }) {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentBlogs = blogsData.slice(indexOfFirstItem, indexOfLastItem);
 
-    const itemsRef = useRef(null);
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
-        if (itemsRef.current) {
-            itemsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
@@ -28,7 +25,7 @@ function index({ blogsData }) {
             <Head>
                 <title>{`Emlak Haberleri | ${process.env.NEXT_PUBLIC_SITE_DOMAIN}`}</title>
             </Head>
-            <section ref={itemsRef}>
+            <section>
                 <div className="container mx-auto lg:px-0 px-4">
                     <div className="flex lg:flex-row flex-col lg:justify-between justify-center items-center mb-2">
                         <h1 className='lg:text-3xl text-2xl tracking-wide'>Emlak Haberleri</h1>

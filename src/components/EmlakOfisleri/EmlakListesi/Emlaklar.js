@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { BsChevronDown } from 'react-icons/bs';
 import Item from '@/components/EmlakOfisleri/EmlakListesi/Item';
@@ -65,12 +65,9 @@ function Emlaklar(props) {
     };
 
 
-    const itemsRef = useRef(null);
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        if (itemsRef.current) {
-            itemsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     useEffect(() => {
@@ -90,7 +87,7 @@ function Emlaklar(props) {
 
     return (
         <>
-            <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center" ref={itemsRef}>
+            <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center">
                 <div className="danismanlarDiv flex flex-row shadow-lg rounded-lg overflow-hidden text-center justify-start items-center overflow-x-auto">
                     <div className='bg-white py-2 px-4 opacity-50 cursor-not-allowed lg:w-fit w-full min-w-max'>Emlak Ofisleri</div>
                     <Link href={'/emlak-danismanlari'} className='bg-site/90 hover:bg-site text-white transition-all py-2 px-4 lg:w-fit w-full min-w-max'>Emlak Danışmanları</Link>

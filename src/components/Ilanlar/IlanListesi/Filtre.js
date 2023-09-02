@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronRight, BsChevronDown } from 'react-icons/bs';
-import { CiBoxList, CiLocationOn, CiSearch, CiSliderHorizontal } from 'react-icons/ci';
+import { CiLineHeight, CiLocationOn, CiSearch, CiSliderHorizontal } from 'react-icons/ci';
 import CategorySettings from '@/components/Ilanlar/IlanListesi/FiltreModal/CategorySettings';
 import LocationSettings from '@/components/Ilanlar/IlanListesi/FiltreModal/LocationSettings';
 import Link from 'next/link';
@@ -198,7 +198,7 @@ function Filtre(props) {
                         <div className="flex justify-between w-full text-gray-500">
                             <span className='flex'>İlan Sırala</span>
                             <div className="flex items-center justify-between gap-x-4">
-                                <CiBoxList className='text-xl group-hover:scale-125 transition-all' />
+                                <CiLineHeight className='text-xl group-hover:scale-125 transition-all' />
                             </div>
                         </div>
                         <div className="relative">

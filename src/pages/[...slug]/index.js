@@ -18,7 +18,7 @@ function IlanlarPage(props) {
     countiesData,
     neighbourhoodsData,
     realestatesData,
-    
+
     metaCategory,
     metaCounty,
     metaNeighbourhood,
@@ -31,6 +31,8 @@ function IlanlarPage(props) {
 
   const [locationPrimary, setLocationPrimary] = useState('')
   const [locationSecondary, setLocationSecondary] = useState('')
+
+  const [layoutType, setLayoutType] = useState('grid')
 
   const queryCategory = category;
   const queryCounty = county;
@@ -114,9 +116,9 @@ function IlanlarPage(props) {
 
   }, [queryCounty, queryNeighbourhood])
 
-  
+
   console.log(realestatesData);
-  
+
   return (
     <>
       <Head>
@@ -141,8 +143,17 @@ function IlanlarPage(props) {
           setLocationSecondary={setLocationSecondary}
         />
         <div className="flex flex-col gap-y-4 w-full">
-          <Topdiv categoryPrimary={categoryPrimary} categorySecondary={categorySecondary} categoryType={categoryType} />
-          <Ilanlar realestatesData={realestatesData} />
+          <Topdiv
+            categoryPrimary={categoryPrimary}
+            categorySecondary={categorySecondary}
+            categoryType={categoryType}
+            layoutType={layoutType}
+            setLayoutType={setLayoutType}
+          />
+          <Ilanlar
+            realestatesData={realestatesData}
+            layoutType={layoutType}
+          />
         </div>
       </div>
     </>
