@@ -30,7 +30,7 @@ function Topdiv(props) {
                 <h1 className='capitalize text-xl tracking-wide py-0.5'>
                     <strong className='text-site'>
                         {categoryType}{' '}
-                        {categorySecondary ? categorySecondary : categoryPrimary}
+                        {categorySecondary.name ? categorySecondary.name : categoryPrimary.name}
                     </strong> İlanları
                 </h1>
                 <div className="flex gap-x-4 items-center">

@@ -8,6 +8,11 @@ import Link from 'next/link';
 function Filtre(props) {
 
     const {
+        city,
+        county,
+        neighbourhood,
+        category,
+
         categoriesData,
         countiesData,
         neighbourhoodsData,
@@ -29,9 +34,6 @@ function Filtre(props) {
     const [isMobile, setIsMobile] = useState(false);
     const [isCategorySettingsActive, setIsCategorySettingsActive] = useState(false)
     const [isLocationSettingsActive, setIsLocationSettingsActive] = useState(false)
-
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const [selectedLocation, setSelectedLocation] = useState('')
 
     const handleCategorySettingsOpen = () => {
         setIsCategorySettingsActive(true);
@@ -102,10 +104,10 @@ function Filtre(props) {
                     id='IlanlarFiltre'
                     className={`w-full lg:w-[300px] lg:max-w-[300px] max-w-full h-full sticky top-4 lg:mb-12 flex-col gap-y-4 ${isMobile ? (isFilterOpen ? 'flex' : 'hidden') : 'flex'} lg:flex`}
                 >
-                    <div className={`flex flex-col overflow-hidden bg-white ${(isFilterOpen ? 'rounded-b-lg' : ' rounded-lg shadow-md shadow-gray-200')}`}>
+                    <div className="flex flex-col gap-y-4">
                         <button
                             onClick={handleCategorySettingsOpen}
-                            className="relative group w-full px-4 py-3 text-sm flex flex-col gap-y-2 hover:bg-site/10 transition-all">
+                            className={`relative group w-full px-4 py-3 text-sm flex flex-col gap-y-2 hover:bg-site/10 transition-all bg-white ${(isFilterOpen ? 'rounded-b-lg' : ' rounded-lg shadow-md shadow-gray-200')}`}>
                             <div className="flex justify-between w-full text-gray-500">
                                 <span className='flex'>Kategori</span>
                                 <div className="flex items-center justify-between gap-x-4">
@@ -123,13 +125,13 @@ function Filtre(props) {
                                         {categoryPrimary && (
                                             <li className='text-site flex items-center gap-x-1'>
                                                 <BsChevronRight size={13} />
-                                                {categoryPrimary}
+                                                {categoryPrimary.name}
                                             </li>
                                         )}
                                         {categorySecondary && (
                                             <li className='text-site flex items-center gap-x-1'>
                                                 <BsChevronRight size={13} />
-                                                {categorySecondary}
+                                                {categorySecondary.name}
                                             </li>
                                         )}
                                     </>
@@ -138,10 +140,9 @@ function Filtre(props) {
                                 )}
                             </ul>
                         </button>
-                        <hr />
                         <button
                             onClick={handleLocationSettingsOpen}
-                            className="relative group w-full px-4 py-3 text-sm flex flex-col gap-y-2 hover:bg-site/10 transition-all">
+                            className={`relative group w-full px-4 py-3 text-sm flex flex-col gap-y-2 hover:bg-site/10 transition-all bg-white ${(isFilterOpen ? 'rounded-b-lg' : ' rounded-lg shadow-md shadow-gray-200')}`}>
                             <div className="flex justify-between w-full text-gray-500">
                                 <span className='flex'>Konum</span>
                                 <div className="flex items-center justify-between gap-x-4">
@@ -159,7 +160,7 @@ function Filtre(props) {
                                         {locationSecondary && (
                                             <li className="text-site flex items-center gap-x-1">
                                                 <BsChevronRight size={13} />
-                                                {locationSecondary}
+                                                {locationSecondary.name}
                                             </li>
                                         )}
                                     </>
@@ -167,17 +168,17 @@ function Filtre(props) {
                                     <li className='text-gray-500 opacity-50'>İlçe Seçiniz</li>
                                 )}
                             </ul>
-                        </button>
+                        </button>{/* 
                         <hr />
                         <div className="overflow-hidden w-full">
                             <Link
-                                href={``}
+                                href={'/'}
                                 className='flex justify-between items-center text-sm rounded-b-lg text-center w-full px-4 py-3 bg-site/90 text-white hover:bg-site transition-all'
                             >
                                 Filtreyi Uygula
                                 <BsChevronRight size={18} />
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className={`relative group w-full bg-white px-4 py-3 text-sm flex flex-col gap-y-3 ${(isFilterOpen ? 'rounded-b-lg' : ' rounded-lg shadow-md shadow-gray-200')}`}>
@@ -225,6 +226,10 @@ function Filtre(props) {
 
             {isCategorySettingsActive && (
                 <CategorySettings
+                    city={city}
+                    county={county}
+                    neighbourhood={neighbourhood}
+
                     categoriesData={categoriesData}
 
                     categoryType={categoryType}
@@ -234,13 +239,15 @@ function Filtre(props) {
                     categorySecondary={categorySecondary}
                     setCategorySecondary={setCategorySecondary}
 
-                    selectedCategory={selectedCategory}
                     handleCategorySettingsClose={handleCategorySettingsClose}
                 />
             )}
 
             {isLocationSettingsActive && (
                 <LocationSettings
+                    city={city}
+                    category={category}
+                    
                     countiesData={countiesData}
                     neighbourhoodsData={neighbourhoodsData}
 
@@ -249,7 +256,6 @@ function Filtre(props) {
                     locationSecondary={locationSecondary}
                     setLocationSecondary={setLocationSecondary}
 
-                    selectedLocation={selectedLocation}
                     handleLocationSettingsClose={handleLocationSettingsClose}
                 />
             )}

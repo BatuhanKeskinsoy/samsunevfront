@@ -1,9 +1,14 @@
+import Link from 'next/link';
 import React from 'react'
 import { BsChevronRight } from 'react-icons/bs'
 import { TfiClose } from 'react-icons/tfi'
 
 function CategorySettings(props) {
     const {
+        city,
+        county,
+        neighbourhood,
+
         categoriesData,
 
         categoryType,
@@ -12,10 +17,14 @@ function CategorySettings(props) {
         setCategoryPrimary,
         categorySecondary,
         setCategorySecondary,
-        
+
         handleCategorySettingsClose,
-        selectedCategory,
     } = props;
+
+    const cityPath = city ? `/${city}` : ''
+    const CountyPath = county ? `/${county}` : ''
+    const NeighbourhoodPath = neighbourhood ? `/${neighbourhood}` : ''
+    const categoryPath = categorySecondary.name ? `/${categorySecondary.slug}` : `/${categoryPrimary.slug}`
 
     const filteredCategories = categoriesData.filter(
         category => category.category_type === categoryType
@@ -27,13 +36,13 @@ function CategorySettings(props) {
         setCategorySecondary('');
     };
 
-    const handleCategoryPrimary = (name) => {
-        setCategoryPrimary(name);
+    const handleCategoryPrimary = (name, slug) => {
+        setCategoryPrimary(name, slug);
         setCategorySecondary('');
     };
 
-    const handleCategorySecondary = (name) => {
-        setCategorySecondary(name);
+    const handleCategorySecondary = (name, slug) => {
+        setCategorySecondary(name, slug);
     };
     return (
         <div className='fixed flex left-0 top-0 w-full h-full justify-center items-center backdrop-blur-sm bg-site/10 z-30 px-4'>
@@ -81,8 +90,11 @@ function CategorySettings(props) {
                                         <li
                                             key={key}
                                             className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
-                                                ${categoryPrimary === category.name ? 'bg-site/10 text-site pl-5' : ''}`}
-                                            onClick={() => handleCategoryPrimary(category.name)}
+                                                ${categoryPrimary.name === category.name ? 'bg-site/10 text-site pl-5' : ''}`}
+                                            onClick={() => handleCategoryPrimary({
+                                                name: category.name,
+                                                slug: category.slug
+                                            })}
                                         >
                                             {category.name}
                                         </li>
@@ -100,13 +112,16 @@ function CategorySettings(props) {
                             <ul className='flex flex-col ring-1 ring-gray-200 rounded-md w-fit min-w-[200px] overflow-hidden lg:max-h-[500px] max-h-[calc(100vh-300px)] overflow-y-auto'>
 
                                 {filteredCategories.map((category) => (
-                                    category.name === categoryPrimary && category.children && category.children.length > 0 && (
+                                    category.name === categoryPrimary.name && category.children && category.children.length > 0 && (
                                         category.children.map((childCategory, childKey) => (
                                             <li
                                                 key={childKey}
                                                 className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
-                                                        ${categorySecondary === childCategory.name ? 'bg-site/10 text-site pl-5' : ''}`}
-                                                onClick={() => handleCategorySecondary(childCategory.name)}
+                                                        ${categorySecondary.name === childCategory.name ? 'bg-site/10 text-site pl-5' : ''}`}
+                                                onClick={() => handleCategorySecondary({
+                                                    name: childCategory.name,
+                                                    slug: childCategory.slug
+                                                })}
                                             >
                                                 {childCategory.name}
                                             </li>
@@ -114,9 +129,7 @@ function CategorySettings(props) {
                                     )
                                 ))}
                             </ul>
-
                         )}
-
                     </div>
                     <div className='flex justify-between items-center'>
                         <div className='flex flex-col gap-y-1'>
@@ -132,13 +145,13 @@ function CategorySettings(props) {
                                         {categoryPrimary && (
                                             <li className='text-site flex items-center gap-x-1'>
                                                 <BsChevronRight size={13} />
-                                                {categoryPrimary}
+                                                {categoryPrimary.name}
                                             </li>
                                         )}
                                         {categorySecondary && (
                                             <li className='text-site flex items-center gap-x-1'>
                                                 <BsChevronRight size={13} />
-                                                {categorySecondary}
+                                                {categorySecondary.name}
                                             </li>
                                         )}
                                     </>
@@ -147,12 +160,13 @@ function CategorySettings(props) {
                                 )}
                             </ul>
                         </div>
-                        <button
+                        <Link
+                            href={`${cityPath}${CountyPath}${NeighbourhoodPath}${categoryPath}`}
                             onClick={handleCategorySettingsClose}
                             className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-base'
                         >
                             Kategoriyi Seç
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div >

@@ -1,9 +1,13 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { BsChevronRight } from 'react-icons/bs';
 import { TfiClose } from 'react-icons/tfi';
 
 function LocationSettings(props) {
     const {
+        city,
+        category,
+
         neighbourhoodsData,
         countiesData,
 
@@ -13,8 +17,11 @@ function LocationSettings(props) {
         setLocationSecondary,
 
         handleLocationSettingsClose,
-        selectedLocation,
     } = props;
+
+    const cityPath = city ? `/${city}` : ''
+    const CategoryPath = category ? `/${category}` : ''
+    const locationPath = locationSecondary.name ? `/${locationPrimary.slug}/${locationSecondary.slug}` : `/${locationPrimary.slug}`
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -25,12 +32,12 @@ function LocationSettings(props) {
     );
 
 
-    const handleLocationPrimary = (name, id) => {
-        setLocationPrimary({ name, id });
+    const handleLocationPrimary = (name, id, slug) => {
+        setLocationPrimary(name, id, slug);
         setLocationSecondary('');
     };
-    const handleLocationSecondary = (name) => {
-        setLocationSecondary(name);
+    const handleLocationSecondary = (name, slug) => {
+        setLocationSecondary(name, slug);
     };
 
     return (
@@ -57,7 +64,11 @@ function LocationSettings(props) {
                                             'bg-site/10 text-site pl-5' :
                                             ''}`
                                     }
-                                    onClick={() => handleLocationPrimary(county.county, county.county_id)}
+                                    onClick={() => handleLocationPrimary({
+                                        name: county.county,
+                                        id: county.county_id,
+                                        slug: county.county_slug
+                                    })}
                                 >
                                     {county.county}
                                 </li>
@@ -88,11 +99,14 @@ function LocationSettings(props) {
                                                 <li
                                                     key={neighbourhood.neighbourhood_id}
                                                     className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
-                                                            ${locationSecondary == neighbourhood.neighbourhood ?
+                                                            ${locationSecondary.name == neighbourhood.neighbourhood ?
                                                             'bg-site/10 text-site pl-5' :
                                                             ''}`
                                                     }
-                                                    onClick={() => handleLocationSecondary(neighbourhood.neighbourhood)}
+                                                    onClick={() => handleLocationSecondary({
+                                                        name: neighbourhood.neighbourhood,
+                                                        slug: neighbourhood.neighbourhood_slug
+                                                    })}
                                                 >
                                                     {neighbourhood.neighbourhood}
                                                 </li>
@@ -121,7 +135,7 @@ function LocationSettings(props) {
                                         {locationSecondary && (
                                             <li className="text-site flex items-center gap-x-1">
                                                 <BsChevronRight size={13} />
-                                                {locationSecondary}
+                                                {locationSecondary.name}
                                             </li>
                                         )}
                                     </>
@@ -130,12 +144,13 @@ function LocationSettings(props) {
                                 )}
                             </ul>
                         </div>
-                        <button
+                        <Link
+                            href={`${cityPath}${locationPath}${CategoryPath}`}
                             onClick={handleLocationSettingsClose}
                             className="min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-base"
                         >
                             Konumu Seç
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@ function IlanlarPage(props) {
     county,
     neighbourhood,
     category,
+
     categoriesData,
     countiesData,
     neighbourhoodsData,
@@ -48,16 +49,28 @@ function IlanlarPage(props) {
           const childCategory = queryCategoryData.children.find(child => child.slug === queryCategory);
           if (childCategory) {
             setCategoryType(childCategory.category_type);
-            setCategoryPrimary(queryCategoryData.name);
-            setCategorySecondary(childCategory.name);
+            setCategoryPrimary({
+              name: queryCategoryData.name,
+              slug: queryCategoryData.slug
+            });
+            setCategorySecondary({
+              name: childCategory.name,
+              slug: childCategory.slug
+            });
           } else {
             setCategoryType(queryCategoryData.category_type);
-            setCategoryPrimary(queryCategoryData.name);
+            setCategoryPrimary({
+              name: queryCategoryData.name,
+              slug: queryCategoryData.slug
+            });
             setCategorySecondary('');
           }
         } else {
           setCategoryType(queryCategoryData.category_type);
-          setCategoryPrimary(queryCategoryData.name);
+          setCategoryPrimary({
+            name: queryCategoryData.name,
+            slug: queryCategoryData.slug
+          });
           setCategorySecondary('');
         }
       } else {
@@ -68,8 +81,14 @@ function IlanlarPage(props) {
 
         if (queryChildCategory) {
           setCategoryType(queryChildCategory.category_type);
-          setCategoryPrimary(queryChildCategory.category.name);
-          setCategorySecondary(queryChildCategory.name);
+          setCategoryPrimary({
+            name: queryChildCategory.category.name,
+            slug: queryChildCategory.category.slug
+          });
+          setCategorySecondary({
+            name: queryChildCategory.name,
+            slug: queryChildCategory.slug
+          });
         } else {
           setCategoryType('');
           setCategoryPrimary('');
@@ -92,6 +111,7 @@ function IlanlarPage(props) {
         setLocationPrimary({
           name: queryCountyData.county,
           id: queryCountyData.county_id,
+          slug: queryCountyData.county_slug,
         });
         setLocationSecondary('');
       } else {
@@ -106,7 +126,10 @@ function IlanlarPage(props) {
     if (queryNeighbourhood && neighbourhoodsData) {
       const queryNeighbourhoodData = neighbourhoodsData.find(neighbourhoodData => neighbourhoodData.neighbourhood_slug === queryNeighbourhood);
       if (queryNeighbourhoodData) {
-        setLocationSecondary(queryNeighbourhoodData.neighbourhood);
+        setLocationSecondary({
+          name: queryNeighbourhoodData.neighbourhood,
+          slug: queryNeighbourhoodData.neighbourhood_slug
+        });
       } else {
         setLocationSecondary('');
       }
@@ -116,9 +139,7 @@ function IlanlarPage(props) {
 
   }, [queryCounty, queryNeighbourhood])
 
-
-  console.log(realestatesData);
-
+  /* console.log(realestatesData); */
   return (
     <>
       <Head>
@@ -126,6 +147,11 @@ function IlanlarPage(props) {
       </Head>
       <div className='flex lg:flex-row flex-col lg:gap-x-4 lg:gap-y-0 gap-y-4 container mx-auto lg:px-0 px-4 w-full'>
         <Filtre
+          city={city}
+          county={county}
+          neighbourhood={neighbourhood}
+          category={category}
+
           categoriesData={categoriesData}
           countiesData={countiesData}
           neighbourhoodsData={neighbourhoodsData}
