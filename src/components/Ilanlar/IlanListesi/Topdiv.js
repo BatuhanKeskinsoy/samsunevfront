@@ -4,6 +4,8 @@ import { CiBoxList, CiGrid41 } from 'react-icons/ci';
 
 function Topdiv(props) {
     const {
+        realEstateDataLength,
+
         categoryPrimary,
         categorySecondary,
         categoryType,
@@ -34,7 +36,7 @@ function Topdiv(props) {
                 </h1>
                 <div className="flex gap-x-4 items-center">
                     <div className='text-sm text-gray-500'>
-                        100 ilan bulundu
+                        {realEstateDataLength} ilan bulundu
                     </div>
                     <div className="lg:flex hidden gap-x-2">
                         <button

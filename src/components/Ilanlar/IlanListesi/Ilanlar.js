@@ -4,10 +4,7 @@ import NoContentFound from '@/components/Others/NoContentFound';
 
 function Ilanlar(props) {
     const {
-        city,
-        county,
-        neighbourhood,
-        category,
+        filteredRealEstateData,
         realestatesData,
         layoutType,
     } = props;
@@ -40,24 +37,14 @@ function Ilanlar(props) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-
-    const filteredData = realestatesData.filter((realestate) => {
-        const isCityMatch = !city || realestate.city_slug === city;
-        const isCountyMatch = !county || realestate.district_slug === county;
-        const isNeighbourhoodMatch = !neighbourhood || realestate.neighbourhood_slug === neighbourhood;
-        const isCategoryMatch = !category || (realestate.category && realestate.category.slug === category);
-
-        return isCityMatch && isCountyMatch && isNeighbourhoodMatch && isCategoryMatch;
-    });
-
-    const totalFilteredDataCount = filteredData.length;
+    const totalFilteredDataCount = filteredRealEstateData.length;
     const totalPages = Math.ceil(totalFilteredDataCount / itemsPerPage);
 
 
     // Sayfa numarasına göre verileri al
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const itemsToShow = filteredData.slice(startIndex, endIndex);
+    const itemsToShow = filteredRealEstateData.slice(startIndex, endIndex);
 
     const renderItems = () => {
 

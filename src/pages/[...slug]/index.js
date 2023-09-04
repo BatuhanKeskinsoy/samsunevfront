@@ -109,6 +109,18 @@ function IlanlarPage(props) {
     locationValues()
   }, [queryCounty, queryNeighbourhood]);
 
+
+  const filteredRealEstateData = realestatesData.filter((realestate) => {
+    const isCityMatch = !city || realestate.city_slug === city;
+    const isCountyMatch = !county || realestate.district_slug === county;
+    const isNeighbourhoodMatch = !neighbourhood || realestate.neighbourhood_slug === neighbourhood;
+    const isCategoryMatch = !category || (realestate.category && realestate.category.slug === category);
+
+    return isCityMatch && isCountyMatch && isNeighbourhoodMatch && isCategoryMatch;
+  });
+
+  const realEstateDataLength = filteredRealEstateData.length
+
   return (
     <>
       <Head>
@@ -142,6 +154,8 @@ function IlanlarPage(props) {
             categoryPrimary={categoryPrimary}
             categorySecondary={categorySecondary}
             categoryType={categoryType}
+
+            realEstateDataLength={realEstateDataLength}
             layoutType={layoutType}
             setLayoutType={setLayoutType}
           />
@@ -151,6 +165,7 @@ function IlanlarPage(props) {
             neighbourhood={neighbourhood}
             category={category}
 
+            filteredRealEstateData={filteredRealEstateData}
             realestatesData={realestatesData}
             layoutType={layoutType}
           />
