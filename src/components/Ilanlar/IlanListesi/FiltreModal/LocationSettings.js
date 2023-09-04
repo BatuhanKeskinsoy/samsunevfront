@@ -7,8 +7,6 @@ function LocationSettings(props) {
     const {
         city,
         category,
-
-        neighbourhoodsData,
         countiesData,
 
         locationPrimary,
@@ -17,19 +15,15 @@ function LocationSettings(props) {
         setLocationSecondary,
 
         handleLocationSettingsClose,
+        searchTerm,
+        setSearchTerm,
+        filteredNeighbourhoods,
     } = props;
 
     const cityPath = city ? `/${city}` : ''
     const CategoryPath = category ? `/${category}` : ''
     const locationPath = locationSecondary.name ? `/${locationPrimary.slug}/${locationSecondary.slug}` : `/${locationPrimary.slug}`
 
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const filteredNeighbourhoods = neighbourhoodsData.filter(
-        neighbourhood =>
-            neighbourhood.county_id === locationPrimary.id &&
-            neighbourhood.neighbourhood.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
 
     const handleLocationPrimary = (name, id, slug) => {

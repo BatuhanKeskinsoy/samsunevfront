@@ -5,11 +5,8 @@ import { TfiClose } from 'react-icons/tfi'
 
 function CategorySettings(props) {
     const {
-        city,
         county,
         neighbourhood,
-
-        categoriesData,
 
         categoryType,
         setCategoryType,
@@ -19,16 +16,14 @@ function CategorySettings(props) {
         setCategorySecondary,
 
         handleCategorySettingsClose,
+        filteredCategories,
     } = props;
 
-    const cityPath = city ? `/${city}` : ''
+    const cityPath = `/samsun`
     const CountyPath = county ? `/${county}` : ''
     const NeighbourhoodPath = neighbourhood ? `/${neighbourhood}` : ''
     const categoryPath = categorySecondary.name ? `/${categorySecondary.slug}` : `/${categoryPrimary.slug}`
 
-    const filteredCategories = categoriesData.filter(
-        category => category.category_type === categoryType
-    );
 
     const handleCategoryType = (type) => {
         setCategoryType(type);

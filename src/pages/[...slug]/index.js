@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Filtre from '@/components/Ilanlar/IlanListesi/Filtre';
 import Ilanlar from '@/components/Ilanlar/IlanListesi/Ilanlar';
 import Topdiv from '@/components/Ilanlar/IlanListesi/Topdiv';
-import Head from 'next/head';
 import { fetchRealEstateData } from '@/data/Api/RealEstates/RealEstates';
 import { fetchCategoryData } from '@/data/Api/Categories/Categories';
 import { fetchCountyData } from '@/data/Api/Counties/Counties';
@@ -39,74 +39,39 @@ function IlanlarPage(props) {
   const queryCounty = county;
   const queryNeighbourhood = neighbourhood;
 
-  useEffect(() => {
-
+  const categoryValues = () => {
     if (queryCategory && categoriesData) {
-      const queryCategoryData = categoriesData.find(categoryData => categoryData.slug === queryCategory);
-
-      if (queryCategoryData) {
-        if (queryCategoryData.children && queryCategoryData.children.length > 0) {
-          const childCategory = queryCategoryData.children.find(child => child.slug === queryCategory);
-          if (childCategory) {
-            setCategoryType(childCategory.category_type);
-            setCategoryPrimary({
-              name: queryCategoryData.name,
-              slug: queryCategoryData.slug
-            });
-            setCategorySecondary({
-              name: childCategory.name,
-              slug: childCategory.slug
-            });
-          } else {
-            setCategoryType(queryCategoryData.category_type);
-            setCategoryPrimary({
-              name: queryCategoryData.name,
-              slug: queryCategoryData.slug
-            });
-            setCategorySecondary('');
-          }
-        } else {
-          setCategoryType(queryCategoryData.category_type);
-          setCategoryPrimary({
-            name: queryCategoryData.name,
-            slug: queryCategoryData.slug
-          });
-          setCategorySecondary('');
-        }
+      // Optimized code for setting category type, primary, and secondary
+      const categoryMatch = categoriesData.find((categoryData) => categoryData.slug === queryCategory);
+      if (categoryMatch) {
+        const { children, category_type: categoryType } = categoryMatch;
+        const childCategory = children && children.find((child) => child.slug === queryCategory);
+        setCategoryType(categoryType);
+        setCategoryPrimary({ name: categoryMatch.name, slug: categoryMatch.slug });
+        setCategorySecondary(childCategory ? { name: childCategory.name, slug: childCategory.slug } : '');
       } else {
         const queryChildCategory = categoriesData
-          .filter(categoryData => categoryData.children && categoryData.children.length > 0)
-          .flatMap(categoryData => categoryData.children)
-          .find(childCategory => childCategory.slug === queryCategory);
-
-        if (queryChildCategory) {
-          setCategoryType(queryChildCategory.category_type);
-          setCategoryPrimary({
-            name: queryChildCategory.category.name,
-            slug: queryChildCategory.category.slug
-          });
-          setCategorySecondary({
-            name: queryChildCategory.name,
-            slug: queryChildCategory.slug
-          });
-        } else {
-          setCategoryType('');
-          setCategoryPrimary('');
-          setCategorySecondary('');
-        }
+          .filter((categoryData) => categoryData.children && categoryData.children.length > 0)
+          .flatMap((categoryData) => categoryData.children)
+          .find((childCategory) => childCategory.slug === queryCategory);
+        setCategoryType(queryChildCategory ? queryChildCategory.category_type : '');
+        setCategoryPrimary(queryChildCategory ? { name: queryChildCategory.category.name, slug: queryChildCategory.category.slug } : '');
+        setCategorySecondary(queryChildCategory ? { name: queryChildCategory.name, slug: queryChildCategory.slug } : '');
       }
     } else {
       setCategoryType('');
       setCategoryPrimary('');
       setCategorySecondary('');
     }
-  }, [queryCategory]);
-
+  }
 
   useEffect(() => {
+    categoryValues()
+  }, [queryCategory]);
 
+  const locationValues = () => {
     if (queryCounty && countiesData) {
-      const queryCountyData = countiesData.find(countyData => countyData.county_slug === queryCounty);
+      const queryCountyData = countiesData.find((countyData) => countyData.county_slug === queryCounty);
       if (queryCountyData) {
         setLocationPrimary({
           name: queryCountyData.county,
@@ -124,11 +89,13 @@ function IlanlarPage(props) {
     }
 
     if (queryNeighbourhood && neighbourhoodsData) {
-      const queryNeighbourhoodData = neighbourhoodsData.find(neighbourhoodData => neighbourhoodData.neighbourhood_slug === queryNeighbourhood);
+      const queryNeighbourhoodData = neighbourhoodsData.find(
+        (neighbourhoodData) => neighbourhoodData.neighbourhood_slug === queryNeighbourhood
+      );
       if (queryNeighbourhoodData) {
         setLocationSecondary({
           name: queryNeighbourhoodData.neighbourhood,
-          slug: queryNeighbourhoodData.neighbourhood_slug
+          slug: queryNeighbourhoodData.neighbourhood_slug,
         });
       } else {
         setLocationSecondary('');
@@ -136,10 +103,12 @@ function IlanlarPage(props) {
     } else {
       setLocationSecondary('');
     }
+  }
 
-  }, [queryCounty, queryNeighbourhood])
+  useEffect(() => {
+    locationValues()
+  }, [queryCounty, queryNeighbourhood]);
 
-  /* console.log(realestatesData); */
   return (
     <>
       <Head>
@@ -177,6 +146,11 @@ function IlanlarPage(props) {
             setLayoutType={setLayoutType}
           />
           <Ilanlar
+            city={city}
+            county={county}
+            neighbourhood={neighbourhood}
+            category={category}
+
             realestatesData={realestatesData}
             layoutType={layoutType}
           />
@@ -204,25 +178,12 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    categoriesData = await fetchCategoryData();
-  } catch (error) {
-    console.error('Veri Çekme Hatası:', error);
-  }
-
-  try {
-    countiesData = await fetchCountyData();
-  } catch (error) {
-    console.error('Veri Çekme Hatası:', error);
-  }
-
-  try {
-    neighbourhoodsData = await fetchNeighbourhoodData();
-  } catch (error) {
-    console.error('Veri Çekme Hatası:', error);
-  }
-
-  try {
-    realestatesData = await fetchRealEstateData();
+    [categoriesData, countiesData, neighbourhoodsData, realestatesData] = await Promise.all([
+      fetchCategoryData(),
+      fetchCountyData(),
+      fetchNeighbourhoodData(),
+      fetchRealEstateData(),
+    ]);
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }

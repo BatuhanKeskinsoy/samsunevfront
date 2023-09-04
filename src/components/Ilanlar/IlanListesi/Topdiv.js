@@ -25,8 +25,7 @@ function Topdiv(props) {
     }, [layoutType]);
 
     return (
-        <div className='w-full'>
-            <div className="flex lg:flex-row flex-col lg:gap-y-0 justify-between items-center bg-white shadow-md shadow-gray-200 rounded-lg px-4 py-5">
+            <div className="w-full flex lg:flex-row flex-col lg:gap-y-0 justify-between items-center bg-white shadow-md shadow-gray-200 rounded-lg px-4 py-5">
                 <h1 className='capitalize text-xl tracking-wide py-0.5'>
                     <strong className='text-site'>
                         {categoryType}{' '}
@@ -53,7 +52,6 @@ function Topdiv(props) {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
