@@ -45,32 +45,26 @@ function Ilanlar(props) {
         realestate.name.toLowerCase().includes(searchEstate.toLowerCase())
     );
 
-    const getPageItems = () => {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        return itemsToShow.slice(startIndex, endIndex);
-    };
-
-    const getSortedItems = () => {
+    const getItemsToShow = () => {
         let sortedItems = [...itemsToShow]; // Create a copy of the original array
         switch (sortingOption) {
-            case 'fg_ey':
-                sortedItems.sort((a, b) => b.price - a.price); // Sort by price (high to low)
-                break;
-            case 'fg_ed':
-                sortedItems.sort((a, b) => a.price - b.price); // Sort by price (low to high)
-                break;
-            case 'tg_es':
-                sortedItems.sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by date (oldest first)
-                break;
-            default:
-                sortedItems.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by date (newest first)
-                break;
+          case 'fg_ey':
+            sortedItems.sort((a, b) => b.price - a.price); // Sort by price (high to low)
+            break;
+          case 'fg_ed':
+            sortedItems.sort((a, b) => a.price - b.price); // Sort by price (low to high)
+            break;
+          case 'tg_es':
+            sortedItems.sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by date (oldest first)
+            break;
+          default:
+            sortedItems.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by date (newest first)
+            break;
         }
-        return sortedItems;
-    };
+        return sortedItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+      };
 
-    const sortedItemsToShow = getSortedItems()
+    const sortedItemsToShow = getItemsToShow()
 
     const renderItems = () => {
         if (isMobile) {
