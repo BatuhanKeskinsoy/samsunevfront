@@ -15,8 +15,8 @@ function LocationSettings(props) {
         setLocationSecondary,
 
         handleLocationSettingsClose,
-        searchTerm,
-        setSearchTerm,
+        searchNeighbourhood,
+        setSearchNeighbourhood,
         filteredNeighbourhoods,
     } = props;
 
@@ -77,8 +77,8 @@ function LocationSettings(props) {
                                             type="text"
                                             placeholder='Mahalle Ara'
                                             className='py-2 px-4 ring-1 ring-gray-500/30 rounded-t-md w-full outline-none'
-                                            value={searchTerm}
-                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                            value={searchNeighbourhood}
+                                            onChange={(e) => searchNeighbourhood(e.target.value)}
                                         />
                                     </li>
 

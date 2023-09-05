@@ -35,6 +35,8 @@ function IlanlarPage(props) {
 
   const [layoutType, setLayoutType] = useState('grid')
 
+  const [searchEstate, setSearchEstate] = useState('');
+
   const queryCategory = category;
   const queryCounty = county;
   const queryNeighbourhood = neighbourhood;
@@ -148,6 +150,9 @@ function IlanlarPage(props) {
           setLocationPrimary={setLocationPrimary}
           locationSecondary={locationSecondary}
           setLocationSecondary={setLocationSecondary}
+
+          searchEstate={searchEstate}
+          setSearchEstate={setSearchEstate}
         />
         <div className="flex flex-col gap-y-4 w-full">
           <Topdiv
@@ -164,6 +169,8 @@ function IlanlarPage(props) {
             county={county}
             neighbourhood={neighbourhood}
             category={category}
+
+            searchEstate={searchEstate}
 
             filteredRealEstateData={filteredRealEstateData}
             realestatesData={realestatesData}

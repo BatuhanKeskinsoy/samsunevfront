@@ -7,6 +7,7 @@ function Ilanlar(props) {
         filteredRealEstateData,
         realestatesData,
         layoutType,
+        searchEstate,
     } = props;
 
     const [isMobile, setIsMobile] = useState(false);
@@ -37,19 +38,20 @@ function Ilanlar(props) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const totalFilteredDataCount = filteredRealEstateData.length;
-    const totalPages = Math.ceil(totalFilteredDataCount / itemsPerPage);
 
+    const itemsToShow = filteredRealEstateData.filter((realestate) =>
+        realestate.name.toLowerCase().includes(searchEstate.toLowerCase())
+    );
 
-    // Sayfa numarasına göre verileri al
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const itemsToShow = filteredRealEstateData.slice(startIndex, endIndex);
+    const getPageItems = () => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return itemsToShow.slice(startIndex, endIndex);
+    };
 
     const renderItems = () => {
-
         if (isMobile) {
-            return itemsToShow.map((realestate, key) => (
+            return getPageItems().map((realestate, key) => (
                 <ItemGrid
                     realestate={realestate}
                     itemWidth={itemWidth}
@@ -58,7 +60,7 @@ function Ilanlar(props) {
                 />
             ));
         } else {
-            return itemsToShow.map((realestate, key) => (
+            return getPageItems().map((realestate, key) => (
                 layoutType === 'grid' ? (
                     <ItemGrid
                         realestate={realestate}
@@ -78,13 +80,14 @@ function Ilanlar(props) {
                 )
             ));
         }
-
-    }
+    };
 
     const renderPaginationButtons = () => {
-        if (totalPages <= 1) {
+        if (itemsToShow.length <= itemsPerPage) {
             return null; // Sayfa sayısı 1 veya daha azsa pagination düğmelerini gösterme
         }
+
+        const totalPages = Math.ceil(itemsToShow.length / itemsPerPage);
 
         return (
             <div className="pagination flex lg:flex-wrap flex-nowrap items-center gap-3 justify-start overflow-x-auto lg:overflow-x-hidden pb-3">

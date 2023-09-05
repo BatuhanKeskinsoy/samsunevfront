@@ -23,12 +23,16 @@ function Filtre(props) {
         setLocationPrimary,
         locationSecondary,
         setLocationSecondary,
+        searchEstate,
+        setSearchEstate,
     } = props;
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [isCategorySettingsActive, setIsCategorySettingsActive] = useState(false);
     const [isLocationSettingsActive, setIsLocationSettingsActive] = useState(false);
+
+    const [searchNeighbourhood, setSearchNeighbourhood] = useState('');
 
     const handleCategorySettingsOpen = () => {
         setIsCategorySettingsActive(true);
@@ -88,12 +92,11 @@ function Filtre(props) {
         category => category.category_type === categoryType
     );
 
-    const [searchTerm, setSearchTerm] = useState('');
 
     const filteredNeighbourhoods = neighbourhoodsData.filter(
         neighbourhood =>
             neighbourhood.county_id === locationPrimary.id &&
-            neighbourhood.neighbourhood.toLowerCase().includes(searchTerm.toLowerCase())
+            neighbourhood.neighbourhood.toLowerCase().includes(searchNeighbourhood.toLowerCase())
     );
 
     return (
@@ -189,8 +192,10 @@ function Filtre(props) {
                         </div>
                         <input
                             type="text"
-                            placeholder="İlan adı/numarası giriniz"
+                            placeholder="İlan adı giriniz"
                             className="tracking-wider rounded-md border-0 py-2 shadow-sm ring-1 text-site placeholder:text-gray-600 ring-gray-600/30 focus:ring-site outline-none text-sm transition-all px-4 w-[400px] max-w-full"
+                            value={searchEstate}
+                            onChange={(e) => setSearchEstate(e.target.value)}
                         />
                     </div>
 
@@ -248,8 +253,8 @@ function Filtre(props) {
                     locationSecondary={locationSecondary}
                     setLocationSecondary={setLocationSecondary}
                     handleLocationSettingsClose={handleLocationSettingsClose}
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
+                    searchNeighbourhood={searchNeighbourhood}
+                    setSearchNeighbourhood={setSearchNeighbourhood}
                     filteredNeighbourhoods={filteredNeighbourhoods}
                 />
             )}
