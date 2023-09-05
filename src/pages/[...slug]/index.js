@@ -110,7 +110,6 @@ function IlanlarPage(props) {
     locationValues()
   }, [queryCounty, queryNeighbourhood]);
 
-
   const filteredRealEstateData = realestatesData.filter((realestate) => {
     const isCityMatch = !city || realestate.city_slug === city;
     const isCountyMatch = !county || realestate.district_slug === county;
@@ -121,6 +120,7 @@ function IlanlarPage(props) {
   });
 
   const realEstateDataLength = filteredRealEstateData.length
+
 
   return (
     <>
@@ -213,7 +213,6 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }
-
 
   // Metadata için
   let metaCategoryType = '';
