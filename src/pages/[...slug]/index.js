@@ -29,13 +29,12 @@ function IlanlarPage(props) {
   const [categoryType, setCategoryType] = useState('')
   const [categoryPrimary, setCategoryPrimary] = useState('')
   const [categorySecondary, setCategorySecondary] = useState('')
-
   const [locationPrimary, setLocationPrimary] = useState('')
   const [locationSecondary, setLocationSecondary] = useState('')
-
   const [layoutType, setLayoutType] = useState('grid')
-
   const [searchEstate, setSearchEstate] = useState('');
+  const [sortingOption, setSortingOption] = useState('');
+
 
   const queryCategory = category;
   const queryCounty = county;
@@ -153,6 +152,9 @@ function IlanlarPage(props) {
 
           searchEstate={searchEstate}
           setSearchEstate={setSearchEstate}
+
+          sortingOption={sortingOption}
+          setSortingOption={setSortingOption}
         />
         <div className="flex flex-col gap-y-4 w-full">
           <Topdiv
@@ -175,6 +177,8 @@ function IlanlarPage(props) {
             filteredRealEstateData={filteredRealEstateData}
             realestatesData={realestatesData}
             layoutType={layoutType}
+
+            sortingOption={sortingOption}
           />
         </div>
       </div>

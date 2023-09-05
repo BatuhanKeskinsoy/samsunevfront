@@ -25,6 +25,8 @@ function Filtre(props) {
         setLocationSecondary,
         searchEstate,
         setSearchEstate,
+        sortingOption,
+        setSortingOption,
     } = props;
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -211,12 +213,13 @@ function Filtre(props) {
                             <select
                                 className="block w-full px-4 py-2 pr-8 leading-tight bg-white text-gray-600 border rounded-md appearance-none focus:outline-none focus:shadow-outline cursor-pointer border-gray-600/30"
                                 placeholder="Sıralama Türü Seçiniz"
+                                value={sortingOption}
+                                onChange={(e) => setSortingOption(e.target.value)}
                             >
-                                <option>Sıralama Türü Seçiniz</option>
-                                <option value={'fg_ey'}>Fiyata Göre (Önce en yüksek)</option>
-                                <option value={'fg_ed'}>Fiyata Göre (Önce en düşük)</option>
-                                <option value={'tg_ey'}>Tarihe Göre (Önce en yeni)</option>
-                                <option value={'tg_es'}>Tarihe Göre (Önce en eski)</option>
+                                <option value="tg_ey">Tarihe Göre (Önce en yeni)</option>
+                                <option value="tg_es">Tarihe Göre (Önce en eski)</option>
+                                <option value="fg_ey">Fiyata Göre (Önce en yüksek)</option>
+                                <option value="fg_ed">Fiyata Göre (Önce en düşük)</option>
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                                 <BsChevronDown />

@@ -8,6 +8,8 @@ function Ilanlar(props) {
         realestatesData,
         layoutType,
         searchEstate,
+
+        sortingOption,
     } = props;
 
     const [isMobile, setIsMobile] = useState(false);
@@ -49,9 +51,30 @@ function Ilanlar(props) {
         return itemsToShow.slice(startIndex, endIndex);
     };
 
+    const getSortedItems = () => {
+        let sortedItems = [...itemsToShow]; // Create a copy of the original array
+        switch (sortingOption) {
+            case 'fg_ey':
+                sortedItems.sort((a, b) => b.price - a.price); // Sort by price (high to low)
+                break;
+            case 'fg_ed':
+                sortedItems.sort((a, b) => a.price - b.price); // Sort by price (low to high)
+                break;
+            case 'tg_es':
+                sortedItems.sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by date (oldest first)
+                break;
+            default:
+                sortedItems.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by date (newest first)
+                break;
+        }
+        return sortedItems;
+    };
+
+    const sortedItemsToShow = getSortedItems()
+
     const renderItems = () => {
         if (isMobile) {
-            return getPageItems().map((realestate, key) => (
+            return sortedItemsToShow.map((realestate, key) => (
                 <ItemGrid
                     realestate={realestate}
                     itemWidth={itemWidth}
@@ -60,7 +83,7 @@ function Ilanlar(props) {
                 />
             ));
         } else {
-            return getPageItems().map((realestate, key) => (
+            return sortedItemsToShow.map((realestate, key) => (
                 layoutType === 'grid' ? (
                     <ItemGrid
                         realestate={realestate}
@@ -106,6 +129,8 @@ function Ilanlar(props) {
             </div>
         );
     };
+
+
 
     return (
         <section id="Ilanlar" className="mb-8">
