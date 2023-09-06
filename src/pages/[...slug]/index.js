@@ -111,16 +111,18 @@ function IlanlarPage(props) {
   }, [queryCounty, queryNeighbourhood]);
 
   const filteredRealEstateData = realestatesData.filter((realestate) => {
+    const isSaleTypeMatch = !categoryType || realestate.sale_type === categoryType
     const isCityMatch = !city || realestate.city_slug === city;
     const isCountyMatch = !county || realestate.district_slug === county;
     const isNeighbourhoodMatch = !neighbourhood || realestate.neighbourhood_slug === neighbourhood;
-    const isCategoryMatch = !category || (realestate.category && realestate.category.slug === category);
+    const isCategoryMatch = !category || ((realestate.category && realestate.category.basecategory) && (realestate.category.slug === category || realestate.category.basecategory.slug === category));
 
     return isCityMatch && isCountyMatch && isNeighbourhoodMatch && isCategoryMatch;
   });
 
   const realEstateDataLength = filteredRealEstateData.length
 
+  console.log(filteredRealEstateData);
 
   return (
     <>
