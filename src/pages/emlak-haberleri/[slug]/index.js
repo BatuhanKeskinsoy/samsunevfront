@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 function Index({ blogDetailData }) {
 
   const router = useRouter();
-  if (!blogDetailData.name)  {
+  if (!blogDetailData.name) {
     if (typeof window !== 'undefined') {
       router.push('/404');
     }
@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
 
   try {
     blogDetailData = await fetchBlogDetailData(slug);
-    
+
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { AiOutlineHome } from 'react-icons/ai'
 import Link from 'next/link'
 
-function Breadcrumb() {
+function Breadcrumbs() {
 
     const router = useRouter()
     const pathSegments = router.pathname.split('/').filter(segment => segment !== '');
@@ -32,4 +32,4 @@ function Breadcrumb() {
     )
 }
 
-export default Breadcrumb
+export default Breadcrumbs

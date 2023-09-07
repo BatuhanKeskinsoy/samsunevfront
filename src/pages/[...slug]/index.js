@@ -121,8 +121,6 @@ function IlanlarPage(props) {
 
   const realEstateDataLength = filteredRealEstateData.length
 
-  console.log(filteredRealEstateData);
-
   return (
     <>
       <Head>

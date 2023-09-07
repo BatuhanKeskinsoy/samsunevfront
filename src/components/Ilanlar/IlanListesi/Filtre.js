@@ -170,15 +170,19 @@ function Filtre(props) {
                                         {locationPrimary && (
                                             <li className="text-site flex items-center gap-x-1">{locationPrimary.name}</li>
                                         )}
-                                        {locationSecondary && (
+                                        {locationSecondary ? (
                                             <li className="text-site flex items-center gap-x-1">
                                                 <BsChevronRight size={13} />
                                                 {locationSecondary.name}
                                             </li>
+                                        ) : (
+                                            <li className="flex items-center gap-x-1 opacity-50">
+                                                ( Tüm Mahalleler )
+                                            </li>
                                         )}
                                     </>
                                 ) : (
-                                    <li className="text-gray-500 opacity-50">İlçe Seçiniz</li>
+                                    <li className='text-gray-500 opacity-50'>İlçe/Mahalle Seçiniz</li>
                                 )}
                             </ul>
                         </button>

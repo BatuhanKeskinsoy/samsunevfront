@@ -36,6 +36,8 @@ export async function getServerSideProps() {
   let countiesData = [];
   let realestatesData = [];
 
+  
+
   try {
     blogsData = await fetchBlogData({ limit: 4 });
   } catch (error) {
@@ -44,6 +46,7 @@ export async function getServerSideProps() {
 
   try {
     countiesData = await fetchCountyData({ limit: 6 });
+    countiesData.sort((a, b) => b.salehome_count - a.salehome_count);
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }

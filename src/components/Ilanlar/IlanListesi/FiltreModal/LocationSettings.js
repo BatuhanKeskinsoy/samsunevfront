@@ -134,7 +134,7 @@ function LocationSettings(props) {
                                         )}
                                     </>
                                 ) : (
-                                    <li className='text-gray-500 opacity-50'>İlçe Seçiniz</li>
+                                    <li className='text-gray-500 opacity-50'>İlçe/Mahalle Seçiniz</li>
                                 )}
                             </ul>
                         </div>

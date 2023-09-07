@@ -3,7 +3,7 @@ import Header from "@/components/inc/Header/Header";
 import Footer from "@/components/inc/Footer/Footer";
 import HeaderKurumsal from "@/components/KurumsalUyelik/inc/Header/Header";
 import FooterKurumsal from "@/components/KurumsalUyelik/inc/Footer/Footer";
-import Breadcrumb from '@/components/Breadcrumb'
+import Breadcrumbs from '@/components/Others/Breadcrumbs/Breadcrumbs'
 import { useRouter } from "next/router";
 import AutoScrollTop from "./Others/AutoScrollTop";
 import FixedScrollTop from "./Others/FixedScrollTop";
@@ -23,7 +23,7 @@ export default function Layout({ children }) {
                         pathname !== '/404' &&
                         pathname !== '/500'
                     ) && (
-                            <Breadcrumb />
+                            <Breadcrumbs />
                         )}
                     {children}
                 </main>
