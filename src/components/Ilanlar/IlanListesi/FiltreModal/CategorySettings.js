@@ -24,7 +24,6 @@ function CategorySettings(props) {
     const NeighbourhoodPath = neighbourhood ? `/${neighbourhood}` : ''
     const categoryPath = categorySecondary.name ? `/${categorySecondary.slug}` : `/${categoryPrimary.slug}`
 
-
     const handleCategoryType = (type) => {
         setCategoryType(type);
         setCategoryPrimary('');
@@ -111,7 +110,7 @@ function CategorySettings(props) {
                                         category.children.map((childCategory, childKey) => (
                                             <li
                                                 key={childKey}
-                                                className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer 
+                                                className={`hover:bg-site/10 hover:text-site hover:pl-5 px-4 py-2 transition-all cursor-pointer w-full 
                                                         ${categorySecondary.name === childCategory.name ? 'bg-site/10 text-site pl-5' : ''}`}
                                                 onClick={() => handleCategorySecondary({
                                                     name: childCategory.name,
@@ -155,13 +154,24 @@ function CategorySettings(props) {
                                 )}
                             </ul>
                         </div>
-                        <Link
-                            href={`${cityPath}${CountyPath}${NeighbourhoodPath}${categoryPath}`}
-                            onClick={handleCategorySettingsClose}
-                            className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-base'
-                        >
-                            Kategoriyi Seç
-                        </Link>
+                        {
+                            // Conditionally render the Link component based on the disabling condition
+                            categoryType && !categoryPrimary && !categorySecondary ? (
+                                <button
+                                    className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 text-black opacity-50 cursor-not-allowed hover:bg-site/10'
+                                >
+                                    Kategoriyi Seç
+                                </button>
+                            ) : (
+                                <Link
+                                    href={`${cityPath}${CountyPath}${NeighbourhoodPath}${categoryPath}`}
+                                    onClick={handleCategorySettingsClose}
+                                    className='min-w-fit lg:w-fit w-full ml-auto text-site transition-all rounded-md py-3 px-4 flex items-center gap-x-2 tracking-wider lg:my-0 my-4 bg-site/10 hover:bg-site hover:text-white hover:shadow-lg lg:hover:scale-105 hover:shadow-site/30 text-base'
+                                >
+                                    Kategoriyi Seç
+                                </Link>
+                            )
+                        }
                     </div>
                 </div>
             </div >

@@ -111,7 +111,6 @@ function IlanlarPage(props) {
   }, [queryCounty, queryNeighbourhood]);
 
   const filteredRealEstateData = realestatesData.filter((realestate) => {
-    const isSaleTypeMatch = !categoryType || realestate.sale_type === categoryType
     const isCityMatch = !city || realestate.city_slug === city;
     const isCountyMatch = !county || realestate.district_slug === county;
     const isNeighbourhoodMatch = !neighbourhood || realestate.neighbourhood_slug === neighbourhood;

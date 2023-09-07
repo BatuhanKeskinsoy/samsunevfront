@@ -1,6 +1,6 @@
 export async function fetchCountyData() {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/county/lists`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/county/news`, {
             headers: {
                 'Content-Type': 'application/json',
                 'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
