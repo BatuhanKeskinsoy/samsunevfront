@@ -18,13 +18,13 @@ export default function Layout({ children }) {
                 <AutoScrollTop />
                 <Header />
                 <main className="min-h-screen">
-                    {(
+                    {/* {(
                         pathname !== '/' &&
                         pathname !== '/404' &&
                         pathname !== '/500'
                     ) && (
                             <Breadcrumbs />
-                        )}
+                        )} */}
                     {children}
                 </main>
                 <Footer />

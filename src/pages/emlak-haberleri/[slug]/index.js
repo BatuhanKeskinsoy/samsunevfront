@@ -30,8 +30,8 @@ function Index({ blogDetailData }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { slug } = context.query;
+export async function getServerSideProps({ query }) {
+  const { slug } = query;
   let blogDetailData = {};
 
   try {

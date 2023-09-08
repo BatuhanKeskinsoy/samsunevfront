@@ -3,8 +3,13 @@ import Head from 'next/head'
 import React from 'react'
 import { fetchConsultantProfileData } from '@/data/Api/Consultants/ConsultantProfile'
 import { useRouter } from 'next/router';
+import { fetchRealEstateData } from '@/data/Api/RealEstates/RealEstates';
 
-function Index({ consultantProfileData }) {
+function Index(props) {
+    const {
+        consultantProfileData,
+        realestatesData,
+    } = props
     const title = consultantProfileData.name || '';
 
     const router = useRouter();
@@ -22,7 +27,7 @@ function Index({ consultantProfileData }) {
             </Head>
             <section id='DanismanDetay'>
                 <div className="container mx-auto lg:px-0 px-4 pb-8">
-                    <DanismanDetayComponent consultantProfileData={consultantProfileData} />
+                    <DanismanDetayComponent realestatesData={realestatesData} consultantProfileData={consultantProfileData} />
                 </div>
             </section>
         </>
@@ -32,15 +37,19 @@ function Index({ consultantProfileData }) {
 export async function getServerSideProps(context) {
     const { slug } = context.query;
     let consultantProfileData = {};
+    let realestatesData = {};
 
     try {
-        consultantProfileData = await fetchConsultantProfileData(slug);
+        [consultantProfileData, realestatesData] = await Promise.all([
+            fetchConsultantProfileData(slug),
+            fetchRealEstateData(),
+        ]);
     } catch (error) {
         console.error('Veri Çekme Hatası:', error);
     }
 
     return {
-        props: { consultantProfileData },
+        props: { consultantProfileData, realestatesData },
     };
 }
 

@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { BsHouseDoor, BsDoorClosed, BsLayers, BsArrowsMove } from 'react-icons/bs';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
-function ItemGrid({ realestate, itemWidth, titleLineClamp }) {
+function ItemGrid(props) {
+  const {
+    realestate,
+    itemWidth,
+    titleLineClamp
+  } = props
+
   const [isHovered, setIsHovered] = useState(false);
   const imageSrc = isHovered ? 'ilanlar/ilan2.jpg' : 'ilanlar/ilan1.jpg';
 
@@ -95,7 +101,12 @@ function ItemGrid({ realestate, itemWidth, titleLineClamp }) {
   );
 }
 
-function ItemList({ realestate, titleLineClamp }) {
+function ItemList(props) {
+  const {
+    realestate,
+    titleLineClamp
+  } = props
+
   const [isHovered, setIsHovered] = useState(false);
   const imageSrc = isHovered ? 'ilanlar/ilan2.jpg' : 'ilanlar/ilan1.jpg';
 

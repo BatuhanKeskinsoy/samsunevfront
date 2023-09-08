@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { BsChevronRight } from 'react-icons/bs'
 
 function DanismanSidebar(props) {
-
-    const consultantProfileData = props.consultantProfileData
+    const {
+        consultantProfileData
+    } = props
 
     // Yeni genişlik değeri
     const newHeight = 350;

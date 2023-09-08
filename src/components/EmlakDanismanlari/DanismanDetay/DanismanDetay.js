@@ -9,6 +9,11 @@ import NoContentFound from '@/components/Others/NoContentFound'
 
 
 function DanismanDetayComponent(props) {
+    const {
+        consultantProfileData,
+        realestatesData,
+    } = props
+
     const [showPhoneNumber, setShowPhoneNumber] = useState(false);
     const [showWpNumber, setShowWpNumber] = useState(false);
     const [activeTab, setActiveTab] = useState('ilanlar');
@@ -27,11 +32,10 @@ function DanismanDetayComponent(props) {
         setActiveTab(tab);
     };
 
-    const consultantProfileData = props.consultantProfileData
-
     const phoneSlug = consultantProfileData.phone ? consultantProfileData.phone.replace(/\s/g, '') : '';
     const wpNumberSlug = consultantProfileData.wp_number ? consultantProfileData.wp_number.replace(/\s/g, '') : '';
     const wpText = `Merhaba, size bu siteden ulaştım : ${path}`
+
     return (
         <>
             <div className="flex lg:flex-row flex-col lg:gap-x-8 gap-y-4 lg:gap-y-0 items-start">
@@ -147,7 +151,7 @@ function DanismanDetayComponent(props) {
                     <div id="danismanTabDiv">
 
                         {activeTab === 'ilanlar' && (
-                            <EmlakIlanlar />
+                            <EmlakIlanlar userId={consultantProfileData.id} realestatesData={realestatesData} />
                         )}
 
                         {activeTab === 'hakkimda' && (
