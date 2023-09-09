@@ -2,7 +2,7 @@ import Danismanlar from '@/components/EmlakDanismanlari/DanismanListesi/Danisman
 import Head from 'next/head'
 import React from 'react'
 import { fetchConsultantData } from '@/data/Api/Consultants/Consultants'
-import { fetchCountyData } from '@/data/Api/Counties/Counties'
+import { fetchDistrictData } from '@/data/Api/Counties/Counties'
 
 function Index({ consultantData, countiesData }) {
     return (
@@ -28,13 +28,10 @@ export async function getServerSideProps() {
     let countiesData = [];
 
     try {
-        consultantData = await fetchConsultantData();
-    } catch (error) {
-        console.error('Veri Çekme Hatası:', error);
-    }
-
-    try {
-        countiesData = await fetchCountyData();
+        [consultantData, countiesData] = await Promise.all([
+            fetchConsultantData(),
+            fetchDistrictData(),
+        ]);
     } catch (error) {
         console.error('Veri Çekme Hatası:', error);
     }

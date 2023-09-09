@@ -2,9 +2,12 @@ import Emlaklar from '@/components/EmlakOfisleri/EmlakListesi/Emlaklar'
 import Head from 'next/head'
 import React from 'react'
 import { fetchCompanyData } from '@/data/Api/Companies/Companies'
-import { fetchCountyData } from '@/data/Api/Counties/Counties'
+import { fetchDistrictData } from '@/data/Api/Counties/Counties'
 
-function index({ companiesData, countiesData }) {
+function index(props) {
+    const {
+        companiesData, countiesData
+    } = props
     return (
         <>
             <Head>
@@ -28,17 +31,13 @@ export async function getServerSideProps() {
     let countiesData = [];
 
     try {
-        companiesData = await fetchCompanyData();
+        [companiesData, countiesData] = await Promise.all([
+            fetchCompanyData(),
+            fetchDistrictData(),
+        ])
     } catch (error) {
         console.error('Veri Çekme Hatası:', error);
     }
-
-    try {
-        countiesData = await fetchCountyData();
-    } catch (error) {
-        console.error('Veri Çekme Hatası:', error);
-    }
-
 
     return {
         props: { companiesData, countiesData },

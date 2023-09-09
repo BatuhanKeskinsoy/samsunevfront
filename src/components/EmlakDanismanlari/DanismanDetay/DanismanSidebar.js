@@ -12,6 +12,7 @@ function DanismanSidebar(props) {
 
     // iframe içeriğindeki width değerini değiştirme
     const modifiedIframe = consultantProfileData.company.map_iframe.replace(/width="[\d]+"/, `width="100%" height="${newHeight}"`)
+    const cleanedMapUrl = consultantProfileData.company.map_url.replace(/\s/g, '');
 
     return (
         <aside id='EmlakDetaySidebar' className='w-full lg:w-[350px] lg:min-w-[350px] max-w-full h-full flex flex-col gap-y-4 sticky top-4'>
@@ -20,7 +21,7 @@ function DanismanSidebar(props) {
 
                 {consultantProfileData.company.map_url && (
                     <Link
-                        href={consultantProfileData.company.map_url}
+                        href={cleanedMapUrl}
                         target='_blank'
                         title={`${consultantProfileData.name} Adresi`}
                         className='flex bg-white text-gray-600 py-3 px-4 items-center justify-between rounded-lg hover:bg-site hover:text-white shadow-sm transition-all'>

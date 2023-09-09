@@ -48,21 +48,21 @@ function Ilanlar(props) {
     const getItemsToShow = () => {
         let sortedItems = [...itemsToShow]; // Create a copy of the original array
         switch (sortingOption) {
-          case 'fg_ey':
-            sortedItems.sort((a, b) => b.price - a.price); // Sort by price (high to low)
-            break;
-          case 'fg_ed':
-            sortedItems.sort((a, b) => a.price - b.price); // Sort by price (low to high)
-            break;
-          case 'tg_es':
-            sortedItems.sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by date (oldest first)
-            break;
-          default:
-            sortedItems.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by date (newest first)
-            break;
+            case 'fg_ey':
+                sortedItems.sort((a, b) => b.price - a.price); // Sort by price (high to low)
+                break;
+            case 'fg_ed':
+                sortedItems.sort((a, b) => a.price - b.price); // Sort by price (low to high)
+                break;
+            case 'tg_es':
+                sortedItems.sort((a, b) => new Date(a.created_at) - new Date(b.created_at)); // Sort by date (oldest first)
+                break;
+            default:
+                sortedItems.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Sort by date (newest first)
+                break;
         }
         return sortedItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-      };
+    };
 
     const sortedItemsToShow = getItemsToShow()
 
@@ -108,14 +108,14 @@ function Ilanlar(props) {
 
         return (
             <div className="pagination flex lg:flex-wrap flex-nowrap items-center gap-3 justify-start overflow-x-auto lg:overflow-x-hidden pb-3">
-                {Array.from({ length: totalPages }, (_, index) => (
+                {totalPages > 0 && Array.from({ length: totalPages }, (_, index) => (
                     <button
                         key={index}
                         onClick={() => handlePageChange(index + 1)}
-                        className={`min-w-[2.5rem] w-10 h-10 hover:bg-site hover:text-white text-xl rounded-full transition-all ${currentPage === index + 1
-                            ? 'bg-site text-white'
-                            : 'bg-white text-site'
-                            }`}
+                        className={`min-w-[2.5rem] w-10 h-10 hover:bg-site hover:text-white text-xl rounded-full transition-all ${currentPage === index + 1 ?
+                            'bg-site text-white' :
+                            'bg-white text-site'}`
+                        }
                     >
                         {index + 1}
                     </button>

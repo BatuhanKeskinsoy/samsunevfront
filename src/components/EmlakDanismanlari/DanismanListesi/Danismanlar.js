@@ -31,7 +31,7 @@ function Danismanlar(props) {
 
         if (selectedCountyId) {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/lists?county_id=${selectedCountyId}`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/news?county_id=${selectedCountyId}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY

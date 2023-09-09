@@ -45,7 +45,7 @@ function index({ blogsData }) {
                     )}
                     <div className="flex justify-center mt-8 max-w-full">
                         <div className="pagination flex lg:flex-wrap flex-nowrap items-center gap-3 justify-start overflow-x-auto lg:overflow-x-hidden pb-3">
-                            {Array.from({ length: totalPages }, (_, index) => (
+                            {totalPages > 0 && Array.from({ length: totalPages }, (_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => handlePageChange(index + 1)}

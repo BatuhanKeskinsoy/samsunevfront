@@ -90,7 +90,7 @@ function ItemGrid(props) {
           </div>
           <hr />
           <div className="bg-white group-hover:bg-site group-hover:text-white py-3 px-4 text-sm flex justify-between items-center transition-all text-gray-600">
-            <span className='tracking-wide w-fit'>{realestate.sale_type} - {realestate.category.slug}</span>
+            <span className='tracking-wide w-fit'>{realestate.sale_type}</span>
             <div className="flex justify-between">
               <AiOutlineDoubleRight size={20} className='w-0 group-hover:w-fit opacity-0 invisible group-hover:opacity-100 text-white group-hover:visible transition-all -translate-x-2 group-hover:translate-x-0' />
             </div>

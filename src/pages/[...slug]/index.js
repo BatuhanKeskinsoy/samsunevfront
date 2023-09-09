@@ -5,7 +5,7 @@ import Ilanlar from '@/components/Ilanlar/IlanListesi/Ilanlar';
 import Topdiv from '@/components/Ilanlar/IlanListesi/Topdiv';
 import { fetchRealEstateData } from '@/data/Api/RealEstates/RealEstates';
 import { fetchCategoryData } from '@/data/Api/Categories/Categories';
-import { fetchCountyData } from '@/data/Api/Counties/Counties';
+import { fetchDistrictData } from '@/data/Api/Counties/Counties';
 import { fetchNeighbourhoodData } from '@/data/Api/Neighbourhoods/Neighbourhoods';
 
 function IlanlarPage(props) {
@@ -205,7 +205,7 @@ export async function getServerSideProps(context) {
   try {
     [categoriesData, countiesData, neighbourhoodsData, realestatesData] = await Promise.all([
       fetchCategoryData(),
-      fetchCountyData(),
+      fetchDistrictData(),
       fetchNeighbourhoodData(),
       fetchRealEstateData(),
     ]);

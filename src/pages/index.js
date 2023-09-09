@@ -36,23 +36,12 @@ export async function getServerSideProps() {
   let countiesData = [];
   let realestatesData = [];
 
-  
-
   try {
-    blogsData = await fetchBlogData({ limit: 4 });
-  } catch (error) {
-    console.error('Veri Çekme Hatası:', error);
-  }
-
-  try {
-    countiesData = await fetchCountyData({ limit: 6 });
-    countiesData.sort((a, b) => b.salehome_count - a.salehome_count);
-  } catch (error) {
-    console.error('Veri Çekme Hatası:', error);
-  }
-
-  try {
-    realestatesData = await fetchRealEstateData({ limit: 8 });
+    [blogsData, countiesData, realestatesData] = await Promise.all([
+      fetchBlogData({ limit: 4 }),
+      fetchCountyData({ limit: 6 }),
+      fetchRealEstateData({ limit: 6 }),
+    ]);
   } catch (error) {
     console.error('Veri Çekme Hatası:', error);
   }

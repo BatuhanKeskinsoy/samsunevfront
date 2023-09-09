@@ -5,18 +5,19 @@ import Item from '@/components/EmlakOfisleri/EmlakListesi/Item';
 import NoContentFound from '@/components/Others/NoContentFound';
 
 function Emlaklar(props) {
+    const {
+        companiesData, countiesData
+    } = props
+
     const itemsPerPage = 12;
     const itemWidth = 'xl:w-1/4 lg:w-1/3 md:w-1/2 w-full';
-
-    const companiesData = props.companiesData;
-    const countiesData = props.countiesData;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [filteredCompanies, setFilteredCompanies] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
 
     const [selectedCounty, setSelectedCounty] = useState('');
-    const [neighbourhoodsData, setNeighbourhoodData] = useState([]);
+    const [neighbourhoodsData, setNeighbourhoodsData] = useState([]);
     const [selectedCountyText, setSelectedCountyText] = useState('');
 
     const [selectedNeighbourhoodText, setSelectedNeighbourhoodText] = useState('');
@@ -31,20 +32,20 @@ function Emlaklar(props) {
 
         if (selectedCountyId) {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/lists?county_id=${selectedCountyId}`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/neighbourhood/news?district_id=${selectedCountyId}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'HTTP_VERIFY': process.env.NEXT_PUBLIC_SITE_HTTP_VERIFY
                     }
                 });
                 const data = await response.json();
-                setNeighbourhoodData(data);
+                setNeighbourhoodsData(data);
             } catch (error) {
                 console.error('Veri Çekme Hatası:', error);
             }
             setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
         } else {
-            setNeighbourhoodData([]); // İlçe seçili değilse, mahalle verilerini temizle
+            setNeighbourhoodsData([]); // İlçe seçili değilse, mahalle verilerini temizle
             setSelectedCountyText(''); // İlçe seçimini temizle
             setSelectedNeighbourhoodText(''); // Mahalle seçimini temizle
         }
@@ -85,6 +86,8 @@ function Emlaklar(props) {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredCompanies.slice(indexOfFirstItem, indexOfLastItem);
 
+    console.log(countiesData);
+
     return (
         <>
             <div className="flex lg:flex-row flex-col lg:gap-y-0 gap-y-3 p-2 lg:justify-between justify-center">
@@ -102,8 +105,8 @@ function Emlaklar(props) {
                                 onChange={handleCountyChange}
                             >
                                 <option value="">Tüm İlçeler</option>
-                                {countiesData.map((county, index) => (
-                                    <option value={county.county_id} key={index}>{county.county}</option>
+                                {countiesData.map((district, index) => (
+                                    <option value={district.id} key={index}>{district.district}</option>
                                 ))}
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -121,9 +124,9 @@ function Emlaklar(props) {
                             >
                                 <option value="">Tüm Mahalleler</option>
                                 {neighbourhoodsData
-                                    .filter(neighbourhood => neighbourhood.county_id === parseInt(selectedCounty))
+                                    .filter(neighbourhood => neighbourhood.district_id === parseInt(selectedCounty))
                                     .map((neighbourhood, index) => (
-                                        <option value={neighbourhood.neighbourhood_id} key={index}>{neighbourhood.neighbourhood}</option>
+                                        <option value={neighbourhood.id} key={index}>{neighbourhood.neighbourhood}</option>
                                     ))}
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -155,7 +158,7 @@ function Emlaklar(props) {
             )}
             <div className="flex justify-center mt-8 max-w-full">
                 <div className="pagination flex lg:flex-wrap flex-nowrap items-center gap-3 justify-start overflow-x-auto lg:overflow-x-hidden pb-3">
-                    {Array.from({ length: totalPages }, (_, index) => (
+                    {totalPages > 0 && Array.from({ length: totalPages }, (_, index) => (
                         <button
                             key={index}
                             onClick={() => handlePageChange(index + 1)}
